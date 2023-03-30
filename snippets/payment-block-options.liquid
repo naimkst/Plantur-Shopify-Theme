@@ -1,0 +1,141 @@
+{%- assign block = block | default: '' -%}
+{%- assign selected_variant = product.selected_or_first_available_variant -%}
+
+{%- if block != blank -%}
+<div class="payment-blocks-container color-background-1">
+
+  {% for i in (1..4) %}
+      {% assign payment_show = "payment_show_" | append: i %}
+      {% if block.settings[payment_show] != true %}
+          {% continue %}
+      {% endif %}
+
+      {% assign payment_lightbox_name = "payment_lightbox_" | append: i %}
+      {% assign payment_svg_file_name = "payment_svg_file_" | append: i %}
+      {% assign payment_instalments_name = "payment_instalments_" | append: i %}
+      {% assign payment_page_name = "page_" | append: i %}
+      {% assign payment_text_name = 'payment_text_' | append: i %}
+
+      {% assign payment_lightbox = block.settings[payment_lightbox_name] %}
+      {% assign payment_svg_file = block.settings[payment_svg_file_name] %}
+      {% assign payment_instalments = block.settings[payment_instalments_name] %}
+      {% assign payment_page = block.settings[payment_page_name] %}
+      {% assign payment_show = block.settings[payment_page_name] %}
+      {% assign payment_text = block.settings[payment_text_name] %}
+
+      {% assign id = block.id | append: "--" | append: i %}
+
+      <div class="payment-block-element">
+          {% if payment_lightbox and payment_page_url != blank %}
+              <modal-opener class="product-popup-modal__opener no-js-hidden" data-modal="#PopupModal-{{ id }}" {{ block.attributes }}>
+                  <button id="ProductPopup-{{ id }}" class="product-popup-modal__button link" type="button" aria-haspopup="dialog"><div class="block-image">{{payment_svg_file}}</div></button>
+              </modal-opener>
+              <a href="{{ payment_page_url }}" class="product-popup-modal__button link no-js"></a>
+              <div class="block-price">
+                  {%- if payment_text != blank -%}
+                    <span>{{ payment_text }}</span>
+                  {% else %}
+                    <span class="instalments p-small">{{payment_instalments}}</span><span class="p-small">x</span>&nbsp;
+                    <span class="price-instalments p-small">{{selected_variant.price | divided_by: payment_instalments | money }}</span>
+                  {%- endif -%}
+                  
+              </div>
+          {% else %}
+              <div class="block-image">{{payment_svg_file}}</div>
+              <div class="block-price">
+                  {%- if payment_text != blank -%}
+                    <span>{{ payment_text }}</span>
+                  {% else %}
+                    <span class="instalments p-small">{{payment_instalments}}</span><span class="p-small">x</span>&nbsp;
+                    <span class="price-instalments p-small">{{selected_variant.price | divided_by: payment_instalments | money }}</span>
+                  {%- endif -%}
+              </div>
+          {% endif %}
+      </div>
+
+      <div class="vertical-block-line"></div>
+
+      {%- if payment_page != blank -%}
+        {% assign payment_page_title = payment_page.title %}
+        {% assign payment_page_content = payment_page.content %}
+        {% assign payment_page_url = payment_page.url %}
+
+        <modal-dialog id="PopupModal-{{ id }}" class="product-popup-modal" {{ shopify_attributes }}>
+            <div role="dialog" aria-label="dialog" aria-modal="true" class="product-popup-modal__content" tabindex="-1">
+                <button id="ModalClose-{{ id }}" type="button" class="product-popup-modal__toggle" aria-label="{{ 'accessibility.close' | t }}">{% render 'icon-close' %}</button>
+                <div class="product-popup-modal__content-info">
+                    <div class="page-width page-width--narrow">
+                        <h1 class="main-page-title page-title h0">
+                          {{ payment_page_title | escape }}
+                        </h1>
+                        <div class="rte">
+                          {{ payment_page_content }}
+                        </div>
+                      </div>
+                </div>
+            </div>
+            {{ 'section-main-page.css' | asset_url | stylesheet_tag }}
+        </modal-dialog>
+      {%- endif -%}
+      
+    {% endfor %}
+
+</div>
+{%- endif -%}
+
+{% style %}
+.block-image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+}
+
+.payment-block-element .block-image {
+  color: rgb(var(--color-link));
+}
+
+.block-image svg {
+  max-height: 30px;
+  min-width: 40px;
+}
+
+.payment-block-element .product-popup-modal__opener {
+  text-align: center;
+}
+
+.payment-block-element .product-popup-modal__button {
+  padding-right: 0px; 
+  padding-left: 0px;
+  height: auto;
+}
+
+.block-price {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}
+
+.payment-blocks-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-content: center;
+  border-bottom: var(--variant-pills-border-width) solid rgba(var(--color-foreground), 0.08);
+  border-top: var(--variant-pills-border-width) solid rgba(var(--color-foreground), 0.08);
+}
+
+.payment-block-element {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  border-left: var(--variant-pills-border-width) solid rgba(var(--color-foreground), 0.08);
+}
+
+.payment-block-element:nth-child(1){
+  border-left: none;
+}
+{% endstyle %}

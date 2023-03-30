@@ -1,0 +1,88 @@
+<div class="page-width store-locator">
+
+  {%- if section.settings.title != blank -%}
+    <h1>{{ section.settings.title }}</h1>
+  {%- endif -%}
+  
+  {%- if section.settings.locations_list != blank -%}
+    {% liquid
+      assign navigation = section.settings.locations_list
+    %}
+
+    <div >
+      
+      {% for link in navigation.links %}
+        {%- assign link_url = link.url -%}
+        {%- assign link_handle = link.handle | handle -%}
+        {%- assign link_title = link.title -%}
+
+        {%- if link.url contains '/pages/' -%}
+          <div class="card">
+            {%- assign store_img = link.object.metafields.store.image -%}
+            {%- if store_img != blank -%}
+              {%- include 'img' with store_img -%}
+            {%- endif -%}
+            <h3><a href="{{ link.url }}" ><span >{{ link.object.title }}</span></a></h3>
+          </div>
+        {% else %}
+          <h2><span>{{ link_title }}</span></h2>
+        {%- endif -%}
+
+        
+          {%- assign link_children = link.links | default: linklists[link_handle].links -%}
+          {% for link in link_children %}
+
+            {%- if link.url contains '/pages/' -%}
+              <div class="card">
+                {%- assign store_img = link.object.metafields.store.image -%}
+                {%- if store_img != blank -%}
+                  {%- include 'img' with store_img -%}
+                {%- endif -%}
+                <h3><a href="{{ link.url }}" ><span >{{ link.object.title }}</span></a></h3>
+              </div>
+            {% else %}
+              <h2><span>{{ link.title }}</span></h2>
+            {%- endif -%}
+
+            {%- assign link_children = link.links | default: linklists[link.handle].links -%}
+
+            {% for link in link_children %}
+              
+              {%- if link.url contains '/pages/' -%}
+                <div class="card">
+                  {%- assign store_img = link.object.metafields.store.image -%}
+                  {%- if store_img != blank -%}
+                    {%- include 'img' with store_img -%}
+                  {%- endif -%}
+                  <h3><a href="{{ link.url }}" ><span >{{ link.object.title }}</span></a></h3>
+                </div>
+              {% else %}
+                <h2><span>{{ link.title }}</span></h2>
+              {%- endif -%}
+
+              {%- assign link_children = link.links | default: linklists[link.handle].links -%}
+
+            {% endfor %}
+          {% endfor %}
+
+      {% endfor %}
+     
+    </div>
+  {%- endif -%}
+
+</div> 
+
+
+{% schema %}
+{
+  "name": "Store Locator",
+  "templates": ["page"],
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "locations_list",
+      "label": "Linklist"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,210 @@
+{%liquid
+  
+  assign exclusions = section.settings.exclusions
+  assign title = section.settings.title
+  assign layout = section.settings.layout
+%}
+<style>
+  .collection-subcollections ul {
+    list-style: none;
+  }
+  .collection-subcollections a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .collection-subcollections.layout--horizontal ul {
+    display: flex;
+  }
+  .collection-subcollections.layout--horizontal li {
+    padding: 0 0.5rem;
+  }
+</style>
+
+{%- capture related_collections %}
+  {%- case section.settings.output_type -%}
+    {%- when 'collection_linklist' -%}
+
+      {% assign subcollections_list = section.settings.subcollections_list %}
+      {% for link in subcollections_list.links %}
+        {%- assign link_url = link.url -%}
+        {%- assign link_handle = link.handle | handle -%}
+        {%- assign link_title = link.title -%}
+
+        {%- unless exclusions contains link_title -%}
+          <li>
+            <a href="{{ link_url }}" class="">{{ link_title }}</a>
+          </li>
+        {%- endunless -%}
+
+      {%- endfor -%}
+
+
+
+    {%- when 'metafield' -%}
+
+      {%- assign collection_metafield = section.settings.collection_metafield -%}
+      {%- assign collection_list = collection_metafield | split: ',' -%}
+      {%- for item in collection_list -%}
+        {%- assign title =  item | split: '#' | first -%}
+        {%- assign url = item | split: '#' | last -%}
+        {%- unless exclusions contains collection.title -%}
+          <li>
+            <a href="{{ url }}" class="">{{ title }}</a>
+          </li>
+        {%- endunless -%}
+
+      {%- endfor -%}
+
+
+
+    {%- when 'first_product' -%}
+
+      {%liquid
+        assign first_product = collection.products[0]
+        assign subcollections = first_product.collections
+      %}
+      {%- for collection in subcollections  -%}
+        {%- unless exclusions contains collection.title -%}
+          <li>
+            <a href="{{ collection.url }}" class="">{{ collection.title }}</a>
+          </li>
+        {%- endunless -%}
+      {%- endfor -%}
+
+
+
+    {%- when 'main_menu' -%}
+      {%- render 'subcollections-from-menu', 
+      navlist: section.settings.main_menu_list ,
+      exclusions: section.settings.exclusions -%}
+
+
+    {%- else -%}
+      
+  {%- endcase -%}
+{% endcapture -%}
+
+<div class="page-width">
+  <div class="collection-subcollections layout--{{ layout }}">
+
+    {%- if related_collections != blank -%}
+
+      {%- if title != blank -%}
+        <h6>{{ title }}</h6>
+      {%- endif -%}
+
+      <ul>
+        {{ related_collections }}
+      </ul>
+
+    {%- endif -%}
+    
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Subcollection links",
+  "templates": ["collection"],
+  "settings": [
+    {
+      "type": "select",
+      "id": "output_type",
+      "label": "Select which data type to use:",
+      "options": [
+        {
+          "value": "collection_linklist",
+          "label": "Collection Link List"
+        },
+        {
+          "value": "metafield",
+          "label": "Collection Metafield"
+        },
+        {
+          "value": "first_product",
+          "label": "Collections First Product"
+        },
+        {
+          "value": "main_menu",
+          "label": "Main Link list"
+        }
+      ],
+      "default": "main_menu"
+    },
+    {
+      "type": "paragraph",
+      "content": "Update the corresponding data below:"
+    },
+    {
+      "type": "paragraph",
+      "content": "________________________________"
+    },
+    {
+      "type": "link_list",
+      "id": "subcollections_list",
+      "label": "Collection Link List"
+    },
+    {
+      "type": "paragraph",
+      "content": "​"
+    },
+    {
+      "type": "text",
+      "id": "collection_metafield",
+      "label": "Collection Metafield",
+      "info": "Select a dynamic collection metafield equal to a comma seperated list of collection titles and urls."
+    },
+    {
+      "type": "paragraph",
+      "content": "i.e All#/collections/all,Shoes#/collections/shoes"
+    },
+    {
+      "type": "paragraph",
+      "content": "​"
+    },
+    {
+      "type": "link_list",
+      "id": "main_menu_list",
+      "label": "Main Menu",
+      "info": "This will use the selected navigation list of the site to output this collections subcollections"
+    },
+    {
+      "type": "header",
+      "content": "Settings"
+    },
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Title"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "label": "Output Layout",
+      "options": [
+        {
+          "value": "vertical",
+          "label": "Vertical"
+        },
+        {
+          "value": "horizontal",
+          "label": "Horizontal"
+        }
+      ],
+      "default": "horizontal"
+    },
+    {
+      "type": "textarea",
+      "id": "exclusions",
+      "label": "Collection names to exclude",
+      "default": "all",
+      "info": "Comma seperated list of collection names, case sensitive"
+    }
+  ],
+  "presets": [
+    {
+      "name": "Subcollection Links"
+    }
+  ]
+}
+{% endschema %}

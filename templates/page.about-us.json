@@ -1,0 +1,268 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 0
+      }
+    },
+    "1654749490d5ea92f4": {
+      "type": "image-with-text",
+      "blocks": {
+        "1654749489697c13bd-1": {
+          "type": "text",
+          "settings": {
+            "text": "",
+            "text_style": "body"
+          }
+        },
+        "1654749489697c13bd-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "About us The Story Behind Germany’s #1 Women’s Caffeine Shampoo: Plantur 39",
+            "heading_size": "h1"
+          }
+        },
+        "1654749489697c13bd-2": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "color_button": "",
+            "color_button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "1654749489697c13bd-1",
+        "1654749489697c13bd-0",
+        "1654749489697c13bd-2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/plantur39-product_With-Shadow.png",
+        "color_bg": "#95b94c",
+        "color_text": "#ffffff",
+        "height": "small",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "165474957588b5c7f1": {
+      "type": "image-with-text",
+      "blocks": {
+        "16547495759a10b4b3-0": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "16547495759a10b4b3-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>It all started in 2005<br\/><strong><br\/>Caffeine shampoo for over 40<\/strong><\/p><p>Plantur 39 is the Dr. Wolff Group’s first line of products tailored to the cosmetic needs of women with thinning hair. Developed by German scientist Dr. Adolf Klenk, the product range includes caffeine shampoo, conditioner, and tonic. It is the counterpart to Alpecin, Dr. Wolff’s line of hair products for men.<\/p><p>Sold in 62 countries around the world, Plantur 39 continues to improve the lives of women over 40.<\/p>",
+            "text_style": "subtitle"
+          }
+        },
+        "16547495759a10b4b3-2": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "color_button": "",
+            "color_button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "16547495759a10b4b3-0",
+        "16547495759a10b4b3-1",
+        "16547495759a10b4b3-2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/plantur39-content-graue-haare-germany.jpg",
+        "color_bg": "#ffffff",
+        "color_text": "#ffffff",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "mobile_content_alignment": "left",
+        "padding_top": 28,
+        "padding_bottom": 0
+      }
+    },
+    "16547495810c71be3e": {
+      "type": "image-with-text",
+      "blocks": {
+        "16547495818105dda7-0": {
+          "type": "heading",
+          "disabled": true,
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        },
+        "16547495818105dda7-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>What is Plantur 39?<strong><br\/>More about the product<\/strong><\/p><p>Our caffeine shampoo creates the appearance of fuller, healthier-looking hair with daily wash. Using patented technology, our products provide support for fine and thin hair. Ideal for hair care at age 40 and beyond, Plantur 39 contains a Phyto-Caffeine Complex that adds sheen and body to fine, brittle hair. There are no bad hair days with Plantur 39 – only lustrous and thicker-looking hair that turns heads wherever you go.<\/p>",
+            "text_style": "subtitle"
+          }
+        },
+        "16547495818105dda7-2": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "color_button": "",
+            "color_button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "16547495818105dda7-0",
+        "16547495818105dda7-1",
+        "16547495818105dda7-2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Plantur-39-To-prevent-menopausal-hair-loss-in-women.jpg",
+        "color_bg": "#ffffff",
+        "color_text": "#ffffff",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "1654749592067ead93": {
+      "type": "image-with-text",
+      "blocks": {
+        "1654749591409b4b61-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h2"
+          }
+        },
+        "1654749591409b4b61-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Who is Dr. Wolff?<br\/><br\/><strong>If there’s a problem, there’s a solution<\/strong><\/p><p>We sold our first shampoo bottle in 2004.  Dr. Wolff Group is a fourth-generation family-run business with headquarters in Bielefeld, Germany. Our cosmetic division is behind some of the world’s best-loved drugstore brands: Alpecin, Alcina, Linola, BioRepair, and of course, Plantur. Dr. August Wolff founded the company in 1905. <br\/>Our company philosophy? If there’s a problem, Dr. Wolff has a solution ready. We’re in the business of breaking taboos.<\/p>",
+            "text_style": "subtitle"
+          }
+        },
+        "1654749591409b4b61-2": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "color_button": "",
+            "color_button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "1654749591409b4b61-0",
+        "1654749591409b4b61-1",
+        "1654749591409b4b61-2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/plantur39-news-hair-consultation-hong-kong-hk.jpg",
+        "color_bg": "#ffffff",
+        "color_text": "#ffffff",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "1654749677a6af85b0": {
+      "type": "multicolumn",
+      "blocks": {
+        "1654749677cf80888e-0": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "<p>\"My hair has been thinning for a few years now. I have tried a few products and none really worked very well or were very expensive. There was new growth but the shedding continued. I decided to give this shampoo a try and after a couple weeks use I have noticed the shedding definitely reduced lots. My hair is getting a chance to grow thicker again.\"Calista in England<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "1654749677cf80888e-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/plantur39-product_With-Shadow.png",
+            "title": "",
+            "text": "",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "1654749677cf80888e-2": {
+          "type": "column",
+          "settings": {
+            "title": "",
+            "text": "<p>\"Thank you for this product my hair was falling out by the handful it was stressed out hair! I was stressed I have been using your product for only 2 weeks and i am amazed!!!! I was wearing my hair up to hide my hair now its out everyday and i have people commenting on the health of my hair and the shine. I'm now even sweeping less no hair on my floors!!! Thank you!\"Melanie - Australia<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "1654749677cf80888e-0",
+        "1654749677cf80888e-1",
+        "1654749677cf80888e-2"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "none",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "accent-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "slider_visual": "dots",
+        "padding_top": 28,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1654749490d5ea92f4",
+    "165474957588b5c7f1",
+    "16547495810c71be3e",
+    "1654749592067ead93",
+    "1654749677a6af85b0"
+  ]
+}

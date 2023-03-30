@@ -1,0 +1,41 @@
+{% layout none %}
+{%- assign template-w = '123x' | escape -%}
+{%- assign product_image = product.featured_image -%}
+{%- capture product_image_html %}
+  {%- unless product_image == blank -%}
+    {%- render 'image' with image: product_image, size: 'xs' -%}
+  {%- endunless -%}
+{% endcapture -%}
+{
+  "id": {{ product.id | json }},
+  "featured_image": {{ product.featured_image | json }},
+  "image": {{ product.featured_image | json }},
+  "image_html": {{ product_image_html | json }},
+  "title": {{ product.title | json }},
+  "description": {{ product.description | json }},
+  "price": {{ product.price | json }},
+  "url": {{ product.url | json }},
+  "type": {{ product.type | json }},
+  "tags": {{ product.tags | json }},
+  "handle": {{ product.handle | json }},
+  "available": {{ product.available | json }},
+  "selected_or_first_available_variant": {{ product.selected_or_first_available_variant | json }},
+  "variant_inventory": {{ product.selected_or_first_available_variant.inventory_quantity | json }},
+  "variants": [
+
+  {%- for variant in product.variants -%}
+    {%- unless forloop.first -%},{%- endunless -%}
+    {
+      "id": {{ variant.id | json }},
+      "title": {{ variant.title | json }},
+      "available": {{ variant.available | json }},
+      "price": {{ variant.price | json }},
+      "inventory_quantity": {{ variant.inventory_quantity | json }},
+      "image": {{ variant.image | img_url: '100x' | json }},
+      "sku": {{ variant.sku | json }}
+    }
+  {%- endfor -%}
+
+  ],
+  "metafields": {{product.metafields | json }}
+}

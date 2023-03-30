@@ -1,0 +1,49 @@
+{% comment %}{%- assign sizes = '3024,2808,2592,2376,2160,1944,1728,1512,1296,1080,900,720,540,360,180' | split: ','-%}{% endcomment %}
+{%- assign image = image | default: ''  -%}
+{%- assign lazyload = lazyload | default: false -%}
+
+{%- assign sizes = '150,375,750,1100,1500,1780,2000,3000,3840' | split: ','-%}
+{%- assign size = size | default: 'medium' -%}
+
+{%- assign image_sources = '' -%}
+{%- assign image_sizes = '' -%}
+
+{% comment %}mobile size, desktop size{% endcomment %}
+{%- case size -%}
+  {%- when 'small' -%}
+    {%- assign image_sizes = '(max-width: 990px) 100vw, 33.3vw' -%}
+
+  {%- when 'medium' -%}
+    {%- assign image_sizes = '(max-width: 990px) 100vw, 50vw' -%}
+
+  {%- when 'large' -%}
+    {%- assign image_sizes = '(max-width: 990px) 100vw, 100vw' -%}
+  {%- else -%}
+
+    {%- assign image_sizes = '(max-width: 990px) 100vw, 50vw' -%}
+{%- endcase -%}
+
+
+{%- for image_size in sizes -%}
+  {%- assign image_size_number = image_size | plus: 0 -%}
+
+  {%- if image.width < image_size_number -%}
+    {%- break -%}
+  {%- endif -%}
+
+  {%- assign src_size = image_size | append: 'x' -%}
+
+  {%- if image_size_number < 900 and mobile_img != blank -%}
+    {%- assign image_link = mobile_img | img_url: src_size -%}
+  {% else %}
+    {%- assign image_link = image | img_url: src_size -%}
+  {%- endif -%}
+
+  {%- capture source -%}
+    {{ image_link }} {{src_size | replace: 'x', ''}}w,
+  {%- endcapture -%}
+  {%- assign image_sources = image_sources | append: source -%}
+
+{%- endfor -%}
+ 
+<img class="{{ output_img_class }}" width="{{ image.width }}" height="{{ image.width | divided_by: image.aspect_ratio }}" srcset="{{ image_sources }}" sizes="{{ image_sizes }}" alt="{{ alt | escape }}" {% if lazyload %}loading="lazy"{% endif %} />

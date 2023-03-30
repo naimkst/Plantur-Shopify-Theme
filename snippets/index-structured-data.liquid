@@ -1,0 +1,23 @@
+{%- assign social_media_accounts = 'facebook,twitter,pinterest,instagram,youtube,tumblr,linkedin,snapchat,fancy,vimeo' | split: ',' -%}
+<script type="application/ld+json">
+{
+  "@context": "http:\/\/schema.org",
+  "@type": "Organization",
+  "name": "{{ shop.name }}",
+  "telephone": "{{ shop.phone }}",
+  "email": "{{ shop.email }}",
+  "url": "{{ shop.url }}",
+  "logo": "{{ settings.site_logo }}",
+  "sameAs": [
+    {%- for social in social_media_accounts -%}
+      {%- assign value = 'social_' | append: social -%}
+      {%- if settings[value] != blank -%}
+        {%- unless forloop.first -%}
+          ,
+        {%- endunless -%}
+        "{{ settings[value] }}"
+      {%- endif -%}
+    {%- endfor -%}
+  ]
+}
+</script>

@@ -1,0 +1,13 @@
+{%liquid
+  assign collection = collection | default: ''
+%}
+<script type="application/ld+json">
+ {
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "@id": "{{ shop.url | append: collection.url | append: '#ContentSchema'}}",
+  "headline": "{{ collection.title }}",
+  "url": "{{ shop.url | append: collection.url }}",
+  "name": "{{ collection.title }}"
+} 
+</script>

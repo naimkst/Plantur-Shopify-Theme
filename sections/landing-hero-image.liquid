@@ -1,0 +1,56 @@
+<style>
+  .landing-header img {
+    width: 100%;
+    max-height: 130px;
+  }
+  .landing-header {
+    max-height: 130px;
+  }
+
+  @media (max-width: 1440px) {
+    .landing-header {
+      max-height: 112px;
+    }
+  }
+  @media (max-width: 1024px) {
+    .landing-header {
+      max-height: 80px;
+    }
+  }
+  @media (max-width: 768px) {
+    .landing-header {
+      height: 33px;
+    }
+    .landing-header {
+      height: 59px;
+    }
+  }
+  @media (max-width: 425px) {
+    .landing-header {
+      height: 33px;
+    }
+  }
+</style>
+
+<div class="landing-header">
+  <img src="{{ section.settings.hero_header_image | img_url: 'original'}}" alt="">
+</div>
+
+{% schema %}
+{
+  "name": "Landing Header Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "hero_header_image",
+      "label": "Hero Header Image"
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Landing Header Section"
+    }
+  ]
+}
+{% endschema %}

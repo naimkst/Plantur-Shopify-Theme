@@ -1,0 +1,28 @@
+<style>
+  .landing-hero img {
+    width: 100%;
+  }
+</style>
+
+<div class="landing-hero">
+  <img src="{{ section.settings.landing_hero_image | img_url: 'original'}}" alt="">
+</div>
+
+{% schema %}
+{
+  "name": "Landing Hero Section",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "landing_hero_image",
+      "label": "Hero Header Image"
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Landing Hero Section"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,20 @@
+{% assign upsell_collection = collections[block.settings.collection] %}
+{% if upsell_collection != blank %}
+  <h3 class="cart-upsells__title">{{ 'sections.cart.headings.upsells' | t }}</h3>
+  <h3 class="cart-upsells__title-empty">{{ 'sections.cart.headings.upsells_empty_cart' | t }}</h3>
+  <slider-component class="slider-mobile-gutter" data-collection-id="{{upsell_collection.id}}">
+    <ul class="grid grid--1-col product-grid slider slider--desktop negative-margin" role="list">
+      {%- for product in upsell_collection.products -%}
+        <li class="grid__item slider__slide">
+          {% render "card-product--mini", product: product %}
+        </li>
+      {%- endfor -%}
+    </ul>
+    {% if upsell_collection.all_products_count > 1 %}
+      <div class="slider-buttons no-js-hidden">
+        <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="{{ 'accessibility.previous_slide' | t }}">{% render 'icon-arrow' %}</button>
+        <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'accessibility.next_slide' | t }}">{% render 'icon-arrow' %}</button>
+      </div>
+    {% endif %}
+  </slider-component>
+{% endif %}

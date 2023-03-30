@@ -1,0 +1,133 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "custom_css": [
+
+      ],
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 0
+      }
+    },
+    "3ed8f155-6cfe-4f80-8c52-e5093aac531f": {
+      "type": "image-banner",
+      "blocks": {
+        "template--16169764389032__3ed8f155-6cfe-4f80-8c52-e5093aac531f-16789193062eed8a91-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "",
+            "heading_size": "h1"
+          }
+        }
+      },
+      "block_order": [
+        "template--16169764389032__3ed8f155-6cfe-4f80-8c52-e5093aac531f-16789193062eed8a91-0"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Home_page_banner_4.png",
+        "image_overlay_opacity": 0,
+        "image_height": "small",
+        "adapt_height_first_image": true,
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "60d49672-f45b-44d5-a4fa-cb8f90454422": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16169764389032__60d49672-f45b-44d5-a4fa-cb8f90454422-16789187739c3a0932-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Enter Now For Your Chance to Win a Plantur 39 Colour Brown Prize Pack Worth Over $76!",
+            "heading_size": "h1"
+          }
+        },
+        "template--16169764389032__60d49672-f45b-44d5-a4fa-cb8f90454422-16789187739c3a0932-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p><\/p><p>There are 3 prize packs up for grabs, each with the Plantur 39 Colour Brown Shampoo, Conditioner, tonic and a Limited edition Hair Towel Wrap! Worth over $76!<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--16169764389032__60d49672-f45b-44d5-a4fa-cb8f90454422-16789187739c3a0932-0",
+        "template--16169764389032__60d49672-f45b-44d5-a4fa-cb8f90454422-16789187739c3a0932-1"
+      ],
+      "settings": {
+        "text_align": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "ddd2f778-35cd-4bb5-93c3-eb442d16c2f6": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"klaviyo-form-XzLxrQ\"><\/div>",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "1656639738831e85ee": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "ef30b514-ffe1-44b6-8a8b-102006ac9d1a": {
+      "type": "collapsible-content",
+      "blocks": {
+        "template--16169764389032__ef30b514-ffe1-44b6-8a8b-102006ac9d1a-1678918934a9f0007e-0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Terms and Conditions",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Giveaway is run by Dr Wolff Australia Pty Ltd (ABN 12 602 714 787) trading as Plantur 39. Entries open 16\/03\/23 12:00 AEDT closes 30\/04\/2023 12:00 AEDT. each prize pack includes <strong>The Plantur 39 Colour Brown Phyto-Caffeine Shampoo<\/strong>, <strong>The Plantur 39 Colour Brown Colour Conditioner<\/strong>, <strong>Plantur39 Caffeine Tonic<\/strong>and <strong>Limited Edition Microfiber Quick-Dry Hair Towel Wrap<\/strong>. The total prize pack has an approximate value of AUD 76.89. Entry is a completed submission form. Winners drawn on the 08\/04\/2023 during business hours AEDT based on the most creative answer. Winners will be notified same day as draw by email they entered the giveaway with. Prize packs will be posted out to the nominated address of the winner and are not redeemable for cash. <\/p>",
+            "font_size_2": 10,
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16169764389032__ef30b514-ffe1-44b6-8a8b-102006ac9d1a-1678918934a9f0007e-0"
+      ],
+      "settings": {
+        "caption": "By Clicking Enter Now you are agreeing to our Terms and conditions below. Competition closes 30\/04\/23",
+        "heading": "",
+        "color_h": "#000000",
+        "column_count": "1",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "background-1",
+        "container_color_scheme": "background-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "3ed8f155-6cfe-4f80-8c52-e5093aac531f",
+    "60d49672-f45b-44d5-a4fa-cb8f90454422",
+    "ddd2f778-35cd-4bb5-93c3-eb442d16c2f6",
+    "1656639738831e85ee",
+    "ef30b514-ffe1-44b6-8a8b-102006ac9d1a"
+  ]
+}

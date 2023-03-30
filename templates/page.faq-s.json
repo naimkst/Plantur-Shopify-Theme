@@ -1,0 +1,806 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 0
+      }
+    },
+    "1654749200ada7edf9": {
+      "type": "collapsible-content",
+      "blocks": {
+        "1654749199f5c4c40a-0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "I've Changed my mind, can i get a refund?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Unfortunately we do not refund products for change of mind. If you have received a faulty or incorect product, please get in contact with us here customercare@dr-wolf.com.au<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "1654749199f5c4c40a-1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I change or cancel my order after placing it?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>No, all orders are submitted to our warehouse to be packed and shipped within 2 business days. We cannot guarantee that we can make any alterations to your order after it has been placed. <\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "1654749199f5c4c40a-2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you charge goods and services tax (GST)?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Yes, there is a goods and services tax (GST) of 10% on all items that are sold or consumed in Australia. This is included in the prices you see on our website. <\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "1654749199f5c4c40a-0",
+        "1654749199f5c4c40a-1",
+        "1654749199f5c4c40a-2"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "Orders",
+        "color_h": "#000000",
+        "column_count": "1",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "background-1",
+        "container_color_scheme": "background-2",
+        "open_first_collapsible_row": true,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "74173b11-d617-4a2f-9c6f-0f6c40a13379": {
+      "type": "collapsible-content",
+      "blocks": {
+        "template--16094937317544__74173b11-d617-4a2f-9c6f-0f6c40a13379-1670991472935fdbfb-0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long does it take for me to receive my order?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>We dispatch all orders within 2 business days and our standard shipping times are 3-6 business days from time of dispatch.<br\/>Keep in mind however that delivery times are only indicative and may be delayed during holiday and busy periods. <\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "template--16094937317544__74173b11-d617-4a2f-9c6f-0f6c40a13379-1670991472935fdbfb-1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I track the status of my order?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Go to “My Account” to view and track your orders. You will also receive email notifications from our delivery partners during the delivery process.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "template--16094937317544__74173b11-d617-4a2f-9c6f-0f6c40a13379-1670991472935fdbfb-2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Will my items come in one package?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Depending on the items in your order, some products might need to be packaged individually and may arrive on separate dates. Each package will have its own tracking number.  <\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "template--16094937317544__74173b11-d617-4a2f-9c6f-0f6c40a13379-1670991472935fdbfb-3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you ship to my country?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>We currently ship to Australia. Please contact us for a shipping quote if you are outside of Australia. Please check the global site for your region https:\/\/international.plantur39.com\/<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "faec5b96-0a77-477e-853e-920c5de79c0c": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you use discreet packaging?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>All orders are shipped as discreet as possible in plain packaging. However, our postage labels will still say the company name it was shipped from, Plantur 39<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16094937317544__74173b11-d617-4a2f-9c6f-0f6c40a13379-1670991472935fdbfb-0",
+        "template--16094937317544__74173b11-d617-4a2f-9c6f-0f6c40a13379-1670991472935fdbfb-1",
+        "template--16094937317544__74173b11-d617-4a2f-9c6f-0f6c40a13379-1670991472935fdbfb-2",
+        "template--16094937317544__74173b11-d617-4a2f-9c6f-0f6c40a13379-1670991472935fdbfb-3",
+        "faec5b96-0a77-477e-853e-920c5de79c0c"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "Shipping",
+        "color_h": "#000000",
+        "column_count": "1",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "background-1",
+        "container_color_scheme": "background-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "ac9605a8-9040-4f24-90f3-06d1e31e9d5d": {
+      "type": "collapsible-content",
+      "blocks": {
+        "template--16094937317544__ac9605a8-9040-4f24-90f3-06d1e31e9d5d-1670991472935fdbfb-0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I create an account?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>To create an account, go to “My Account” and fill out the form.  Having your own Plantur 39 account makes checkout easier and helps us remember your details for future purchases.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "template--16094937317544__ac9605a8-9040-4f24-90f3-06d1e31e9d5d-1670991472935fdbfb-1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I change my shipping address?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Go to “My Account” and login to edit your shipping information. Contact us if you’re having any trouble. <\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16094937317544__ac9605a8-9040-4f24-90f3-06d1e31e9d5d-1670991472935fdbfb-0",
+        "template--16094937317544__ac9605a8-9040-4f24-90f3-06d1e31e9d5d-1670991472935fdbfb-1"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "Account",
+        "color_h": "#000000",
+        "column_count": "1",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "background-1",
+        "container_color_scheme": "background-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "7ded88a2-36f3-42cf-b1dc-509a0103c8b2": {
+      "type": "collapsible-content",
+      "blocks": {
+        "0c3375e1-1b27-4f67-ab44-74ca9577f8fc": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Why Plantur?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Plantur 39is Germany’s #1 caffeine shampoo for women. Developed by Dr. Wolff R&D, it’s aimed at women over 40 who wish to do something about thinning hair and hair fall. With patented technology and unique Galenic formulation, it contains Phyto-Caffeine Complex with various active and supporting ingredients that make dull, tired hair look thicker and healthier.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "template--16094937317544__7ded88a2-36f3-42cf-b1dc-509a0103c8b2-1670991472935fdbfb-0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Where are your products manufactured?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>All of our products are manufactured in Germany<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "template--16094937317544__7ded88a2-36f3-42cf-b1dc-509a0103c8b2-1670991472935fdbfb-1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Is caffeine shampoo good for your hair?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Yes, caffeine shampoo is ideal for hair care, particularly for women aged 40 and over who wish to do something about thinning hair. Plantur 39’s unique and patented Galenic formula ensures that the Phyto-Caffeine Complex and supporting ingredients found in its products are dosed correctly.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "template--16094937317544__7ded88a2-36f3-42cf-b1dc-509a0103c8b2-1670991472935fdbfb-2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do caffeine shampoos work?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>The efficacy of all products depends on the metabolism of the individual. This is because each individual reacts differently. You should use the shampoo for a sufficient period of time before you make a final judgment. As a rule, you can expect to see noticeable results after about three months.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "template--16094937317544__7ded88a2-36f3-42cf-b1dc-509a0103c8b2-1670991472935fdbfb-3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Will caffeine shampoo keep me awake?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>No, it will not. The quantity of caffeine is harmless, even for people who are sensitive to caffeine. <\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "9c101d5d-f50b-4241-9bee-040c822c7ff3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I use a Caffiene shampoo if i have a sensitivity to caffeine?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Yes, The quanity of caffeine is really low and it should not affect you. Please consult your doctor before commencing use if you have any underlying medical condition <\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "b912d6db-aba2-43df-bb49-c5f26a4e8610": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What does caffeine shampoo do for women’s hair?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Plantur caffeine shampoogives fine, brittle hair a thicker and stronger appearance with daily hair washing and sustained application. The Jena University Clinic has found it to be a good cosmetic treatment for thinning hair. It is best used with ourPlantur 39 conditioner.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "9822e5c5-6e11-416c-abfc-5308906f7103": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Does the formula have side effects?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Plantur 39 and 21 are safe for personal use. As a cosmetic product that is widely distributed in Europe, its formulation and packaging is fully compliant with the European Cosmetics Directive (76\/768\/EEC), which requires that all cosmetic products be free of undesirable side effects under normal conditions of use. It has been approved for sale in Australia. <\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "22dfeca4-32c2-4379-8928-fc80b72914ac": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long does it take the formula to work?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Due to the hair growth cycle, with consistent use of the product you will start to see results in 60-90days<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "6cdc2666-32fa-439b-af2d-5e303ef330bf": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I leave the products on longer then their recommended time?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>To see an effect of the caffeine products you will need to leave the shampoo on for at least 2 minutes. Studies have shown that absorption increases for a period of up to 30 minutes. depending on your scalp and hair type you could leave the products on for up to 30minutes, but 2 minutes is alll that is needed to stimulate hair growth. <\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "4072fa5f-82c7-41dd-9dfd-369aedc06334": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I use the products if i have psoriasis?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>The products should not be used on broken skin. Please consult your doctor or dermatologist before use.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "58022213-a5dc-4488-b81d-2a5d1cc07235": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What are the main ingredients in the phyto-caffeine complex?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>The caffeine complex is made up of caffeine, zinc and niacin. Caffeine stimulates the hair roots, prolongs the growth phase and improves hair growth. Niacin and zinc are important growth factors for healthy hair roots.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "9299ff46-3128-43d1-bb2b-248809d9a3fd": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I use Plantur 39 if i am a woman?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Plantur 39 products were specifically developed for the requirements of female scalps, which is also reflected in the fragrance and the very packaging. However, the caffeine-based active ingredient complex is not gender specific and is thus also effective in women who suffer from hair loss. In addition, with Alpecin Dr. Wolff has developed caffeine hair care products which are tailored to the needs of male scalps.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "3e2921b3-3402-4802-82fc-68c486263d0e": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "when should you start the caffeine therapy?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "",
+            "font_size_2": 12,
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "0c3375e1-1b27-4f67-ab44-74ca9577f8fc",
+        "template--16094937317544__7ded88a2-36f3-42cf-b1dc-509a0103c8b2-1670991472935fdbfb-0",
+        "template--16094937317544__7ded88a2-36f3-42cf-b1dc-509a0103c8b2-1670991472935fdbfb-1",
+        "template--16094937317544__7ded88a2-36f3-42cf-b1dc-509a0103c8b2-1670991472935fdbfb-2",
+        "template--16094937317544__7ded88a2-36f3-42cf-b1dc-509a0103c8b2-1670991472935fdbfb-3",
+        "9c101d5d-f50b-4241-9bee-040c822c7ff3",
+        "b912d6db-aba2-43df-bb49-c5f26a4e8610",
+        "9822e5c5-6e11-416c-abfc-5308906f7103",
+        "22dfeca4-32c2-4379-8928-fc80b72914ac",
+        "6cdc2666-32fa-439b-af2d-5e303ef330bf",
+        "4072fa5f-82c7-41dd-9dfd-369aedc06334",
+        "58022213-a5dc-4488-b81d-2a5d1cc07235",
+        "9299ff46-3128-43d1-bb2b-248809d9a3fd",
+        "3e2921b3-3402-4802-82fc-68c486263d0e"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "Products and Formula",
+        "color_h": "#000000",
+        "column_count": "1",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "background-1",
+        "container_color_scheme": "background-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "82a27b31-823c-4655-a96a-ce0cddf0b56f": {
+      "type": "collapsible-content",
+      "blocks": {
+        "template--16094937317544__82a27b31-823c-4655-a96a-ce0cddf0b56f-1670991472935fdbfb-0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What does Plantur 39 do to your hair?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Plantur 39 is designed to strengthen your hair to help make it look fuller, thicker, and healthier using the Phyto-Caffeine Complex. Simply leave the caffeine shampoo on for 2 minutes before rinsing. Our caffeine shampoo is best paired with Plantur 39 conditioner, while the Plantur 39 tonic can be applied before other hair styling products.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "template--16094937317544__82a27b31-823c-4655-a96a-ce0cddf0b56f-1670991472935fdbfb-1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is Plantur 39?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Plantur 39 shampoos, conditioner, and tonic were especially formulated as cosmetic products for women over 40 who are experiencing thinning hair. Our products contain Phyto-Caffeine Complex and other supporting ingredients that help support healthier-looking hair with daily wash.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "template--16094937317544__82a27b31-823c-4655-a96a-ce0cddf0b56f-1670991472935fdbfb-2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is Plantur 39 tonic?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>This tonic is applied to the scalp, massaged in and left unwashed. The Tonic helps to build up a 24-hour depot to protect the scalp from the consequences of female bodily constitution changes from the age of 40. Use the dosage tip to apply the tonic directly on the scalp and massage it in. Wait 2 to 3 minutes before styling hair and using other hair products. Do not rinse. Apply and massage into the scalp once daily. Best used after washing hair with Plantur 39 Phyto-Caffeine Shampoo.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "template--16094937317544__82a27b31-823c-4655-a96a-ce0cddf0b56f-1670991472935fdbfb-3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How often should you use Plantur 39?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>A daily routine is key for the success of our products. We recommend washing your hair with Plantur 39 caffeine shampoo daily. If you are unable to wash your hair every day, or do not wish to do so, we recommend Plantur 39 Tonic on wash-free days to maintain your hair care routine.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "165557b6-be0d-4652-98a8-46b0238bfbca": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What happens if i stop the use of caffeine products",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>The regular energy supply from the caffeine complex extends the growth phases of the individual hairs, thereby facilitating hair growth well into old age. If treatment is interrupted, these hairs growth phases will shorten again and hair loss may resume. As a result, successful prevention of hair loss must be conducted regularly and permanently. Daily, long-term application is strongly recommended.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "854021d2-ff4f-4b7f-ae6d-9faf6c76eb04": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can i just drink coffee?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Since you ingest coffee orally, it will first pass through the gastrointestinal organs. It is distributed throughout the body and only a tiny quantity reaches the scalp and the hair. As a result, a local and direct supply of caffeine to the hair roots is expedient and necessary. Even the consumption of 50 cups of coffee would not provide the hair with enough caffeine to stimulate hair growth.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16094937317544__82a27b31-823c-4655-a96a-ce0cddf0b56f-1670991472935fdbfb-0",
+        "template--16094937317544__82a27b31-823c-4655-a96a-ce0cddf0b56f-1670991472935fdbfb-1",
+        "template--16094937317544__82a27b31-823c-4655-a96a-ce0cddf0b56f-1670991472935fdbfb-2",
+        "template--16094937317544__82a27b31-823c-4655-a96a-ce0cddf0b56f-1670991472935fdbfb-3",
+        "165557b6-be0d-4652-98a8-46b0238bfbca",
+        "854021d2-ff4f-4b7f-ae6d-9faf6c76eb04"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "Plantur 39",
+        "color_h": "#000000",
+        "column_count": "1",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "background-1",
+        "container_color_scheme": "background-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "c2fde846-4d8d-4208-b5f3-485d8333e15b": {
+      "type": "collapsible-content",
+      "blocks": {
+        "template--16094937317544__c2fde846-4d8d-4208-b5f3-485d8333e15b-1670991472935fdbfb-0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Is plantur 39 Colour a hair dye?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>No, the Plantur 39 Colour products are not hair dyes. The shampoo and conditioner contain powerful pigments that are deposited on the outside of the hair surface when you wash it. The colouring effect disappears if the shampoo is no longer used.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "template--16094937317544__c2fde846-4d8d-4208-b5f3-485d8333e15b-1670991472935fdbfb-1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long does the colouring effect of the Plantur 39 colour brown last?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>The Plantur 39 Colour Brown products contain powerful pigments. These build up on the hair. The colouring effect intensifies every time you wash your hair and is washed out gradually with a conventional shampoo. As such, Plantur 39 Colour Brown products have to be used regularly in order to achieve and maintain the desired colouring effect. Leave the products in for two to five minutes depending on how intense you want the colour to be.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "template--16094937317544__c2fde846-4d8d-4208-b5f3-485d8333e15b-1670991472935fdbfb-2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can my scalp, hands or towels be discoloured by the Plantur 39 colour brown range?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>There is no chance of your scalp, hands or towels being discoloured. The products in the Plantur 39 Colour Brown series contain cosmetic pigments that only build up on the hair: neither your scalp nor your hands are discoloured when you wash your hair. However, the products should be washed out thoroughlyto stop the colour from getting on your towels.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "template--16094937317544__c2fde846-4d8d-4208-b5f3-485d8333e15b-1670991472935fdbfb-3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can Plantur 39  Colour Brown products be used on both coloured and natural hair?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Plantur 39 Colour Brown products can intensify both natural hair colours and coloured hair. They are suitable for both hair types.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "5500df22-e90a-4d1b-9f41-77059ba50f62": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Will the colour wash out?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Yes, the colour is temporary. The pigment will wash out slowly if you discontinue use.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16094937317544__c2fde846-4d8d-4208-b5f3-485d8333e15b-1670991472935fdbfb-0",
+        "template--16094937317544__c2fde846-4d8d-4208-b5f3-485d8333e15b-1670991472935fdbfb-1",
+        "template--16094937317544__c2fde846-4d8d-4208-b5f3-485d8333e15b-1670991472935fdbfb-2",
+        "template--16094937317544__c2fde846-4d8d-4208-b5f3-485d8333e15b-1670991472935fdbfb-3",
+        "5500df22-e90a-4d1b-9f41-77059ba50f62"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "Colour Brown",
+        "color_h": "#000000",
+        "column_count": "1",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "background-1",
+        "container_color_scheme": "background-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "b55710f7-1443-4dfa-9ef3-f1a8e340e52b": {
+      "type": "collapsible-content",
+      "blocks": {
+        "template--16094937317544__b55710f7-1443-4dfa-9ef3-f1a8e340e52b-1670991472935fdbfb-0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long do I have to use the Plantur 21 Products?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>In order to successfully strengthens the hair and to get longer healthier hair a regular and long-term application of the Plantur 21 products is necessary. The hair is exposed to high stress levels every single day and therefore require a continuous energy supply.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "template--16094937317544__b55710f7-1443-4dfa-9ef3-f1a8e340e52b-1670991472935fdbfb-1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Can I also use the Plantur 21 Shampoo on bleached hair?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Yes, the shampoo was also developed for externally stressed hair. It contains conditioning agents that repair the stressed hair without weighing down thin hair that lacks volume.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "template--16094937317544__b55710f7-1443-4dfa-9ef3-f1a8e340e52b-1670991472935fdbfb-2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I apply the #longhair Conditioner correctly?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>You should generally use a conditioning product to help your hair gain shine and to make brushing easier after washing it. The Conditioner was developed in a way that allows application after every wash without weighing the hair down.<br\/><br\/>Simply distribute a hazelnut-sized quantity throughout your wet hair and rinse out thoroughly after 30 seconds.<br\/><br\/>Works perfectly with the Plantur 21 #longhair Shampoo.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "template--16094937317544__b55710f7-1443-4dfa-9ef3-f1a8e340e52b-1670991472935fdbfb-3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "I have light hair and the Conditioner is pink. Will my hair get a pink tint with regular application?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>The included colour pigments are used in such small quantities that a colouring effect can be ruled out.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16094937317544__b55710f7-1443-4dfa-9ef3-f1a8e340e52b-1670991472935fdbfb-0",
+        "template--16094937317544__b55710f7-1443-4dfa-9ef3-f1a8e340e52b-1670991472935fdbfb-1",
+        "template--16094937317544__b55710f7-1443-4dfa-9ef3-f1a8e340e52b-1670991472935fdbfb-2",
+        "template--16094937317544__b55710f7-1443-4dfa-9ef3-f1a8e340e52b-1670991472935fdbfb-3"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "Plantur 21",
+        "color_h": "#000000",
+        "column_count": "1",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "background-1",
+        "container_color_scheme": "background-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1654749200ada7edf9",
+    "74173b11-d617-4a2f-9c6f-0f6c40a13379",
+    "ac9605a8-9040-4f24-90f3-06d1e31e9d5d",
+    "7ded88a2-36f3-42cf-b1dc-509a0103c8b2",
+    "82a27b31-823c-4655-a96a-ce0cddf0b56f",
+    "c2fde846-4d8d-4208-b5f3-485d8333e15b",
+    "b55710f7-1443-4dfa-9ef3-f1a8e340e52b"
+  ]
+}

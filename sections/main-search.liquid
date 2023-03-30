@@ -1,0 +1,375 @@
+{%- assign filter_tree_vertical_style = shop.metafields.bc-sf-filter.settings | split: 'general":' | last | split: 'filterTreeVerticalStyle":"' | last | split: '","' | first | strip -%}
+{%- assign enable_filter_sticky_d = shop.metafields.bc-sf-filter.settings | split: 'general":' | last | split: 'stickyFilterOnDesktop":' | last | split: ',' | first | strip -%}
+{%- assign enable_filter_sticky_m = shop.metafields.bc-sf-filter.settings | split: 'general":' | last | split: 'stickyFilterOnMobile":' | last | split: ',' | first |  split: '}}' | first | strip -%}
+{%- assign enable_filter_tree_button_desktop_v = false -%}
+{%- if filter_tree_vertical_style == 'style-off-canvas' or filter_tree_vertical_style == 'style-expand' -%}
+  {%- assign enable_filter_tree_button_desktop_v = true -%}
+{%- endif -%}
+
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+<link rel="stylesheet" href="{{ 'component-search.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'component-search.css' | asset_url | stylesheet_tag }}</noscript>
+
+<style>
+  .template-search__search {
+    margin: 0 auto;
+    max-width: 47.8rem;
+  }
+
+  .template-search__search .search {
+    margin-top: 3rem;
+  }
+
+  .template-search__results {
+    margin-top: 6rem;
+  }
+
+  .template-search--empty {
+    padding-bottom: 18rem;
+  }
+
+  .template-search .grid__item--small:not(:last-child) {
+    padding-bottom: 0.5rem;
+  }
+
+  @media screen and (min-width: 750px) {
+    .template-search__results {
+      margin-top: 9rem;
+    }
+
+    .template-search .grid__item--small:not(:last-child) {
+      padding-bottom: 1rem;
+    }
+  }
+
+  .search__button .icon {
+    height: 1.8rem;
+  }
+</style>
+
+<div class="template-search spaced-section{% unless search.performed and search.results.size > 0 %} template-search--empty{% endunless %}">
+  <div class="page-width center">
+    <h1 class="boost-pfs-search-result-header h2">{% render 'boost-pfs-filter-skeleton', width: 4 %}</h1>
+    <div class="template-search__search">
+      <form action="{{ routes.search_url }}" method="get" role="search" class="search">
+        <div class="field">
+          <input class="search__input field__input" id="Search-In-Template" type="search" name="q"
+            value="{{ search.terms | escape }}" {% if search.performed %}autofocus{% endif %}
+            placeholder="{{ 'general.search.search' | t }}">
+          <label class="field__label" for="Search-In-Template" aria-hidden="true">{{ 'general.search.search' | t }}</label>
+          <input name="options[prefix]" type="hidden" value="last">
+          <button type="submit" class="search__button field__button focus-inset"
+            aria-label="{{ 'general.search.search' | t }}">
+            <svg class="icon icon-search">
+              <use xlink:href="#icon-search">
+            </svg>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="filters-toolbar-wrapper">
+    <div class="boost-pfs-search-result-toolbar-wrap">
+      <div class="boost-pfs-search-result-toolbar page-width">
+        <div class="boost-pfs-search-result-item">
+          <ul class="boost-pfs-search-result-panel-controls">
+            <li>{% render 'boost-pfs-filter-skeleton', width: 2 %}</li>
+          </ul>
+        </div>
+        <div class="boost-pfs-search-result-item">
+          <span class="boost-pfs-search-total-result">
+            {% render 'boost-pfs-filter-skeleton', width: 2 %}
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="page-width sorting-wrapper boost-pfs-search-panel-product-show">
+      <div class="filters-toolbar">
+        <div class="filters-toolbar__item-wrapper {% if enable_filter_sticky_d and enable_filter_tree_button_desktop_v %} boost-pfs-filter-tree-desktop-button-sticky-wrapper {% endif %}">
+          <div class="filters-toolbar__item-child">
+            {%- if enable_filter_tree_button_desktop_v -%}
+              <div class="boost-pfs-filter-tree-desktop-button">{%- render 'boost-pfs-filter-skeleton', type: 'button' -%}</div>
+            {%- endif -%}
+            <label class="collection-filters__label" for="SortBy">{{ 'products.facets.sort_by_label' | t }}</label>
+            <div class="boost-pfs-filter-top-sorting">
+              {% render 'boost-pfs-filter-skeleton', width: 2 %}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="boost-pfs-filter-tree-mobile-button boost-pfs-search-panel-product-show">
+        {% render 'boost-pfs-filter-skeleton', type: 'button' %}
+      </div>
+    </div>
+  </div>
+
+  <div class="page-width">
+    <div class="boost-pfs-filter-wrapper boost-pfs-search-panel-product-show">
+      <div class="boost-pfs-filter-left-col">
+        <div class="boost-pfs-filter-tree boost-pfs-filter-tree-v">
+          {%- unless enable_filter_tree_button_desktop_v -%}
+                      {% render 'boost-pfs-filter-skeleton', type: 'filter-tree' %}
+                    {%- endunless -%}
+        </div>
+      </div>
+      <div class="boost-pfs-filter-right-col">
+        <div class="boost-pfs-filter-products grid grid--2-col grid--3-col-tablet grid--one-third-max grid--4-col-desktop grid--quarter-max">
+          {% comment %} Fix Shopify search term report {% endcomment %}
+          {% paginate search.results by 2 %}
+            {% if search.performed %}
+              {% for item in search.results %}
+                <div class="grid__item" style="display: none !important"></div>
+              {% endfor %}
+            {% endif %}
+          {% endpaginate %}
+        </div>
+        <link rel="stylesheet" href="{{ 'component-pagination.css' | asset_url }}" media="print" onload="this.media='all'">
+        <noscript>{{ 'component-pagination.css' | asset_url | stylesheet_tag }}</noscript>
+        <div class="boost-pfs-filter-bottom-pagination">
+          {% render 'boost-pfs-filter-skeleton', width: 2 %}
+        </div>
+        <div class="boost-pfs-filter-load-more"></div>
+      </div>
+    </div>
+
+    <div class="boost-pfs-search-result-wrap boost-hidden">
+      <div class="boost-pfs-search-result-collections">
+        <div class="boost-pfs-search-result-list-item"><a href="#">{% render 'boost-pfs-filter-skeleton', width: 4 %}</a></div>
+        <div class="boost-pfs-search-result-list-item"><a href="#">{% render 'boost-pfs-filter-skeleton', width: 3 %}</a></div>
+        <div class="boost-pfs-search-result-list-item"><a href="#">{% render 'boost-pfs-filter-skeleton', width: 4 %}</a></div>
+      </div>
+      <div class="boost-pfs-search-result-collection-pagination">{% render 'boost-pfs-filter-skeleton', width: 4 %}</div>
+    </div>
+    <div class="boost-pfs-search-result-wrap boost-hidden">
+      <div class="boost-pfs-search-result-pages">
+        <div class="boost-pfs-search-result-list-item"><a href="#">{% render 'boost-pfs-filter-skeleton', width: 4 %}</a></div>
+        <div class="boost-pfs-search-result-list-item"><a href="#">{% render 'boost-pfs-filter-skeleton', width: 3 %}</a></div>
+        <div class="boost-pfs-search-result-list-item"><a href="#">{% render 'boost-pfs-filter-skeleton', width: 4 %}</a></div>
+      </div>
+      <div class="boost-pfs-search-result-page-pagination">{% render 'boost-pfs-filter-skeleton', width: 4 %}</div>
+    </div>
+  </div>
+</div>
+
+<script>
+// Declare boostPFSThemeConfig variable
+var boostPFSThemeConfig = {
+  label: {
+    sale: {{ 'products.product.on_sale' | t | default: '' | json }},
+    sale_price: {{ 'products.product.sale_price' | t | default: '' | json }},
+    sold_out: {{ 'products.product.sold_out' | t | default: '' | json }},
+    vendor: {{ 'products.product.vendor' | t |default: '' | json }},
+    regular_price: {{ 'products.product.price.regular_price' | t | default: '' | json }},
+    from_price_html: {{ 'products.product.price.from_price_html' | t | default: '' | json }},
+    current_page: {{ 'general.pagination.current_page' | t | json }},
+    unit_price: {{ 'products.product.price.unit_price' | t | json }},
+    selected_or_first_unit_price: {{ 'products.product.price.unit_price' | t | json }},
+    unit_price_separator: {{ 'accessibility.unit_price_separator' | t | default: '' | json }},
+    star_reviews_info: {{ 'accessibility.star_reviews_info' | t | json }},
+    total_reviews: {{ "accessibility.total_reviews" | t | json }}
+  },
+  custom: {
+    show_vendor: {% if section.settings.show_vendor %} {{ section.settings.show_vendor | json }} {% else %} false {% endif %},
+    add_image_padding: {% if section.settings.add_image_padding %} {{ section.settings.add_image_padding | json }} {% else %} false {% endif %},
+    media_size: {% if section.settings.image_ratio %} {{ section.settings.image_ratio | json }} {% else %} '' {% endif %},
+    sold_out_badge_color_scheme: {% if settings.sold_out_badge_color_scheme %} {{ settings.sold_out_badge_color_scheme | json }} {% else %} '' {% endif %},
+    sale_badge_color_scheme: {% if settings.sale_badge_color_scheme %} {{ settings.sale_badge_color_scheme | json }} {% else %} '' {% endif %},
+    products_per_page: {% if section.settings.products_per_page %} {{ section.settings.products_per_page | json }} {% else %} 24 {% endif %},
+    products_per_row: {% if products_per_row %} {{ products_per_row }} {% else %} 4 {% endif %},
+    show_image_outline: {% if section.settings.show_image_outline %} {{ section.settings.show_image_outline | json }} {% else %} false {% endif %},
+    show_secondary_image: {% if section.settings.show_secondary_image %} {{ section.settings.show_secondary_image | json }} {% else %} false {% endif %},
+    accent_icons: {% if settings.accent_icons %} {{ settings.accent_icons | json }} {% else  %} '' {% endif %},
+    currency_code_enabled: {% if settings.currency_code_enabled %} {{ settings.currency_code_enabled | json }} {% else %} false {% endif %},
+    card_style: {% if settings.card_style %} {{ settings.card_style | json }} {% else %} '' {% endif %},
+    card_color_scheme: {% if settings.card_color_scheme %} {{ settings.card_color_scheme | json }} {% else %} '' {% endif %},
+    badge_position: {% if settings.badge_position %} {{ settings.badge_position | json}} {% else %} '' {% endif %},
+    description: {% if block.settings.description %} {{ block.settings.description | json}} {% else %} '' {% endif %}
+  }
+};
+
+// Declare Templates
+var boostPFSTemplate = {
+  'soldOutLabelHtml': {%- render 'boost-pfs-filter-html', layout: 'soldOutLabelHtml' -%},
+  'saleLabelHtml': {%- render 'boost-pfs-filter-html', layout: 'saleLabelHtml' -%},
+  'vendorHtml': {%- render 'boost-pfs-filter-html', layout: 'vendorHtml' -%},
+  // Grid Template
+  'productGridItemHtml': {%- render 'boost-pfs-filter-html', layout: 'productGridItemHtml' -%},
+  // Pagination Template
+  'previousActiveHtml': {%- render 'boost-pfs-filter-html', layout: 'previousActiveHtml' -%},
+  'nextActiveHtml': {%- render 'boost-pfs-filter-html', layout: 'nextActiveHtml' -%},
+  'pageItemHtml': {%- render 'boost-pfs-filter-html', layout: 'pageItemHtml' -%},
+  'pageItemSelectedHtml': {%- render 'boost-pfs-filter-html', layout: 'pageItemSelectedHtml' -%},
+  'pageItemRemainHtml': {%- render 'boost-pfs-filter-html', layout: 'pageItemRemainHtml' -%},
+  'paginateHtml': {%- render 'boost-pfs-filter-html', layout: 'paginateHtml' -%},
+  // Sorting Template
+  'sortingHtml': {%- render 'boost-pfs-filter-html', layout: 'sortingHtml' -%}
+};
+</script>
+{% schema %}
+
+
+
+
+{
+  "name": "t:sections.main-search.name",
+  "tag": "section",
+  "class": "section",
+  "settings": [
+    {
+      "type": "range",
+      "id": "columns_desktop",
+      "min": 1,
+      "max": 5,
+      "step": 1,
+      "default": 4,
+      "label": "t:sections.main-search.settings.columns_desktop.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-search.settings.header__1.content"
+    },
+    {
+      "type": "select",
+      "id": "image_ratio",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.main-search.settings.image_ratio.options__1.label"
+        },
+        {
+          "value": "portrait",
+          "label": "t:sections.main-search.settings.image_ratio.options__2.label"
+        },
+        {
+          "value": "square",
+          "label": "t:sections.main-search.settings.image_ratio.options__3.label"
+        }
+      ],
+      "default": "adapt",
+      "label": "t:sections.main-search.settings.image_ratio.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_secondary_image",
+      "default": false,
+      "label": "t:sections.main-search.settings.show_secondary_image.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_vendor",
+      "default": false,
+      "label": "t:sections.main-search.settings.show_vendor.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_rating",
+      "default": false,
+      "label": "t:sections.main-search.settings.show_rating.label",
+      "info": "t:sections.main-search.settings.show_rating.info"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-collection-product-grid.settings.header__1.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_filtering",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.enable_filtering.label",
+      "info": "t:sections.main-collection-product-grid.settings.enable_filtering.info"
+    },
+    {
+      "type": "select",
+      "id": "filter_type",
+      "options": [
+        {
+          "value": "horizontal",
+          "label": "t:sections.main-collection-product-grid.settings.filter_type.options__1.label"
+        },
+        {
+          "value": "vertical",
+          "label": "t:sections.main-collection-product-grid.settings.filter_type.options__2.label"
+        },
+        {
+          "value": "drawer",
+          "label": "t:sections.main-collection-product-grid.settings.filter_type.options__3.label"
+        }
+      ],
+      "default": "horizontal",
+      "label": "t:sections.main-collection-product-grid.settings.filter_type.label",
+      "info": "t:sections.main-collection-product-grid.settings.filter_type.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sorting",
+      "default": true,
+      "label": "t:sections.main-collection-product-grid.settings.enable_sorting.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-search.settings.header__2.content"
+    },
+    {
+      "type": "checkbox",
+      "id": "article_show_date",
+      "default": true,
+      "label": "t:sections.main-search.settings.article_show_date.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "article_show_author",
+      "default": false,
+      "label": "t:sections.main-search.settings.article_show_author.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-search.settings.header_mobile.content"
+    },
+    {
+      "type": "select",
+      "id": "columns_mobile",
+      "default": "2",
+      "label": "t:sections.main-search.settings.columns_mobile.label",
+      "options": [
+        {
+          "value": "1",
+          "label": "t:sections.main-search.settings.columns_mobile.options__1.label"
+        },
+        {
+          "value": "2",
+          "label": "t:sections.main-search.settings.columns_mobile.options__2.label"
+        }
+      ]
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ]
+}
+{% endschema %}

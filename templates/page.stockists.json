@@ -1,0 +1,190 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 0
+      }
+    },
+    "1656639738831e85ee": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "6e30ba63-ee12-409c-ae5d-c870a6076d5c": {
+      "type": "multicolumn-global",
+      "blocks": {
+        "template--16101335138472__6e30ba63-ee12-409c-ae5d-c870a6076d5c-167158987136dbfe63-0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Amazon_logo.png",
+            "color_text": "#000000",
+            "title": "",
+            "custom_liquid": "",
+            "text": "<p><\/p>",
+            "link_label": "DR. Wolff Official Amazon Store",
+            "link": "https:\/\/www.amazon.com.au\/s?me=A2LAISY0K45FTD&marketplaceID=A39IBJ37TRP1C6"
+          }
+        },
+        "template--16101335138472__6e30ba63-ee12-409c-ae5d-c870a6076d5c-167158987136dbfe63-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/ebay_logo_2.png",
+            "color_text": "#000000",
+            "title": "",
+            "custom_liquid": "",
+            "text": "<p><\/p>",
+            "link_label": "Dr. Wolff Official ebay store",
+            "link": "https:\/\/www.ebay.com.au\/str\/plantur39officialstore"
+          }
+        },
+        "dac6c0ee-55e7-472d-9488-48a5ca5a23ef": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Catch_logo.png",
+            "color_text": "#000000",
+            "title": "",
+            "custom_liquid": "",
+            "text": "<p><\/p>",
+            "link_label": "Dr. Wolff Official Store",
+            "link": "https:\/\/www.catch.com.au\/search?query=plantur&search_src=topbar&ac=0"
+          }
+        },
+        "template--16101335138472__6e30ba63-ee12-409c-ae5d-c870a6076d5c-167158987136dbfe63-2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Chemist_warehouse_logo.png",
+            "color_text": "#000000",
+            "title": "Plantur 39 available at Chemist Warehouse in-store and online",
+            "custom_liquid": "",
+            "text": "<p><\/p>",
+            "link_label": "ChemistWarehouse.com.au",
+            "link": "https:\/\/www.chemistwarehouse.com.au\/search?searchtext=Plantur&fh=1"
+          }
+        },
+        "639250cc-008f-4e13-bf0e-f9f3c5d9713d": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/priceline-logo.jpg",
+            "color_text": "#000000",
+            "title": "Plantur 39 is available online and in-store",
+            "custom_liquid": "",
+            "text": "<p><\/p>",
+            "link_label": "Priceline.com.au",
+            "link": "https:\/\/www.priceline.com.au\/search\/plantur39"
+          }
+        },
+        "c8ecb7be-e20a-4a8b-b9c9-1c368a912899": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Green_Cross.png",
+            "color_text": "#000000",
+            "title": "Independent Pharmacies",
+            "custom_liquid": "",
+            "text": "<p><\/p>",
+            "link_label": "Ask your local pharmacy if they are a Plantur 39 stockist",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16101335138472__6e30ba63-ee12-409c-ae5d-c870a6076d5c-167158987136dbfe63-0",
+        "template--16101335138472__6e30ba63-ee12-409c-ae5d-c870a6076d5c-167158987136dbfe63-1",
+        "dac6c0ee-55e7-472d-9488-48a5ca5a23ef",
+        "template--16101335138472__6e30ba63-ee12-409c-ae5d-c870a6076d5c-167158987136dbfe63-2",
+        "639250cc-008f-4e13-bf0e-f9f3c5d9713d",
+        "c8ecb7be-e20a-4a8b-b9c9-1c368a912899"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "adjust_on_mobile": false,
+        "swipe_on_mobile": false,
+        "slider_visual": "dots",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "38d14b41-0a6d-49b6-9f15-ec445eddb6c4": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--16101335138472__38d14b41-0a6d-49b6-9f15-ec445eddb6c4-1671590098b49a7ad9-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Shop Our Official Online Store",
+            "heading_size": "h1"
+          }
+        },
+        "template--16101335138472__38d14b41-0a6d-49b6-9f15-ec445eddb6c4-1671590098b49a7ad9-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Enjoy access to exclusive value bundles and free shipping on orders over $60<\/p>",
+            "text_style": "body"
+          }
+        },
+        "template--16101335138472__38d14b41-0a6d-49b6-9f15-ec445eddb6c4-1671590098b49a7ad9-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Now",
+            "color_button": "#ffffff",
+            "color_button_text": "#121212",
+            "button_link": "shopify:\/\/collections\/all"
+          }
+        }
+      },
+      "block_order": [
+        "template--16101335138472__38d14b41-0a6d-49b6-9f15-ec445eddb6c4-1671590098b49a7ad9-0",
+        "template--16101335138472__38d14b41-0a6d-49b6-9f15-ec445eddb6c4-1671590098b49a7ad9-1",
+        "template--16101335138472__38d14b41-0a6d-49b6-9f15-ec445eddb6c4-1671590098b49a7ad9-2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/plantur39-product_With-Shadow.png",
+        "color_bg": "#95b94c",
+        "color_text": "#ffffff",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "16716013154b1997f7": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "14246729-ca54-4522-ad9b-68070614099c": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"yotpo yotpo-reviews-carousel\"  data-background-color=\"transparent\"  data-mode=\"most_recent\"  data-type=\"product\"  data-count=\"9\"  data-show-bottomline=\"1\"  data-autoplay-enabled=\"1\"  data-autoplay-speed=\"5000\"  data-show-navigation=\"1\">&nbsp;<\/div>",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1656639738831e85ee",
+    "6e30ba63-ee12-409c-ae5d-c870a6076d5c",
+    "38d14b41-0a6d-49b6-9f15-ec445eddb6c4",
+    "16716013154b1997f7",
+    "14246729-ca54-4522-ad9b-68070614099c"
+  ]
+}

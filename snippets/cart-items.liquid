@@ -1,0 +1,61 @@
+{{ 'component-cart.css' | asset_url | stylesheet_tag }}
+{{ 'component-cart-items.css' | asset_url | stylesheet_tag }}
+{{ 'component-totals.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+{{ 'component-discounts.css' | asset_url | stylesheet_tag }}
+{{ 'component-loading-overlay.css' | asset_url | stylesheet_tag }}
+
+<script src="{{ 'cart.js' | asset_url }}" defer="defer"></script>
+
+<cart-items class="{% if type == "cart-page" %}page-width{% endif %} {% if cart == empty %} is-empty{% endif %}">
+  <div class="cart__close">
+    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false" role="presentation" class="icon icon-close" fill="none" viewBox="0 0 18 17">
+      <path d="M.865 15.978a.5.5 0 00.707.707l7.433-7.431 7.579 7.282a.501.501 0 00.846-.37.5.5 0 00-.153-.351L9.712 8.546l7.417-7.416a.5.5 0 10-.707-.708L8.991 7.853 1.413.573a.5.5 0 10-.693.72l7.563 7.268-7.418 7.417z" fill="currentColor">
+      </path>
+    </svg>
+  </div>
+  {% if cart.item_count > 0 %}
+    <div class="title-wrapper-with-link">
+      {% if type == "cart-page" %}
+        <h1 class="title title--primary">{{ 'sections.cart.title' | t }}</h1>
+      {% else %}
+        <h3 class="title">{{ 'sections.cart.title' | t }}</h3>
+      {% endif %}
+      <span class="cart__items-count" id="cart-item-count">{{cart.item_count}} {% if cart.item_count == 1 %}item{% else %}items{% endif %}</span>
+      {%- comment -%}
+      <a href="{{ routes.all_products_collection_url }}" class="underlined-link">{{ 'general.continue_shopping' | t }}</a>
+      {%- endcomment -%}
+    </div>
+
+  {% endif %}
+
+  <div class="cart__warnings">
+    <h3 class="cart__empty-text">{{ 'sections.cart.empty' | t }}</h3>
+    <a href="{{ routes.all_products_collection_url }}" class="button button--primary">
+      {{ 'general.continue_shopping' | t }}
+    </a>
+  </div>
+
+  <form action="{{ routes.cart_url }}" class="cart__contents critical-hidden" method="post" id="cart">
+    <div class="cart__items" id="main-cart-items" data-id="{{ section.id }}">
+      <div class="js-contents">
+
+        {% assign threshold_goal_block = section.blocks | where: "type", "threshold_goal" | first %}
+
+        {% if threshold_goal_block != blank %}
+          {% render "threshold-goal", block: threshold_goal_block %}
+        {% endif %}
+        
+        {% case type %}
+          {% when "ajax" %}
+            {% render "cart-items--ajax" %}
+          {% else %}
+            {% render "cart-items--cart-page" %}
+        {% endcase %}
+      </div>
+    </div>
+
+    <p class="visually-hidden" id="cart-live-region-text" aria-live="polite" role="status"></p>
+    <p class="visually-hidden" id="shopping-cart-line-item-status" aria-live="polite" aria-hidden="true" role="status">{{ 'accessibility.loading' | t }}</p>
+  </form>
+</cart-items>

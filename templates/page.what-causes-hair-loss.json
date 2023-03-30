@@ -1,0 +1,370 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "165474957588b5c7f1": {
+      "type": "image-with-text",
+      "blocks": {
+        "16547495759a10b4b3-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "What causes hair problems after 40?",
+            "heading_size": "h1"
+          }
+        },
+        "16547495759a10b4b3-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p><\/p><p>Hair problems can occur at any age, but from the age of 40 onwards, your body starts to go through many changes – which may also affect the appearance and thickness of hair. Your hair grows thinner, the scalp becomes more visible, and the hairline recedes. These are just some of the possible effects of aging.<\/p><p>Although these changes are natural, they may have a negative impact on your confidence and self-esteem. The good news? With Plantur 39 things are looking up again.<\/p>",
+            "text_style": "subtitle"
+          }
+        },
+        "16547495759a10b4b3-2": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "color_button": "",
+            "color_button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "16547495759a10b4b3-0",
+        "16547495759a10b4b3-1",
+        "16547495759a10b4b3-2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/csm_plantur39-diagram-aus_14d8c905-5260-4f5b-bbe9-e2abed5627ff.jpg",
+        "color_bg": "#ffffff",
+        "color_text": "#000000",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "16547495810c71be3e": {
+      "type": "image-with-text",
+      "blocks": {
+        "16547495818105dda7-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "How does Plantur 39 work?",
+            "heading_size": "h1"
+          }
+        },
+        "16547495818105dda7-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Dr. Wolff Research, in collaboration with the Dermatology Department of the Jena University Clinic, has developed a Phyto-Caffeine Complex, an ingredient complex that helps to promotes thicker, stronger-looking hair – the secret behind the efficacy of Plantur 39. With this innovative technology, Plantur 39 energises each strand of hair with daily wash.<\/p><p><br\/>All of our formulas contain caffeine, which revitalises the hair during daily washing. Our products also contain various supporting ingredients like soy and white tea. Better known as phytoflavones, these botanical ingredients support healthy hair.<br\/><\/p>",
+            "text_style": "subtitle"
+          }
+        },
+        "16547495818105dda7-2": {
+          "type": "button",
+          "disabled": true,
+          "settings": {
+            "button_label": "Button label",
+            "color_button": "",
+            "color_button_text": "",
+            "button_link": ""
+          }
+        }
+      },
+      "block_order": [
+        "16547495818105dda7-0",
+        "16547495818105dda7-1",
+        "16547495818105dda7-2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Phyto-Coffein-Complex_Simple-Story_AUS_sRGB_B-Small.jpg",
+        "color_bg": "#ffffff",
+        "color_text": "#000000",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "mobile_content_alignment": "left",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "16547510321ea54027": {
+      "type": "collapsible-content",
+      "disabled": true,
+      "blocks": {
+        "16547510328a4a3a7d-0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Is caffeine shampoo good for your hair?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Yes, caffeine shampoo is ideal for hair care, particularly for women aged 40 and over who wish to do something about thinning hair. Plantur 39’s unique and patented Galenic formula ensures that the Phyto-Caffeine Complex and supporting ingredients found in its products are dosed correctly.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "16547510328a4a3a7d-1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do caffeine shampoos work?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>The efficacy of all products depends on the metabolism of the individual. This is because each individual reacts differently. You should use the shampoo for a sufficient period of time before you make a final judgment. As a rule, you can expect to see noticeable results after about three months.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "16547510328a4a3a7d-2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Which is the best caffeine shampoo?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Plantur 39is Germany’s #1 caffeine shampoo for women. Developed by Dr. Wolff R&D, it’s aimed at women over 40 who wish to do something about thinning hair and hair fall. With patented technology and unique Galenic formulation, it contains Phyto-Caffeine Complex with various active and supporting ingredients that make dull, tired hair look thicker and healthier.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "16547510328a4a3a7d-3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is Plantur 39?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Plantur 39 shampoos, conditioner, and tonic were especially formulated as cosmetic products for women over 40 who are experiencing thinning hair. Our products contain Phyto-Caffeine Complex and other supporting ingredients that help support healthier-looking hair with daily wash.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "c3dd327f-a33a-4573-89bf-df3046db65d1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Does Plantur 39 really work?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>The Plantur 39 shampoo and product range is designed to strengthen hair. It was especially formulated for women over 40 who are seeing the first signs of thinning hair, or wish to ramp up their hair care routine in anticipation of reduced hair volume. <\/p><p><\/p><p>Our products are widely used and loved in Europe, United Kingdom, North America, and now, Australia.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "0de854cd-91af-4f2f-a0eb-749a8df69935": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What does Plantur 39 do to your hair?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Plantur 39 is designed to strengthen your hair to help make it look fuller, thicker, and healthier using the Phyto-Caffeine Complex. Simply leave the caffeine shampoo on for 2 minutes before rinsing. Our caffeine shampoo is best paired with Plantur 39 conditioner, while the Plantur 39 tonic can be applied before other hair styling products.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "af54ee8c-5f11-44fb-9097-021286050d4b": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What does caffeine shampoo do for women’s hair?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Plantur caffeine shampoogives fine, brittle hair a thicker and stronger appearance with daily hair washing and sustained application. The Jena University Clinic has found it to be a good cosmetic treatment for thinning hair. It is best used with ourPlantur 39 conditioner.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "b973b530-904f-4323-ac5e-8b7d7e73e811": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Does Plantur 39 have side effects?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Plantur 39is safe for personal use. As a cosmetic product that is widely distributed in Europe, its formulation and packaging is fully compliant with the European Cosmetics Directive (76\/768\/EEC), which requires that all cosmetic products be free of undesirable side effects under normal conditions of use.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "42499d0d-6c8b-4007-9c1b-ac880806d7a1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "What is Plantur 39 tonic?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>This tonic is applied to the scalp, massaged in and left unwashed. The Tonic helps to build up a 24-hour depot to protect the scalp from the consequences of female bodily constitution changes from the age of 40.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "87c6c952-2574-4f2d-aabd-b2cb96f3d314": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do you use Plantur 39 tonic?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Use the dosage tip to apply the tonic directly on the scalp and massage it in. Wait 2 to 3 minutes before styling hair and using other hair products. Do not rinse. Apply and massage into the scalp once daily. Best used after washing hair with Plantur 39 Phyto-Caffeine Shampoo.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "ff72eb1e-53e5-4fc6-866a-cef982df874b": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Will caffeine shampoo keep me awake?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>No, it will not. The quantity of caffeine is harmless, even for people who are sensitive to caffeine. <\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "ee43294b-c7a1-4d3e-9fd7-e90a5f2e0098": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How often should you use Plantur 39?",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>A daily routine is key for the success of our products. We recommend washing your hair with Plantur 39 caffeine shampoo daily. If you are unable to wash your hair every day, or do not wish to do so, we recommend Plantur 39 Tonic on wash-free days to maintain your hair care routine. <\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "16547510328a4a3a7d-0",
+        "16547510328a4a3a7d-1",
+        "16547510328a4a3a7d-2",
+        "16547510328a4a3a7d-3",
+        "c3dd327f-a33a-4573-89bf-df3046db65d1",
+        "0de854cd-91af-4f2f-a0eb-749a8df69935",
+        "af54ee8c-5f11-44fb-9097-021286050d4b",
+        "b973b530-904f-4323-ac5e-8b7d7e73e811",
+        "42499d0d-6c8b-4007-9c1b-ac880806d7a1",
+        "87c6c952-2574-4f2d-aabd-b2cb96f3d314",
+        "ff72eb1e-53e5-4fc6-866a-cef982df874b",
+        "ee43294b-c7a1-4d3e-9fd7-e90a5f2e0098"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "Frequently asked questions",
+        "color_h": "#000000",
+        "column_count": "1",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "background-1",
+        "container_color_scheme": "background-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "1f210beb-f6c8-40f3-af63-99916e462467": {
+      "type": "collection-list",
+      "blocks": {
+        "template--16093671424168__1f210beb-f6c8-40f3-af63-99916e462467-167281249282d9270a-0": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "coloured-stressed-hair"
+          }
+        },
+        "template--16093671424168__1f210beb-f6c8-40f3-af63-99916e462467-167281249282d9270a-1": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "fine-brittle-hair"
+          }
+        },
+        "template--16093671424168__1f210beb-f6c8-40f3-af63-99916e462467-167281249282d9270a-2": {
+          "type": "featured_collection",
+          "settings": {
+            "collection": "brown-hair"
+          }
+        }
+      },
+      "block_order": [
+        "template--16093671424168__1f210beb-f6c8-40f3-af63-99916e462467-167281249282d9270a-0",
+        "template--16093671424168__1f210beb-f6c8-40f3-af63-99916e462467-167281249282d9270a-1",
+        "template--16093671424168__1f210beb-f6c8-40f3-af63-99916e462467-167281249282d9270a-2"
+      ],
+      "settings": {
+        "title": "Best Selling Ranges",
+        "heading_size": "h1",
+        "image_ratio": "square",
+        "columns_desktop": 3,
+        "color_scheme": "background-1",
+        "show_view_all": true,
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "165474957588b5c7f1",
+    "16547495810c71be3e",
+    "16547510321ea54027",
+    "1f210beb-f6c8-40f3-af63-99916e462467"
+  ]
+}

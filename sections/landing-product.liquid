@@ -1,0 +1,111 @@
+<style>
+  .product-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    gap: 20px;
+    margin-bottom: 50px;
+  }
+  .productTitle {
+    color: #c12352;
+    font-size: 32px;
+    padding: 0;
+    margin: 0;
+    line-height: 1.4;
+  }
+  .productSubTitle {
+    margin: 0;
+    padding: 0;
+    margin-bottom: 30px;
+  }
+  .product-title {
+    font-weight: bold;
+    font-size: 20px;
+    color: #c12352;
+    line-height: 1.4;
+    max-width: 80%;
+    margin: 0 auto;
+  }
+  .addtoCartButton {
+    background-color: #c12352;
+    color: white;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 20px;
+    display: inline-block;
+  }
+  .product-price {
+    margin-top: 20px;
+  }
+  @media (max-width: 768px) {
+    .product-grid {
+      flex-direction: column;
+      gap: 20px;
+    }
+    .product-image {
+      margin-bottom: 30px;
+    }
+  }
+</style>
+
+<div class="product-grid page-width">
+  {% for block in section.blocks %}
+    {% assign product = block.settings.product %}
+
+    <div class="product-image">
+      <h2 class="productTitle">{{ block.settings.productTitle }}</h2>
+      <p class="productSubTitle">{{ block.settings.productSubtitle }}</p>
+      <img src="{{ product.featured_image | img_url: 'original' }}" alt="Denim Jeans" style="width:100%">
+      <div class="product-title">{{ product.title }}</div>
+      <div class="product-price">{{ product.price | money }}</div>
+      <a class="addtoCartButton" href="{{ product.url }}">Add To Cart</a>
+    </div>
+  {% endfor %}
+</div>
+
+{% schema %}
+{
+  "name": "Landing Product Grid",
+  "settings": [],
+  "blocks": [
+    {
+      "name": "Product Grid",
+      "type": "slider",
+      "settings": [
+        {
+          "type": "text",
+          "id": "productTitle",
+          "label": "Product title",
+          "default": "Moisturising Cream"
+        },
+        {
+          "type": "text",
+          "id": "productSubtitle",
+          "label": "Product Subtitle",
+          "default": "For use inside in the vaginal and on the external genital area"
+        },
+        {
+          "type": "product",
+          "id": "product",
+          "label": "Add Product"
+        }
+      ]
+    }
+  ],
+
+  "presets": [
+    {
+      "name": "Landing Product Grid",
+      "blocks": [
+        {
+          "type": "slider"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

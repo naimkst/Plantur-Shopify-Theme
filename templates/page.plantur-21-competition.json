@@ -1,0 +1,114 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "custom_css": [
+
+      ],
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 0
+      }
+    },
+    "d05a3abf-42f4-41db-9679-96b2cd65ad8f": {
+      "type": "image-banner",
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Plantur_21_1920x749_8aa656d3-b175-43c1-9cdd-5e248299f9d6.png",
+        "image_overlay_opacity": 0,
+        "image_height": "medium",
+        "adapt_height_first_image": true,
+        "desktop_content_position": "middle-center",
+        "show_text_box": false,
+        "desktop_content_alignment": "center",
+        "color_scheme": "background-1",
+        "mobile_content_alignment": "center",
+        "stack_images_on_mobile": true,
+        "show_text_below": true
+      }
+    },
+    "db04344d-93ab-4e92-87be-b82104b6166b": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16172424102056__db04344d-93ab-4e92-87be-b82104b6166b-167927479294f53de6-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Enter Now For Your Chance to Win a Plantur 21 Long Hair Prize Pack Worth Over $64!",
+            "heading_size": "h1"
+          }
+        },
+        "template--16172424102056__db04344d-93ab-4e92-87be-b82104b6166b-167927479294f53de6-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>There are 3 prize packs up for grabs, each with the Plantur 21 Long Hair Shampoo, Conditioner, Booster and a Limited edition Detangling Brush worth over $64!<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--16172424102056__db04344d-93ab-4e92-87be-b82104b6166b-167927479294f53de6-0",
+        "template--16172424102056__db04344d-93ab-4e92-87be-b82104b6166b-167927479294f53de6-1"
+      ],
+      "settings": {
+        "text_align": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "86f1c2d1-4f91-43af-896e-42a5d66f6d85": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"klaviyo-form-SDHGeB\"><\/div>",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "1592cf5c-9846-4f0f-b0ef-f5e726c9770a": {
+      "type": "collapsible-content",
+      "blocks": {
+        "template--16172424102056__1592cf5c-9846-4f0f-b0ef-f5e726c9770a-1679290745ca1850d5-0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Terms And Conditions",
+            "open_first_collapsible_row": false,
+            "open": false,
+            "open_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>The giveaway is run by Dr Wolff Australia Pty Ltd (ABN 12 602 714 787) trading as Plantur 39. Entries open 10\/04\/23 12:00 AEDT closes 14\/05\/2023 12:00 AEDT. each prize pack includesPlantur 21 Long Hair Shampoo, Conditioner, Booster and a Limited edition Detangling Brush. The total prize pack has an approximate value of AUD 64.48. Entry is a completed submission form. Winners drawn on the 11\/05\/2023 during business hours AEDT based on the most creative answer. Winners will be notified same day as draw by email they entered the giveaway with. Prize packs will be posted out to the nominated address of the winner and are not redeemable for cash.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16172424102056__1592cf5c-9846-4f0f-b0ef-f5e726c9770a-1679290745ca1850d5-0"
+      ],
+      "settings": {
+        "caption": "",
+        "heading": "",
+        "color_h": "#000",
+        "column_count": "1",
+        "heading_size": "h1",
+        "heading_alignment": "center",
+        "layout": "none",
+        "color_scheme": "background-1",
+        "container_color_scheme": "background-2",
+        "open_first_collapsible_row": false,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "d05a3abf-42f4-41db-9679-96b2cd65ad8f",
+    "db04344d-93ab-4e92-87be-b82104b6166b",
+    "86f1c2d1-4f91-43af-896e-42a5d66f6d85",
+    "1592cf5c-9846-4f0f-b0ef-f5e726c9770a"
+  ]
+}

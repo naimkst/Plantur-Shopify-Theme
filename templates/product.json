@@ -1,0 +1,218 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "cd12d408-78d7-4b76-b0f6-c8ecff0e20d0": {
+          "type": "vendor-link",
+          "disabled": true,
+          "settings": {
+            "text": "{{ product.vendor }}",
+            "text_style": "uppercase",
+            "vendor_url": "",
+            "use_collections": true
+          }
+        },
+        "title": {
+          "type": "title",
+          "settings": {
+          }
+        },
+        "caption": {
+          "type": "text",
+          "settings": {
+            "text": "{{ product.metafields.descriptors.subtitle.value }}",
+            "text_style": "subtitle"
+          }
+        },
+        "price": {
+          "type": "price",
+          "settings": {
+          }
+        },
+        "8e77d3af-8f35-479d-b5cb-7db33c0fcf8c": {
+          "type": "payment",
+          "settings": {
+            "title": "Payment options",
+            "payment_show_1": false,
+            "payment_svg_file_1": "",
+            "payment_instalments_1": 4,
+            "payment_text_1": "",
+            "page_1": "",
+            "payment_lightbox_1": false,
+            "payment_show_2": false,
+            "payment_svg_file_2": "",
+            "payment_instalments_2": 4,
+            "payment_text_2": "",
+            "page_2": "",
+            "payment_lightbox_2": false,
+            "payment_show_3": false,
+            "payment_svg_file_3": "",
+            "payment_instalments_3": 4,
+            "payment_text_3": "",
+            "page_3": "",
+            "payment_lightbox_3": false,
+            "payment_show_4": false,
+            "payment_text_4": "",
+            "payment_svg_file_4": "",
+            "payment_instalments_4": 4,
+            "page_4": "",
+            "payment_lightbox_4": false
+          }
+        },
+        "variant_picker": {
+          "type": "variant_picker",
+          "settings": {
+            "picker_type": "button"
+          }
+        },
+        "quantity_selector": {
+          "type": "quantity_selector",
+          "settings": {
+          }
+        },
+        "buy_buttons": {
+          "type": "buy_buttons",
+          "settings": {
+            "show_dynamic_checkout": false
+          }
+        },
+        "collapsible-row-0": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Materials",
+            "icon": "leather",
+            "content": "<p><\/p>",
+            "page": ""
+          }
+        },
+        "collapsible-row-2": {
+          "type": "collapsible_tab",
+          "disabled": true,
+          "settings": {
+            "heading": "Dimensions",
+            "icon": "ruler",
+            "content": "<p><\/p>",
+            "page": ""
+          }
+        },
+        "090f2f6a-2512-4e45-96c3-722ca0c9880c": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "How to Use",
+            "icon": "clipboard",
+            "content": "<p>{{ product.metafields.custom.how_to_use | metafield_tag }}<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible-row-3": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Ingredients",
+            "icon": "leaf",
+            "content": "<p>{{ product.metafields.my_fields.ingredients | metafield_tag }}<\/p>",
+            "page": ""
+          }
+        },
+        "collapsible-row-1": {
+          "type": "collapsible_tab",
+          "settings": {
+            "heading": "Shipping",
+            "icon": "truck",
+            "content": "<p><strong>FREE SHIPPING AUSTRALIA WIDE ON ORDERS OVER $50<\/strong><\/p><p>Flate rate shipping of $8.25 for all orders under $50Purchase from the official Plantur 39 store<\/p>",
+            "page": ""
+          }
+        },
+        "share": {
+          "type": "share",
+          "disabled": true,
+          "settings": {
+            "share_label": "Share"
+          }
+        },
+        "588a27e9-1c89-43b6-a848-a0379fc958c4": {
+          "type": "related-collections",
+          "disabled": true,
+          "settings": {
+            "visually_hidden": false,
+            "title": "Related Collections",
+            "pretext": "Shop More:",
+            "exclusions": "all"
+          }
+        },
+        "description": {
+          "type": "description",
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "cd12d408-78d7-4b76-b0f6-c8ecff0e20d0",
+        "title",
+        "caption",
+        "price",
+        "8e77d3af-8f35-479d-b5cb-7db33c0fcf8c",
+        "variant_picker",
+        "quantity_selector",
+        "buy_buttons",
+        "collapsible-row-0",
+        "collapsible-row-2",
+        "090f2f6a-2512-4e45-96c3-722ca0c9880c",
+        "collapsible-row-3",
+        "collapsible-row-1",
+        "share",
+        "588a27e9-1c89-43b6-a848-a0379fc958c4",
+        "description"
+      ],
+      "settings": {
+        "enable_sticky_info": true,
+        "gallery_layout": "thumbnail_slider",
+        "media_size": "small",
+        "mobile_thumbnails": "show",
+        "hide_variants": false,
+        "enable_video_looping": false,
+        "padding_top": 36,
+        "padding_bottom": 12
+      }
+    },
+    "product-recommendations": {
+      "type": "product-recommendations",
+      "settings": {
+        "heading": "You may also like",
+        "heading_size": "h2",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "color_scheme": "background-1",
+        "image_ratio": "square",
+        "show_secondary_image": true,
+        "show_vendor": false,
+        "show_rating": false,
+        "columns_mobile": "2",
+        "padding_top": 36,
+        "padding_bottom": 28
+      }
+    },
+    "1654750702cc7a900e": {
+      "type": "related-products",
+      "disabled": true,
+      "settings": {
+        "title": "Related Products",
+        "products_to_show": 4,
+        "color_scheme": "background-1",
+        "swipe_on_mobile": true,
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": false,
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "main",
+    "product-recommendations",
+    "1654750702cc7a900e"
+  ]
+}

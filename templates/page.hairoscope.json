@@ -1,0 +1,43 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 48
+      }
+    },
+    "7cefdec6-bbc0-41d8-a56d-a097645ec2f9": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div data-tf-widget=\"dhO4rbnw\" data-tf-opacity=\"0\" data-tf-hide-headers data-tf-iframe-props=\"title=Plantur 39 Hairoscope\" style=\"width:100%;height:600px;\"><\/div><script src=\"\/\/embed.typeform.com\/next\/embed.js\"><\/script>",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "1656639738831e85ee": {
+      "type": "apps",
+      "blocks": {
+        "4eddf3f4-0e89-4226-b9ad-8e2cdae16127": {
+          "type": "shopify:\/\/apps\/yotpo-subscriptions\/blocks\/app-block\/ef25e582-ada5-4bb0-b4e7-f94e97ab1bb4",
+          "disabled": true,
+          "settings": {
+          }
+        }
+      },
+      "block_order": [
+        "4eddf3f4-0e89-4226-b9ad-8e2cdae16127"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "7cefdec6-bbc0-41d8-a56d-a097645ec2f9",
+    "1656639738831e85ee"
+  ]
+}

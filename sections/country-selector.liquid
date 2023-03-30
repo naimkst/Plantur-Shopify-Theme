@@ -1,0 +1,107 @@
+<style>
+  #shopify-section-country-selector {
+    display: none;
+  }
+</style>
+<details class="country-selector">
+
+  <summary class="country__current-country">
+    <div class="country-selector__title">
+      {% for block in section.blocks %}
+        {% if block.settings.currency == cart.currency.iso_code %}
+          {%- if section.settings.enable_flags -%}
+            {% render 'img', image: block.settings.country_flag %}
+          {%- endif -%}
+
+          <p>{{ block.settings.title }}</p>
+
+          <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-caret" viewBox="0 0 10 6">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor"> </path>
+          </svg>
+
+        {% endif %}
+
+        {%- capture country_item %}
+          <a class="country-selector__link" href="{{ block.settings.country_link }}">
+            {%- if section.settings.enable_flags -%}
+              {% render 'img', image: block.settings.country_flag %}
+            {%- endif -%}
+            {{ block.settings.currency_symbol }}{{ block.settings.currency }}
+          </a>
+          {%- assign country_dropdown = country_dropdown | append: country_item -%}
+        {% endcapture -%}
+
+      {% endfor %}
+    </div>
+  </summary>
+
+  <div class="country-selector__options">
+    {{ country_dropdown }}
+  </div>
+
+</details>
+
+
+{% schema %}
+{
+  "name": "Country Selector",
+  "max_blocks": 12,
+  "settings": [
+    {
+      "type": "checkbox",
+      "label": "Show country selector",
+      "id": "show_country_selector"
+    },
+    {
+      "type": "text",
+      "label": "Current country code",
+      "id": "current_country_code"
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_flags",
+      "label": "Enable Flag Icons",
+      "default": false
+    }
+  ],
+  "blocks": [
+    {
+      "type": "country",
+      "name": "Country",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Country code"
+        },
+        {
+          "type": "text",
+          "id": "currency_symbol",
+          "label": "Country currency symbol"
+        },
+        {
+          "type": "text",
+          "id": "currency",
+          "label": "Country currency"
+        },
+        {
+          "type": "text",
+          "id": "country_name",
+          "label": "Country name"
+        },
+        {
+          "type": "image_picker",
+          "id": "country_flag",
+          "label": "Country flag"
+        },
+        {
+          "type": "url",
+          "id": "country_link",
+          "label": "Country link"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}
+

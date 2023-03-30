@@ -1,0 +1,89 @@
+{{ 'component-ajax-cart.css' | asset_url | stylesheet_tag }}
+<script src="{{ 'cart--ajax.js' | asset_url }}" defer="defer"></script>
+
+<ajax-cart>
+  <div id="ajax-cart">
+    <backdrop></backdrop>
+    <cart-drawer>
+      {% render "cart-items", type: "ajax", section: section %}
+      {% render "cart-footer", type: "ajax", section: section %}
+    </cart-drawer>
+  </div>
+</ajax-cart>
+{% schema %}
+{
+  "name": "Ajax Cart",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_cart_note",
+      "default": false,
+      "label": "Show cart note"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "subtotal",
+      "name": "Subtotal",
+      "limit": 1
+    },
+    {
+      "type": "order_total",
+      "name": "Order Total",
+      "limit": 1
+    },
+    {
+      "type": "buttons",
+      "name": "Buttons",
+      "limit": 1
+    },
+    {
+      "type": "threshold_goal",
+      "name": "Threshold Goal",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "richtext",
+          "id": "copy",
+          "default": "<p>You are $amount away from free shipping!</p>",
+          "label": "Copy"
+        },
+        {
+          "type": "text",
+          "id": "goal_threshold",
+          "default": "100.00",
+          "label": "Goal Threshold"
+        },
+        {
+          "type": "richtext",
+          "id": "success_copy",
+          "default": "<p>Congratulations! You get free shipping</p>",
+          "label": "Success Copy"
+        }
+      ]
+    },
+    {
+      "type": "shipping",
+      "name": "Shipping",
+      "limit": 1,
+      "settings": [
+        {
+          "type": "text",
+          "id": "shipping_cost",
+          "default": "10.00",
+          "label": "Shipping Cost"
+        },
+        {
+          "type": "text",
+          "id": "free_shipping_threshold",
+          "default": "100.00",
+          "label": "Free Shipping Threshold"
+        }
+      ]
+    },
+    {
+      "type": "@app"
+    }
+  ]
+}
+{% endschema %}

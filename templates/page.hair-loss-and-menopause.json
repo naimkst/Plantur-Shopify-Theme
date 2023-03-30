@@ -1,0 +1,196 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "1656639738831e85ee": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "1c1c9776-3fc7-487d-b349-483b44ec01f7": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16101335269544__1c1c9776-3fc7-487d-b349-483b44ec01f7-1671591145bb985159-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Hair loss is an everyday occurrence – each day we lose up to 60 hairs. Should, however, more than 100 hairs collect in your brush on a daily basis, then it's time to look for the cause\/trigger. If the hair becomes thinner, falls out prematurely or the hairline recedes, this can be due to a number of reasons.<\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--16101335269544__1c1c9776-3fc7-487d-b349-483b44ec01f7-1671591145bb985159-1"
+      ],
+      "settings": {
+        "text_align": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "c9ae6bee-2cec-4074-9690-035ccbc10293": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--16101335269544__c9ae6bee-2cec-4074-9690-035ccbc10293-16715911637f01630a-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "What is Menopause",
+            "heading_size": "h1"
+          }
+        },
+        "template--16101335269544__c9ae6bee-2cec-4074-9690-035ccbc10293-16715911637f01630a-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Menopause is the change a woman goes through to transition to the next phase in her life. Where the body moves away from being able to have children.<\/p><p>There are three main stages of menopause.<\/p><p>1. Premenopause<\/p><p>2. Perimenopause<\/p><p>3.  Menopause<\/p><p><\/p><p>During these stages the body reduces it oestrogen production to slowly switch off mensuration. Unfortunately this can have some side effects such as weaker bones, thinning hair, hair loss, hot flashes, mood swings, vaginal dryness and increased risk of UTI.<\/p>",
+            "text_style": "subtitle"
+          }
+        }
+      },
+      "block_order": [
+        "template--16101335269544__c9ae6bee-2cec-4074-9690-035ccbc10293-16715911637f01630a-0",
+        "template--16101335269544__c9ae6bee-2cec-4074-9690-035ccbc10293-16715911637f01630a-1"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/csm_plantur39-diagram-aus_14d8c905-5260-4f5b-bbe9-e2abed5627ff.jpg",
+        "color_bg": "#ffffff",
+        "color_text": "#000000",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "adf9a1e8-1970-4b67-9a9f-a569217c7ae6": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--16101335269544__adf9a1e8-1970-4b67-9a9f-a569217c7ae6-16715911637f01630a-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Why Does it Cause Hair Loss",
+            "heading_size": "h1"
+          }
+        },
+        "template--16101335269544__adf9a1e8-1970-4b67-9a9f-a569217c7ae6-16715911637f01630a-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Androgenetic alopecia (hair loss caused by male hormones) is primarily triggered by hormonal changes during and after menopause. The cause is the increased influence of the male hormone (testosterone) on the hair growth cycle and the hair roots.<\/p>",
+            "text_style": "subtitle"
+          }
+        }
+      },
+      "block_order": [
+        "template--16101335269544__adf9a1e8-1970-4b67-9a9f-a569217c7ae6-16715911637f01630a-0",
+        "template--16101335269544__adf9a1e8-1970-4b67-9a9f-a569217c7ae6-16715911637f01630a-1"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Untitled_design_20.jpg",
+        "color_bg": "#ffffff",
+        "color_text": "#121212",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 36
+      }
+    },
+    "9b646489-39e9-4769-b92e-4dc1a7e97fa4": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<div class=\"klaviyo-form-XKTnve\"><\/div>",
+        "color_scheme": "background-1",
+        "padding_top": 4,
+        "padding_bottom": 0
+      }
+    },
+    "1671689531a3519737": {
+      "type": "apps",
+      "blocks": {
+        "9bc3a8a1-cffe-4094-8f1d-9d9a7f13a5ed": {
+          "type": "shopify:\/\/apps\/klaviyo-email-marketing-sms\/blocks\/form-embed-block\/2632fe16-c075-4321-a88b-50b567f42507",
+          "settings": {
+            "formId": ""
+          }
+        }
+      },
+      "block_order": [
+        "9bc3a8a1-cffe-4094-8f1d-9d9a7f13a5ed"
+      ],
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "5203c3ff-52b2-4e5c-9158-03df50c6da96": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--16101335269544__5203c3ff-52b2-4e5c-9158-03df50c6da96-16715961873e809cbf-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Help your  hair with Plantur",
+            "heading_size": "h1"
+          }
+        },
+        "template--16101335269544__5203c3ff-52b2-4e5c-9158-03df50c6da96-16715961873e809cbf-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Plantur is designed for women over 40 to help strengthen their hair and reduce hair thinning.<\/p>",
+            "text_style": "body"
+          }
+        },
+        "template--16101335269544__5203c3ff-52b2-4e5c-9158-03df50c6da96-16715961873e809cbf-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Now",
+            "color_button": "#ffffff",
+            "color_button_text": "#121212",
+            "button_link": "shopify:\/\/collections\/all"
+          }
+        }
+      },
+      "block_order": [
+        "template--16101335269544__5203c3ff-52b2-4e5c-9158-03df50c6da96-16715961873e809cbf-0",
+        "template--16101335269544__5203c3ff-52b2-4e5c-9158-03df50c6da96-16715961873e809cbf-1",
+        "template--16101335269544__5203c3ff-52b2-4e5c-9158-03df50c6da96-16715961873e809cbf-2"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/plantur39-product_With-Shadow.png",
+        "color_bg": "#95b94c",
+        "color_text": "#ffffff",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "mobile_content_alignment": "left",
+        "padding_top": 12,
+        "padding_bottom": 12
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1656639738831e85ee",
+    "1c1c9776-3fc7-487d-b349-483b44ec01f7",
+    "c9ae6bee-2cec-4074-9690-035ccbc10293",
+    "adf9a1e8-1970-4b67-9a9f-a569217c7ae6",
+    "9b646489-39e9-4769-b92e-4dc1a7e97fa4",
+    "1671689531a3519737",
+    "5203c3ff-52b2-4e5c-9158-03df50c6da96"
+  ]
+}

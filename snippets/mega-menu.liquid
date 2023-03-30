@@ -1,0 +1,336 @@
+{% liquid
+  assign menu = menu
+  assign navigation = linklists[menu]
+  assign html_nav = ''
+%}
+{% capture more_button %}
+  <li class="mega-menu-item" id="menu-dropdown">
+    <button class="navbar-link mega-menu-btn navigation" 
+    data-menu="dropdown"
+    data-item="dropdown" {% if text_color != blank %}style="color:{{text_color}};"{% endif %}>
+    <span class="button-label">More</span>
+    <svg aria-hidden="true" focusable="false" role="presentation" class="icon icon-caret" viewBox="0 0 10 6">
+      <path fill-rule="evenodd" clip-rule="evenodd" d="M9.354.646a.5.5 0 00-.708 0L5 4.293 1.354.646a.5.5 0 00-.708.708l4 4a.5.5 0 00.708 0l4-4a.5.5 0 000-.708z" fill="currentColor">
+    </path>
+    </svg>
+    </button>
+    <div class="mega-menu-dropdown more-dropdown"></div>
+  </li>
+{% endcapture %}
+
+<div id="Navigation" style="display: none;" itemscope="itemscope" itemtype="http://www.schema.org/SiteNavigationElement">
+  
+  {% for link in navigation.links %}
+    {%- assign link_url = link.url -%}
+    {%- assign link_handle = link.handle | handle -%}
+    {%- assign link_title = link.title -%}
+    {%- assign menu_handle = link.handle | handle -%}
+    {%- capture item %}
+      {%- if link_url == '#' -%}
+        <li class="mega-menu-item">
+          <span class="my-2 mx-3 pr-2 p-0 navbar-link mega-menu-btn navigation" 
+          data-menu="{{ menu_handle }}"
+          data-item="{{link_handle}}" {% if text_color != blank %}style="color:{{text_color}};"{% endif %}>{{ link_title }}</span>
+          <div class="mega-menu-dropdown" data-menu="{{ menu_handle }}"></div>
+        </li>
+      {% elsif link_url contains '#' %}
+        {% if link_url contains '#@'%} {% comment %}if in nav we set #@ that means we want to have anchoring link {% endcomment%}
+          {%- assign link_url = link_url | replace: "#@", "#" -%}
+          {%- assign menu_handle = link_url | remove: '#' -%}
+          <li class="mega-menu-item">
+            <a href="{{ link_url }}" class="mega-menu-btn my-2 mx-3 pr-2 p-0 navbar-link navigation js-unique-anchors__item" 
+            data-menu="{{ menu_handle }}"
+            data-item="{{link_handle}}" {% if text_color != blank %}style="color:{{text_color}};"{% endif %}>{{ link_title }}</a>
+          </li>
+        {% else %}
+          {%- assign menu_handle = link_url | remove: '#' | handle -%}
+          <li class="mega-menu-item">
+            <span class="my-2 mx-3 pr-2 p-0 navbar-link mega-menu-btn navigation" 
+            data-menu="{{ menu_handle }}"
+            data-item="{{link_handle}}" {% if text_color != blank %}style="color:{{text_color}};"{% endif %}>{{ link_title }}</span>
+            <div class="mega-menu-dropdown" data-menu="{{ menu_handle }}"></div>
+          </li>
+        {% endif %}
+      {% else %}
+        {% if link_url contains '#' %}
+          {%- if link_url != '#' -%}
+            {%- assign link_handle = link_url | remove: '#' | handle -%}
+          {%- endif -%}
+        {% else %}
+          {%- assign link_handle = menu_handle -%}
+        {%- endif -%}
+      
+        {%- assign menu_handle = menu_handle  -%}
+        {%- assign link_handle = menu_handle -%}
+        {%- assign link_children = link.links | default: linklists[link_handle].links -%}
+
+        <li class="mega-menu-item">
+          <a href="{{ link_url }}" class="mega-menu-btn my-2 mx-3 pr-2 p-0 navbar-link navigation" 
+          data-menu="{{ menu_handle }}"
+          data-item="{{link_handle}}" {% if text_color != blank %}style="color:{{text_color}};"{% endif %}>{{ link_title }}</a>
+          {%- if link_children.size > 0 -%}
+            <button class="mega-menu__button" aria-controls="{{ menu_handle }}" aria-expanded="false">
+              {%- render 'icon-caret' -%}
+              <span class="sr-only">{{ link_title }}</span>
+            </button>
+            <span class="mega-menu-marker"></span>
+            <div class="mega-menu-dropdown" data-menu="{{ menu_handle }}"></div>
+          {% endif %}
+        </li>
+      {%- endif -%}
+    {% endcapture -%}
+
+    {%- assign html_nav = html_nav | append: item -%}
+
+
+    <a itemprop="url" href="{{ link_url }}" data-ref="{{ link.url }}" data-level="1" data-handle="{{link_handle}}" data-title="{{ link_title }}">{{ link_title }}
+      <span itemprop="name">{{ link_title }}</span>
+    </a>
+
+      {%- assign link_children = link.links | default: linklists[link_handle].links -%}
+      {% for link in link_children %}
+        <a itemprop="url" itemprop="name" href="{{ link.url }}" data-ref="{{ link.url }}" data-level="2" data-title="{{ link.title }}">{{ link.title }}
+          <span itemprop="name">{{ link.title }}</span></a>
+        {%- assign link_children = link.links | default: linklists[link.handle].links -%}
+
+        {% for link in link_children %}
+          <a itemprop="url" href="{{ link.url }}" data-ref="{{ link.url }}" data-level="3" data-title="{{ link.title }}">{{ link.title }}
+          <span itemprop="name">{{ link.title }}</span></a>
+          {%- assign link_children = link.links | default: linklists[link.handle].links -%}
+
+          {% for link in link_children %}
+            <a itemprop="url" href="{{ link.url }}" data-ref="{{ link.url }}" data-level="4" data-title="{{ link.title }}">{{ link.title }}
+            <span itemprop="name">{{ link.title }}</span></a>
+          {% endfor %}
+        {% endfor %}
+      {% endfor %}
+  {% endfor %}
+
+</div>
+
+<mega-menu>
+  <ul class="list-menu list-menu--inline" role="list">
+    {{ html_nav }}
+  </ul>
+  <div class="mega-menu-overlay"></div>
+</mega-menu>
+
+{%- capture mege_menu_layouts %}
+[
+  {%- for block in section.blocks -%}
+  {%- unless forloop.first -%}
+    ,
+  {%- endunless -%}
+  {
+    
+    "handle": {{ block.settings.title | handle | json }},
+    "menu_handle": {{ block.settings.menu_handle | handle | json }},
+    "layout": {{block.type | json }},
+
+    {%- if block.type contains 'images' -%}
+      {%liquid
+        assign image_1 = ''
+        assign image_2 = ''
+        assign image_url_1 = block.settings.image_1
+        assign image_url_2 = block.settings.image_2
+        %}
+
+        {%- capture image_1 %}
+          {%- unless image_url_1 == blank -%}
+            {%- render 'image' with image: image_url_1, size: 's' -%}
+          {%- endunless -%}
+        {% endcapture -%}
+
+        {%- capture image_2 %}
+          {%- unless image_url_2 == blank -%}
+            {%- render 'image' with image: image_url_2, size: 's' -%}
+          {%- endunless -%}
+        {% endcapture -%}
+
+        "aspect-class": {{ block.settings.image_aspect | prepend: 'image--' | json }},
+        "menu-width": {{ block.settings.menu_width | json }},
+        "column-width": "",
+        "imagery-width": {{ 100 | minus: block.settings.menu_width | json }},
+        "heading": {{ block.settings.heading | json }},
+        "images": [
+          {%- if block.settings.product_1 != blank or image_1 != blank -%}
+            {
+              "title": {{ block.settings.title_1 | json }},
+              "image": {{ image_1 | json }},
+              "product": {{ block.settings.product_1 | json }},
+              "url": {{ block.settings.image_url_1 | json }},
+              "button_text": {{ block.settings.button_text_1 | json }} 
+            }
+          {%- endif -%}
+          {%- if block.settings.product_2 != blank or image_2 != blank -%}
+            {%- if block.settings.product_1 != blank or image_1 != blank -%}
+              {{ ','}}
+            {%- endif -%}
+            {
+              "title": {{ block.settings.title_2 | json }},
+              "image": {{ image_2 | json }},
+              "product": {{ block.settings.product_2 | json }},
+              "url": {{ block.settings.image_url_2 | json }},
+              "button_text": {{ block.settings.button_text_2 | json }}
+            }
+          {%- endif -%}
+        ]
+    {%- else -%}
+      "column-width": {{ block.settings.column_count | json }}
+    {%- endif -%}
+    
+  }
+  {%- endfor -%}
+] 
+{% endcapture -%}
+
+{%- if mege_menu_layouts != blank -%}
+  <script type="application/json" data-mega-menu>
+    {{ mege_menu_layouts }}
+  </script>
+{%- endif -%}
+
+<template data-template-for="mega-menu" data-template-name="nested-nav-item" data-blocks="handle,url,title,link_title">
+  <li class="menu-item">
+    <details class="" data-toggle-id="{link_title}">
+      <summary class="">
+        <div class="menu-item-summary-inner">
+          <a href="{url}" class="menu-item-link navigation">{title}</a>
+          <span class="mega-menu__button">
+            {%- render 'icon-caret' -%}
+            <span class="sr-only">{title}</span>
+          </span>
+        </div>
+      </summary>
+      <ul id="link-{link_title}" class="mega-menu-sublist"  
+        aria-orientation="vertical" 
+        role="tab-panel" 
+        aria-labelledby="{link_title}" 
+        data-menu-page="{link_title}" 
+        tabindex="-1">
+        {items}
+      </ul>
+    </details>
+  </li>
+  
+</template>
+
+<template data-template-for="mega-menu" data-template-name="navlist" data-blocks="items,handle">
+  <ul class="mega-menu-list" labelledby="{handle}">
+    {items}
+  </ul>
+</template>
+
+<template data-template-for="mega-menu" data-template-name="nested-navlist" data-blocks="items,handle">
+  <ul class="mega-menu-list mega-menu-list--outlined" labelledby="{handle}">
+    {items}
+  </ul>
+</template>
+
+<template data-template-for="mega-menu" data-template-name="nav-item" data-blocks="url,title">
+  <li class="menu-item">
+    <a href="{url}" class="menu-item-link navigation">{title}</a>
+  </li>
+</template>
+
+<template data-template-for="mega-menu" data-template-name="nav-item-heading" data-blocks="url,title">
+  <li class="menu-item">
+    <span class="menu-item-link-heading"><a href="{url}" class="menu-item-link navigation">{title}</a></span>
+  </li>
+</template>
+
+<template data-template-for="mega-menu" data-template-name="mega-menu-images" data-blocks="navlist,images,heading,aspect-class,menu-width,imagery-width">
+  <div class="mega-menu-container">
+    <div class="mega-menu-column" style="width: {menu-width}%;">
+      <div class="mega-menu-nav">
+        {navlist}
+      </div>
+    </div>
+    <div class="mega-menu-column" style="width: {imagery-width}%;">
+      <div class="mega-menu-heading navigation">
+        {heading}
+      </div>
+      <div class="mega-menu-images {aspect-class}">
+        {images}
+      </div>
+    </div>
+  </div>
+</template>
+
+<template data-template-for="mega-menu" data-template-name="mega-menu-nested-images" data-blocks="nested-navlist,images,heading,aspect-class,menu-width,imagery-width">
+  <div class="mega-menu-container">
+    <div class="mega-menu-column" style="width: {menu-width}%;">
+      <div class="mega-menu-nav">
+        {nested-navlist}
+      </div>
+    </div>
+    <div class="mega-menu-column" style="width: {imagery-width}%;">
+      <div class="mega-menu-heading navigation">
+        {heading}
+      </div>
+      <div class="mega-menu-images {aspect-class}">
+        {images}
+      </div>
+    </div>
+  </div>
+</template>
+
+<template data-template-for="mega-menu" data-template-name="mega-menu" data-blocks="navlist,column-width">
+  <div class="mega-menu-container">
+    <div class="mega-menu-column mega-menu-column--full">
+      <div class="mega-menu-grid">
+        {navlist}
+      </div>
+    </div>
+  </div>
+</template>
+
+<template data-template-for="mega-menu" data-template-name="mega-menu-nested" data-blocks="nested-navlist,column-width">
+  <div class="mega-menu-container">
+    <div class="mega-menu-column mega-menu-column--full">
+      <div class="mega-menu-grid mega-menu-grid--nested">
+        {nested-navlist}
+      </div>
+    </div>
+  </div>
+</template>
+
+<template data-template-for="mega-menu" data-template-name="image-item" data-blocks="image,title,url,button_text">
+  <div class="mega-menu-image-item">
+    <div class="image-wrapper">
+      <a href="{url}" class="image-item__image">
+        {image}
+      </a>
+      
+    </div>
+    <div class="">
+      <span class="image-item__title navigation">{title}</span>
+      <a href="{url}" class="image-item__button p">
+        {button_text}
+      </a>
+    </div>
+  </div>
+</template>
+
+<template data-template-for="mega-menu" data-template-name="product-item" data-blocks="image_html,title,price,url,button_text">
+  <div class="mega-menu-product-item">
+    <div class="image-wrapper">
+      <div class="product-item">
+        <a href="{url}" class="product-item__image">
+          {image_html}
+        </a>
+        <div class="">
+          <h3 class="p-large">{title}</h3>
+        </div>
+        <div class="price ">
+          <span class="price-item price-item--regular p">
+            {price}
+          </span>
+        </div>
+        <a href="{url}" class="">
+          {button_text}
+        </a>
+      </div>
+    </div>
+  </div>
+</template>

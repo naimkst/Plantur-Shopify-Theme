@@ -1,0 +1,334 @@
+{%- comment -%}
+OD CONTENT FOR HEADER SNIPPET V2.0
+ HOW TO USE
+
+  In theme.liquid, replace:
+
+  {{ content_for_header }}
+
+  with:
+
+  {% if false %}{{ content_for_header }}{% endif %}
+  {% render 'content-for-header' %}
+
+{% endcomment %}
+
+
+<script>
+  // requestIdleCallback shim https://gist.github.com/paullewis/55efe5d6f05434a96c36
+  window.requestIdleCallback=window.requestIdleCallback||function(e){return setTimeout(function(){var n=Date.now();e({didTimeout:!1,timeRemaining:function(){return Math.max(0,50-(Date.now()-n))}})},1)},window.cancelIdleCallback=window.cancelIdleCallback||function(e){clearTimeout(e)};
+</script>
+
+{% comment %} Uncomment if used
+<script>
+  /*! loadJS: load a JS file asynchronously. [c]2014 @scottjehl, Filament Group, Inc. (Based on http://goo.gl/REQGQ by Paul Irish). Licensed MIT */
+  !function(e){var t=function(t,o,n){"use strict";var r,a=e.document.getElementsByTagName("script")[0],c=e.document.createElement("script");return"boolean"==typeof o&&(r=n,n=o,o=r),c.src=t,c.async=!n,a.parentNode.insertBefore(c,a),o&&"function"==typeof o&&(c.onload=o),c};"undefined"!=typeof module?module.exports=t:e.loadJS=t}("undefined"!=typeof global?global:this);
+</script>
+
+{% if request.design_mode == false %}
+{% endif %}
+An example of preloading fonts and other assets
+{% endcomment %}
+
+{% comment %}
+<link rel="preload" href="//cdn1.stamped.io/files/widget.min.css" as="style">
+<link rel="preload" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" as="font">
+<link rel="preload" href="https://fonts.googleapis.com/css?family=Open+Sans:400,600&display=swap" as="style">
+{% endcomment %}
+
+{% if template contains 'product' %}
+  {% if product.media[0] %}
+    <link rel="preload" href="{{ product.media[0] | img_url: '540x' }}" as="image">
+  {% endif %}
+{% endif %}
+{% comment %}
+Preload the product hero image and the first few images in a collection
+{% if template contains 'collection' %}
+  {% for product in collection.products limit: 4  %}
+    {% if product.media[0] %}
+      <link rel="preload" href="{{ product.media[0] | img_url: '360x' }}" as="image">
+    {% endif %}
+  {% endfor %}
+{% endif %}
+{% endcomment %}
+{%- assign content_for_header_raw = content_for_header -%}
+{%- if content_for_header_raw contains 'var urls = [' -%}
+  
+
+{%liquid
+  
+  assign content_for_header_split = content_for_header_raw |  split: 'var urls = ['
+
+  assign content_for_header_first = content_for_header_split | first | append: 'var urls = [' 
+  assign urls = content_for_header_split | last | split: "];" | first 
+  assign content_for_header_last = content_for_header_split | last | split: urls | last 
+  assign urls = urls | split: "," 
+
+  assign delayed_urls = '' 
+%}
+
+{% comment %}STEP 1 REMOVE{% endcomment %}
+{%liquid
+  assign remove_sitewide = "" 
+  assign remove_article = "" 
+  assign remove_blog = "" 
+  assign remove_cart = "" 
+  assign remove_collection = "" 
+  assign remove_index = "" 
+  assign remove_product = "" 
+  assign remove_search = "" 
+  assign remove_customers = "" 
+%}
+
+{% comment %}STEP 2 DELAYS{% endcomment %}
+{%liquid
+  assign delay_sitewide = "" 
+  assign delay_index = "" 
+  assign delay_article = "" 
+  assign delay_blog = "" 
+  assign delay_cart = "" 
+  assign delay_collection = "" 
+  assign delay_product = "" 
+  assign delay_search = "" 
+  assign delay_customers = "" 
+%}
+
+{% if urls.size > 0 %}
+  {%liquid
+    case template 
+      when 'article' 
+        assign urls_to_remove = remove_article 
+        assign urls_to_delay = delay_article 
+      when 'blog'
+        assign urls_to_remove = remove_blog 
+        assign urls_to_delay = delay_blog 
+      when 'cart'
+        assign urls_to_remove = remove_cart 
+        assign urls_to_delay = delay_cart 
+      when 'collection' 
+        assign urls_to_remove = remove_collection 
+        assign urls_to_delay = delay_collection 
+      when 'index' 
+        assign urls_to_remove = remove_index 
+        assign urls_to_delay = delay_index 
+      when 'product' 
+        assign urls_to_remove = remove_product
+        assign urls_to_delay = delay_product
+      when 'search' 
+        assign urls_to_remove = remove_search 
+        assign urls_to_delay = delay_search 
+      else 
+        if template contains 'customers' 
+          assign urls_to_remove = remove_customers 
+          assign urls_to_delay = delay_customers 
+        endif 
+    endcase
+
+    assign remove_sitewide = remove_sitewide | split: "," 
+    assign urls_to_remove = urls_to_remove | split: "," 
+    assign urls_to_remove = remove_sitewide | concat: urls_to_remove 
+
+    assign delay_sitewide = delay_sitewide | split: "," 
+    assign urls_to_delay = urls_to_delay | split: "," 
+    assign urls_to_delay = delay_sitewide | concat: urls_to_delay 
+    assign urls_to_preload = '' 
+
+    assign urls_without_removed = '' 
+    assign boostInstalled = false
+
+    for url in urls 
+      assign should_remove = false 
+
+      if url contains 'boost-psf'
+        assign boostInstalled = true
+      endif
+
+      for to_remove in urls_to_remove 
+        if url contains to_remove 
+          assign should_remove = true 
+          continue 
+        endif 
+      endfor 
+
+      for to_delay in urls_to_delay 
+        if url contains to_delay 
+          assign delayed_urls = delayed_urls | append: ',' | append: url 
+          assign should_remove = true 
+          continue 
+        endif 
+      endfor 
+
+      unless should_remove 
+        assign urls_to_preload = urls_to_preload | append: ',' | append: url 
+        assign urls_without_removed = urls_without_removed | append: ',' | append: url 
+      endunless 
+
+    endfor 
+
+    assign urls_without_removed = urls_without_removed | remove_first: ',' 
+    assign urls_to_preload = urls_to_preload | remove_first: ',' 
+  %}
+
+  <script type="text/javascript" data-delayed-urls>
+    (function () {
+      var urlsToPreload = [{{ urls_to_preload }}];
+      var x = document.getElementsByTagName('script')[0];
+
+      for (var i = 0; i < urlsToPreload.length; i++) {
+        var url = urlsToPreload[i];
+        if (!url) { continue; }
+        var link = document.createElement('link');
+        link.rel = "preload";
+        link.as = "script";
+        link.href = url;
+        x.parentNode.insertBefore(link, x);
+      }
+
+      function loadDelayedUrls() {
+        setTimeout(function () {
+          window.requestIdleCallback(function () {
+            var urlsToDelay = [{{ delayed_urls | remove_first: ',' }}];
+            for (var j = 0; j < urlsToDelay.length; j++) {
+              var url = urlsToDelay[j];
+              if (!url) { continue; }
+              var s = document.createElement('script');
+              s.type = 'text/javascript';
+              s.async = true;
+              s.defer = true;
+              s.src = url;
+              x.parentNode.insertBefore(s, x);
+            }
+          })
+        }, 6000)
+      }
+
+      document.addEventListener("DOMContentLoaded", loadDelayedUrls);
+    })()
+  </script>
+
+{%- endif -%}
+
+<!-- CONTENT FOR HEADER -->
+{{ content_for_header_first }}{{ urls_without_removed }}{{ content_for_header_last }}
+<!-- END CONTENT FOR HEADER -->
+{% else %}
+  {{ content_for_header }}
+{%- endif -%}
+
+{%liquid
+  assign allowfollow = true
+
+  if template.name == 'search'
+    assign allowfollow = false
+
+  elsif template.name == 'collection'
+   assign page_url = content_for_header_raw | split:'"pageurl":"' | last | split:'"' | first 
+    
+    if page_url contains '?'
+      assign page_params = page_url | split: "?" | last | split: "\u0026"
+    endif
+
+    if page_params.size > 0 and boostInstalled == false
+      assign allowfollow = false
+    else
+      assign allowfollow = true
+    endif
+    
+  endif
+
+  if current_tags.size > 0
+    assign allowfollow = false
+  endif
+
+  if current_view_object.metafields.seo.hidden == 1 or canonical_url contains 'myshopify.com' or canonical_url contains '{'
+    assign allowfollow = false
+  endif
+%}
+
+{%- unless allowfollow -%}
+  <meta name="robots" content="noindex,nofollow">
+{%- endunless -%}
+
+{%- liquid
+  assign display_canonical = true
+  assign url_tag_string = '' 
+  if current_tags 
+    assign url_tag_string = current_tags | join: '+' | prepend: '/' 
+  endif 
+  assign clean_canonical_url = canonical_url | remove: url_tag_string 
+  assign clean_canonical_url = clean_canonical_url | remove: '?page=0' 
+ 
+  assign error_url = shop.url | append: '/404'
+  if clean_canonical_url == error_url
+    assign display_canonical = false
+    assign clean_canonical_url = shop.url
+  endif
+
+%}
+
+{%- if display_canonical -%}
+  <link rel="canonical" href="{{ clean_canonical_url }}">
+{%- endif -%}
+
+
+{%- if settings.enable_multi_store -%}
+  {%- unless content_for_header_raw contains 'hreflang' -%}
+  
+    {%liquid
+
+      if settings.hreflang != blank
+        assign countries = settings.hreflang  | newline_to_br
+        assign hreflang_list = countries | split: '<br />'
+      endif
+
+      assign current_view_type = template.name 
+      case current_view_type 
+        when 'product' 
+          assign current_view_object = product 
+        when 'page' 
+          assign current_view_object = page 
+        when 'collection' 
+          assign current_view_object = collection 
+        when 'blog' 
+          assign current_view_object = blog 
+        when 'article' 
+          assign current_view_object = article 
+        else 
+          assign current_view_object = false 
+      endcase 
+    %}
+
+    {%- if hreflang_list != blank -%}
+      {%- for item in hreflang_list -%}
+
+        {%- assign hreflang = item | split: ',' | first | strip -%}
+        {%- assign href = item | split: ',' | last | strip -%}
+
+        <link rel="alternate" hreflang="{{ hreflang }}" href="{{ href | append: current_view_object.url}}">
+
+      {%- endfor -%}
+    {%- endif -%}
+  {%- endunless -%}
+{%- endif -%}
+
+
+{% comment %} Example of some critical CSS which might be useful
+<style data-critical-css>
+  #preview-bar-iframe {
+    display: none;
+  }
+
+  #theme-ajax-cart {
+    display: none;
+  }
+
+  main > .shopify-section:not(:first-child) {
+    opacity: 0;
+  }
+
+  .critical-hidden {
+    display: none;
+  }
+
+</style>
+{% endcomment %}

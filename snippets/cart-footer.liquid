@@ -1,0 +1,144 @@
+<div class="{% if type == "cart-page" %}page-width{% endif %} {% if cart == empty %} is-empty{% endif %}" id="main-cart-footer" data-id="{{ section.id }}">
+  <div>
+    <div class="cart__footer">
+      {%- if section.settings.show_cart_note -%}
+        <cart-note class="cart__note field">
+          <label for="Cart-note">{{ 'sections.cart.note' | t }}</label>
+          <textarea class="text-area text-area--resize-vertical field__input" name="note" id="Cart-note" placeholder="{{ 'sections.cart.note' | t }}">{{ cart.note }}</textarea>
+        </cart-note>
+      {%- endif -%}
+
+      <div class="cart__blocks js-contents">
+        {% for block in section.blocks %}
+          {%- case block.type -%}
+            {%- when '@app' -%}
+              {% render block %}
+            {%- when 'shipping' -%}
+              {% assign shipping_block = section.blocks | where: "type", "shipping" | first %}
+              {% assign shipping_cost = shipping_block.settings.shipping_cost | default: 0 | times: 100 %}
+              {% assign free_shipping = shipping_block.settings.free_shipping_threshold | default: 0 | times: 100 %}
+
+              <div class="" {{ block.shopify_attributes }}>
+                <div class="totals">
+                  <p class="totals__shipping">{{ 'sections.cart.shipping' | t }}</p>
+                  <p class="totals__shipping-value ">
+                    {% if cart.total_price >= free_shipping %}
+                      {{ 'sections.cart.free_shipping' | t }}
+                    {% else %}
+                      {{ shipping_cost | money_with_currency }}
+                    {% endif %}
+                  </p>
+                </div>
+              </div>
+            {%- when 'order_total' -%}
+              {% assign shipping_block = section.blocks | where: "type", "shipping" | first %}
+              {% assign shipping_cost = shipping_block.settings.shipping_cost | default: 0 | times: 100 %}
+              <div class="" {{ block.shopify_attributes }}>
+                <div class="totals">
+                  <p class="totals__order-total">{{ 'sections.cart.order_total' | t }}</p>
+                  <p class="totals__order-total-value">
+                    {% if cart.total_price >= free_shipping %}
+                      {{ cart.total_price | money_with_currency }}
+                    {% else %}
+                      {{ cart.total_price | plus: shipping_cost | money_with_currency }}
+                    {% endif %}
+                  </p>
+                </div>
+              </div>
+            {%- when 'subtotal' -%}
+              <div class="" {{ block.shopify_attributes }}>
+                <div class="totals">
+                  <p class="totals__subtotal">{{ 'sections.cart.subtotal' | t }} {%- if cart.taxes_included %}{{ 'sections.cart.tax_included' | t }}{% else %}{{ 'sections.cart.tax_not_included' | t }}{% endif %}</p>
+                  <p class="totals__subtotal-value ">
+                    {{ cart.total_price | money_with_currency }}
+                  </p>
+                </div>
+
+                <div>
+                  {%- if cart.cart_level_discount_applications.size > 0 -%}
+                    <ul class="discounts list-unstyled" role="list" aria-label="{{ 'customer.order.discount' | t }}">
+                      {%- for discount in cart.cart_level_discount_applications -%}
+                        <li class="discounts__discount discounts__discount--end">
+                          {%- render 'icon-discount' -%}
+                          {{ discount.title }}
+                          (-{{ discount.total_allocated_amount | money }})
+                        </li>
+                      {%- endfor -%}
+                    </ul>
+                  {%- endif -%}
+                </div>
+              </div>
+            {%- when 'buttons' -%}
+              {%- if additional_checkout_buttons -%}
+                <div class="cart__dynamic-checkout-buttons additional-checkout-buttons">
+                  {{ content_for_additional_checkout_buttons }}
+                </div>
+              {%- endif -%}
+          {%- endcase -%}
+        {% endfor %}
+        <div class="cart__ctas" {{ block.shopify_attributes }}>
+          <noscript>
+            <button type="submit" class="cart__update-button button button--secondary" form="cart">
+              {{ 'sections.cart.update' | t }}
+            </button>
+          </noscript>
+  
+          <button type="submit" id="checkout" class="cart__checkout-button button button--primary" name="checkout"{% if cart == empty %} disabled{% endif %} form="cart">
+            {{ 'sections.cart.checkout' | t }}
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 22 22">
+              <path fill="#fff" fill-rule="evenodd" d="M15.3942 7.79148h.9079c.7168 0 1.2979.58112 1.2979 1.29796v7.90776c0 .7169-.5811 1.298-1.2979 1.298H5.69786c-.71684 0-1.29796-.5811-1.29796-1.298V9.08944c0-.71684.58112-1.29796 1.29796-1.29796h.90761l.00017-1.33222C6.66743 4.083 8.63181 2.2 10.9911 2.23875c2.372-.03886 4.3344 1.83662 4.4031 4.22338v1.32935Zm-1.0689 0v-.64287c0-.51006 0-.51074.0003-.6704v-.00064c-.0517-1.78643-1.5301-3.19933-3.3345-3.17006-1.79049-.02919-3.27037 1.38937-3.31673 3.16565v1.31832h6.65093ZM5.46855 9.08942c0-.1265.10255-.22905.22905-.22905h10.6042c.1265 0 .2291.10255.2291.22905v7.90778c0 .1265-.1026.229-.2291.229H5.6976c-.1265 0-.22905-.1025-.22905-.229V9.08942Zm7.35725 3.00448v-.0094c-.0119-.7111-.4285-1.3531-1.0731-1.6536s-1.4042-.2069-1.95648.2412c-.07963.0526-.17445.1474-.24947.2572-.61574.7795-.48189 1.945.31816 2.5848.00908.0081.02101.034.02101.0613v1.2352c0 .5576.45198 1.0095 1.00948 1.0095h.1986c.5575 0 1.0095-.4519 1.0095-1.0095v-1.2352c.0001-.0248.0128-.0512.0345-.0688.4299-.3364.6857-.8588.6878-1.4127Zm-2.4823-.6878c.3102-.2497.6954-.2972 1.0222-.1448.3254.1517.5363.475.5441.8337-.0025.2717-.1285.5276-.3426.6951-.2407.1952-.3778.4804-.3798.7823v1.2382c0 .0515-.0418.0933-.0933.0933h-.1985c-.0515 0-.0933-.0418-.0933-.0933v-1.2352c0-.295-.1291-.5754-.3533-.7672-.4185-.335-.48661-.9277-.1641-1.3368.0292-.0409.0428-.0545.0586-.0653Z" clip-rule="evenodd"/>
+            </svg>
+          </button>
+        </div>
+        <div id="cart-errors"></div>
+
+        {%- comment -%}CART UPSELLS BLOCK - NOT INCLUDED IN BASE AJAX CART MODULE{%- endcomment -%}
+        {% assign cart_upsells_block = section.blocks | where: "type", "cart_upsells" | first %}
+        {% if cart_upsells_block != blank %}
+          <div class="cart-upsells__container" {{ block.shopify_attributes }}>
+            <div class="cart-upsells">
+              {% render "cart-upsells", block: cart_upsells_block %}
+            </div>
+          </div>
+        {% endif %}
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  class CartNote extends HTMLElement {
+    constructor() {
+      super();
+
+      this.addEventListener('change', debounce((event) => {
+        const body = JSON.stringify({ note: event.target.value });
+        fetch(`${routes.cart_update_url}`, {...fetchConfig(), ...{ body }});
+      }, 300))
+    }
+  }
+
+  customElements.define('cart-note', CartNote);
+</script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    function isIE() {
+      const ua = window.navigator.userAgent;
+      const msie = ua.indexOf('MSIE ');
+      const trident = ua.indexOf('Trident/');
+
+      return (msie > 0 || trident > 0);
+    }
+
+    if (!isIE()) return;
+    const cartSubmitInput = document.createElement('input');
+    cartSubmitInput.setAttribute('name', 'checkout');
+    cartSubmitInput.setAttribute('type', 'hidden');
+    document.querySelector('#cart').appendChild(cartSubmitInput);
+    document.querySelector('#checkout').addEventListener('click', function(event) {
+      document.querySelector('#cart').submit();
+    });
+  });
+</script>

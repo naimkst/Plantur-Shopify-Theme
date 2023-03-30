@@ -1,0 +1,21 @@
+{
+  "sections": {
+    "store": {
+      "type": "store",
+      "settings": {
+        "locations_list": "stores"
+      }
+    },
+    "main-page": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    }
+  },
+  "order": [
+    "store",
+    "main-page"
+  ]
+}

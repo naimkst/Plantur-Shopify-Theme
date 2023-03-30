@@ -1,0 +1,21 @@
+{%- case shop.permanent_domain -%}
+  {%- when 'glow-dreaming.myshopify.com' -%}
+    {%- assign store_region = 'au' -%}
+  {%- when 'glow-dreaming-uk.myshopify.com' -%}
+    {%- assign store_region = 'uk' -%}
+{%- endcase -%}
+
+{%- assign url_tag_string = '' -%}
+{%- if current_tags -%}
+  {%- assign url_tag_string = current_tags | join: '+' | prepend: '/' -%}
+{%- endif -%}
+{%- assign clean_canonical_url = canonical_url | remove: url_tag_string -%}
+{%- assign clean_canonical_url = canonical_url | remove: '?page=0' -%}
+
+{% if store_region == 'au'%}
+<link rel="alternate" hreflang="x-default" href="{{ clean_canonical_url | replace: shop.domain, 'glowdreaming.com' }}" />
+{% endif %}
+
+<link rel="alternate" href="{{ clean_canonical_url | replace: shop.domain, 'glowdreaming.co.uk' }}" hreflang="en-gb" />
+
+<link rel="alternate" href="{{ clean_canonical_url | replace: shop.domain, 'glowdreaming.com' }}" hreflang="en-au" />

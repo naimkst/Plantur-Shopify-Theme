@@ -1,0 +1,57 @@
+<div class="page-width store-locator">
+
+  {%- if section.settings.title != blank -%}
+    <h1>{{ section.settings.title }}</h1>
+  {%- endif -%}
+  
+  {%- if section.settings.locations_list != blank -%}
+    {% liquid
+      assign navigation = section.settings.locations_list
+    %}
+
+    <div >
+      
+      {% for link in navigation.links %}
+        {%- assign link_url = link.url -%}
+        {%- assign link_handle = link.handle | handle -%}
+        {%- assign link_title = link.title -%}
+
+        <a itemprop="url" href="{{ link_url }}" data-level="1" data-handle="{{link_handle}}"><span itemprop="name">{{ link_title }}</span></a>
+
+          {%- assign link_children = link.links | default: linklists[link_handle].links -%}
+          {% for link in link_children %}
+            <a itemprop="url" href="{{ link.url }}" data-level="2"><span itemprop="name">{{ link.title }}</span></a>
+            {%- assign link_children = link.links | default: linklists[link.handle].links -%}
+
+            {% for link in link_children %}
+              <a itemprop="url" href="{{ link.url }}" data-level="3" ><span itemprop="name">{{ link.title }}</span></a>
+              {%- assign link_children = link.links | default: linklists[link.handle].links -%}
+
+              {% for link in link_children %}
+                <a itemprop="url" href="{{ link.url }}" data-level="4" ><span itemprop="name">{{ link.title }}</span></a>
+              {% endfor %}
+            {% endfor %}
+          {% endfor %}
+
+      {% endfor %}
+     
+    </div>
+  {%- endif -%}
+
+</div> 
+  
+{%- render 'store-structured-data' -%}
+
+{% schema %}
+{
+  "name": "Store Locator",
+  "templates": ["page"],
+  "settings": [
+    {
+      "type": "link_list",
+      "id": "locations_list",
+      "label": "Linklist"
+    }
+  ]
+}
+{% endschema %}

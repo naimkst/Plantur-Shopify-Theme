@@ -1,0 +1,64 @@
+<script type="application/ld+json">
+{
+  "@context": "http:\/\/schema.org",
+  "@type": "Store",
+  {%- if page.image -%}
+    {%- assign media_size = page.image.width | append: 'x' -%}
+    "image": "{{ page.image | img_url: media_size | prepend: "https:" }}",
+  {%- endif -%}
+  "name": "{{ page.title }}",
+  "address":
+  {
+    "@type": "PostalAddress",
+    "streetAddress": "1404 Dandenong Road",
+    "addressLocality": "Oakleigh",
+    "addressRegion": "VIC",
+    "postalCode": "3166",
+    "addressCountry": "AU"
+  },
+  "telephone": "03 8564 7900",
+  "openingHoursSpecification": [
+  {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["monday"],
+    "opens": "8:1",
+    "closes": "16:1"
+  },
+  {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["tuesday"],
+    "opens": "8:1",
+    "closes": "16:1"
+  },
+  {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["wednesday"],
+    "opens": "8:1",
+    "closes": "16:1"
+  },
+  {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["thursday"],
+    "opens": "8:1",
+    "closes": "16:1"
+  },
+  {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["friday"],
+    "opens": "8:1",
+    "closes": "16:1"
+  },
+  {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["saturday"],
+    "opens": "9:00",
+    "closes": "15:1"
+  },
+  {
+    "@type": "OpeningHoursSpecification",
+    "dayOfWeek": ["sunday"],
+    "opens": "10:00",
+    "closes": "14:1"
+  }]
+}
+</script>

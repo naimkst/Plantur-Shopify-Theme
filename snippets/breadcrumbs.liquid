@@ -1,0 +1,302 @@
+<style>
+  .inline-list {
+    list-style: none;
+    padding-left: 0;
+  }
+  .inline-list li {
+    display: inline;
+  }
+  .breadcrumbs a {
+    color: inherit;
+    text-decoration: none;
+  }
+</style>
+{%liquid
+  assign site_hierarchy_navlist = settings.breadcrumbs
+  assign site_navigaton = linklists[site_hierarchy_navlist]
+  
+  assign handle_to_match = request.path | split: '/' | last
+
+  assign display_home = true
+  assign home_crumb_title = 'general.breadcrumbs.home' | t
+
+  assign show_current_page = true
+  assign exclusion_titles = 'Shop All,shop all,All,shop,Shop'
+
+  assign breadcrumbs_list = ''
+  assign breadcrumb_schema = ''
+
+  assign current_view_type = template.name 
+  case current_view_type 
+    when 'product' 
+      assign current_view_object = product 
+    when 'page' 
+      assign current_view_object = page 
+    when 'collection' 
+      assign current_view_object = collection 
+    when 'blog' 
+      assign current_view_object = blog 
+    when 'article' 
+      assign current_view_object = article 
+    else 
+      assign current_view_object = false 
+  endcase 
+
+  comment 
+    ## Use Site navigation to build a string array of breadcrumbs
+  endcomment
+
+  assign deepest_collections = ''
+
+  if site_navigaton != blank
+    for link in site_navigaton.links 
+      assign link_handle = link.handle | handle
+      assign link_url = link.url
+      assign link_title = link.title
+
+      assign breadcrumbs_list = breadcrumbs_list | append: '#1#' | append: link_title | append: '::' | append: link_url 
+
+        assign link_children = link.links | default: linklists[link_handle].links
+       
+        for link in link_children 
+          assign link_title_2 = link.title
+          assign link_handle_2 = link.url
+          assign breadcrumbs_list = breadcrumbs_list | append: '#1#' | append: link_title | append: '::' | append: link_url 
+          assign breadcrumbs_list = breadcrumbs_list | append: '#2#' | append: link_title_2 | append: '::' | append: link_handle_2   
+
+          assign link_children = link.links | default: linklists[link.handle].links
+        
+        for link in link_children 
+          assign link_title_3 = link.title
+          assign link_handle_3 = link.url
+          assign breadcrumbs_list = breadcrumbs_list | append: '#1#' | append: link_title | append: '::' | append: link_url 
+          assign breadcrumbs_list = breadcrumbs_list | append: '#2#' | append: link_title_2 | append: '::' | append: link_handle_2  
+          assign breadcrumbs_list = breadcrumbs_list | append: '#2#' | append: link_title_3 | append: '::' | append: link_handle_3  
+          assign link_children = link.links | default: linklists[link.handle].links
+          assign deepest_collections = deepest_collections | append: ',' | append: link.url
+          
+          for link in link_children 
+            assign link_title_4 = link.title
+            assign link_handle_4 = link.url
+            assign breadcrumbs_list = breadcrumbs_list | append: '#1#' | append: link_title | append: '::' | append: link_url  
+            assign breadcrumbs_list = breadcrumbs_list | append: '#2#' | append: link_title_2 | append: '::' | append: link_handle_2   
+            assign breadcrumbs_list = breadcrumbs_list | append: '#2#' | append: link_title_3 | append: '::' | append: link_handle_3   
+            assign breadcrumbs_list = breadcrumbs_list | append: '#2#' | append: link_title_4 | append: '::' | append: link_handle_4   
+          endfor 
+        endfor 
+      endfor 
+    endfor 
+  endif
+
+  assign breadcrumbs_list = breadcrumbs_list | split: '#1#'
+
+  comment 
+    ## Use settings.collection_primary to find deepest related collection
+    ## OR
+    ## Use product.collections to find first match with site navigation
+    ## switch for collection_url in closest_collections with for collection_item in product.collections if the wrong collections are matching first
+  endcomment
+
+  if current_view_type == 'product'
+    
+    assign closest_collections = deepest_collections | split: ',' | unip
+    
+    
+    for collection_item in product.collections
+      for collection_url in closest_collections
+        assign collection_handle = collection_url | strip
+        
+        if collection_item.url == collection_url
+          assign closest_collection = collection_item
+          break
+        endif
+        if closest_collection != blank
+          break
+        endif
+
+      endfor
+    endfor
+
+    if closest_collection != blank
+
+      for crumb in breadcrumbs_list
+        if crumb contains closest_collection.handle
+          assign page_breadcrumb = crumb
+          break
+        endif
+      endfor
+
+    else
+
+      assign collections_to_match = product.collections | sort_natural: 'handle'
+      for crumb in breadcrumbs_list
+        for collection_item in collections_to_match
+          if crumb contains collection_item.handle
+            assign page_breadcrumb = crumb
+            break
+          endif
+        endfor
+        if page_breadcrumb != blank
+          break
+        endif
+      endfor
+
+    endif
+
+  elsif current_view_type == 'collection'
+
+    for crumb in breadcrumbs_list
+      if crumb contains handle_to_match
+        assign page_breadcrumb = crumb
+        break
+      endif
+    endfor
+
+  endif
+
+  if page_breadcrumb != blank
+    assign to_output = page_breadcrumb | split: '#2#'
+  endif
+
+  assign separator_character = 'general.breadcrumbs.separator' | t 
+  if separator_character contains 'translation missing'
+    assign separator_character = '/' 
+  endif 
+
+  assign position = 0 
+%}
+
+{%- capture schema_item_template %}
+ {
+   "@type": "ListItem",
+   "position": {position},
+   "item": {
+     "@type": "WebPage",
+     "@id": "{url}",
+     "name": "{title}"
+   }
+ }
+{% endcapture -%}
+
+{%- capture separator %}<span class="sep" aria-hidden="true">{{ separator_character }}</span>{% endcapture -%}
+
+<nav class="breadcrumbs  breadcrumbs-nav" aria-label="breadcrumbs" >
+  <ol class="inline-list">
+
+    {%- if display_home -%}
+      {%- assign position = position | plus: 1 -%}
+
+       <li>
+         <a href="/">
+           <span >{{ home_crumb_title | strip }}</span>
+         </a>
+         {{ separator}}
+       </li>
+
+    {%- endif -%}
+    
+    {%- assign last_url = '' -%}
+    {%- if to_output != blank -%}
+
+      {%- for crumb in to_output -%} 
+        {%liquid
+          assign item = crumb | split: '::'
+          assign title = item | first | replace: 'Desktop', '' | replace: 'Mobile', ''
+          assign url = item | last 
+
+          assign crumb_current_link = false
+          if current_view_type == 'collection'
+            assign crumb_current_link = forloop.last
+          endif
+
+          if template.name == 'collection' 
+            if url == '#' 
+              assign url = collection.url 
+            endif 
+          endif
+        %}
+        
+        {%- unless exclusion_titles contains title or last_url == url or url == handle_to_match -%}
+          {%- assign position = position | plus: 1 -%}
+
+           <li {% if crumb_current_link == true %}class="active"{% endif %}>
+             
+             {%- if crumb_current_link -%}
+               <span>
+                 <span >{{ title | strip | capitalize }}</span>
+               </span>
+              {% else %}
+              <a href="{{ url }}"><span>{{ title | strip | capitalize }}</span></a>
+             {%- endif -%}
+        
+            {%- unless forloop.last -%}
+              {{ separator}}
+            {%- endunless -%}
+      
+           </li>
+           {%- assign title_escaped = title | escape -%}
+           {%- assign full_url = shop.url | append: url -%}
+           {%- assign schema_item = schema_item_template | replace: '{position}', position | replace: '{url}', full_url | replace: '{title}', title_escaped -%}
+           {%- assign breadcrumb_schema = breadcrumb_schema | append: '##' | append: schema_item -%}
+           
+        {%- endunless -%}
+
+        {% assign last_url = url %}
+      {%- endfor -%}
+
+    {% elsif current_view_type == 'collection' %}
+      <li class="active" aria-current="page">
+        <span>{{ collection.title }}</span>
+      </li>
+
+    {% elsif current_view_type == 'article' %}
+      {%- assign position = position | plus: 1 -%}
+      <li class="active">
+        <a href="{{ blog.url }}" aria-current="page"><span>{{ blog.title }}</span></a>
+        {{ separator }}
+      </li>
+      {%- assign title_escaped = blog.title | escape -%}
+      {%- assign full_url = shop.url | append: blog.url -%}
+      {%- assign schema_item = schema_item_template | replace: '{position}', position | replace: '{url}', full_url | replace: '{title}', title_escaped -%}
+      {%- assign breadcrumb_schema = breadcrumb_schema | append: '##' | append: schema_item -%}
+    {%- endif -%}
+
+    {%- if show_current_page and current_view_type != 'collection' -%}
+      {%- assign position = position | plus: 1 -%}
+      <li class="active" aria-current="page">
+        {%- unless to_output == blank -%}
+          {{ separator }}
+        {%- endunless -%}
+        
+        <span>{{ current_view_object.title }}</span>
+      </li>
+      {%- assign title_escaped = current_view_object.title | escape -%}
+      {%- assign full_url = shop.url | append: current_view_object.url -%}
+      {%- assign schema_item = schema_item_template | replace: '{position}', position | replace: '{url}', full_url | replace: '{title}', title_escaped -%}
+      {%- assign breadcrumb_schema = breadcrumb_schema | append: '##' | append: schema_item -%}
+
+    {%- endif -%}
+  
+  </ol>
+  {%- assign output_schema = breadcrumb_schema | split: '##' | join: ',' -%}
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "item": {
+            "@type": "WebPage",
+            "@id": "{{ shop.url }}",
+            "name": "{{ 'general.breadcrumbs.home' | t | default: 'Home' }}"
+          }
+        }
+        {{ output_schema }}
+      ]
+    }
+  </script>
+
+  
+</nav>

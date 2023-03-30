@@ -1,0 +1,96 @@
+{%liquid
+  assign navlist = navlist | default: ''
+  assign exclusions = exclusions | default: ''
+  assign handle_to_match = request.path | split: '/' | last
+  assign exclusion_titles = exclusions
+
+  comment 
+    ## Use link list to build a string array of subcollections
+  endcomment
+
+  assign deepest_collections = ''
+
+  for link in navlist.links 
+    assign link_handle = link.handle | handle
+    assign link_url = link.url
+    assign link_title = link.title
+
+    assign breadcrumbs_list = breadcrumbs_list | append: '#1#' | append: link_title | append: '::' | append: link_url 
+
+      assign link_children = link.links | default: linklists[link_handle].links
+     
+      for link in link_children 
+        assign link_title_2 = link.title
+        assign link_handle_2 = link.url
+        assign breadcrumbs_list = breadcrumbs_list | append: '#1#' | append: link_title | append: '::' | append: link_url 
+        assign breadcrumbs_list = breadcrumbs_list | append: '#2#' | append: link_title_2 | append: '::' | append: link_handle_2   
+
+        assign link_children = link.links | default: linklists[link.handle].links
+      
+      for link in link_children 
+        assign link_title_3 = link.title
+        assign link_handle_3 = link.url
+        assign breadcrumbs_list = breadcrumbs_list | append: '#1#' | append: link_title | append: '::' | append: link_url 
+        assign breadcrumbs_list = breadcrumbs_list | append: '#2#' | append: link_title_2 | append: '::' | append: link_handle_2  
+        assign breadcrumbs_list = breadcrumbs_list | append: '#2#' | append: link_title_3 | append: '::' | append: link_handle_3  
+        assign link_children = link.links | default: linklists[link.handle].links
+        assign deepest_collections = deepest_collections | append: ',' | append: link.url
+        
+        for link in link_children 
+          assign link_title_4 = link.title
+          assign link_handle_4 = link.url
+          assign breadcrumbs_list = breadcrumbs_list | append: '#1#' | append: link_title | append: '::' | append: link_url  
+          assign breadcrumbs_list = breadcrumbs_list | append: '#2#' | append: link_title_2 | append: '::' | append: link_handle_2   
+          assign breadcrumbs_list = breadcrumbs_list | append: '#2#' | append: link_title_3 | append: '::' | append: link_handle_3   
+          assign breadcrumbs_list = breadcrumbs_list | append: '#2#' | append: link_title_4 | append: '::' | append: link_handle_4   
+        endfor 
+      endfor 
+    endfor 
+  endfor 
+
+  assign breadcrumbs_list = breadcrumbs_list | split: '#1#'
+
+  assign page_breadcrumb = ''
+  assign foundFirst = false
+  for crumb in breadcrumbs_list
+    if crumb contains handle_to_match
+      if foundFirst
+        assign subcollection = crumb | split: handle_to_match | last | replace: '#2#', ''
+        assign page_breadcrumb = page_breadcrumb | append: '$$' | append: subcollection
+      else
+        assign foundFirst = true
+      endif
+    endif
+  endfor
+
+  if page_breadcrumb != blank
+    assign to_output = page_breadcrumb | split: '$$'
+  endif
+
+%}
+
+{%- if to_output != blank -%}
+
+  {%- for crumb in to_output -%} 
+    {%liquid
+      assign item = crumb | split: '::'
+      assign title = item | first
+      assign url = item | last 
+
+      if url == '#' 
+        assign url = collection.url 
+      endif 
+
+    %}
+    
+    {%- unless exclusion_titles contains title or last_url == url or url == handle_to_match -%}
+      {%- assign position = position | plus: 1 -%}
+       <li>
+          <a href="{{ url }}"><span>{{ title | strip | capitalize }}</span></a>
+       </li>
+    {%- endunless -%}
+
+    {% assign last_url = url %}
+  {%- endfor -%}
+{%- endif -%}
+ 

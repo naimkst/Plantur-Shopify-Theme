@@ -1,0 +1,94 @@
+{%liquid
+  assign product = product | default: ''
+  assign review_platform = 'okendo'
+%}
+
+<script type="application/ld+json">
+ {
+    "@context": "http://schema.org/",
+    "@type": "Product",
+    "name": "{{ product.title }}",
+    "url": "{{ shop.url | append: product.selected_or_first_available_variant.url }}",
+    {%- if product.selected_or_first_available_variant.featured_media -%}
+      {%- assign media_size = product.selected_or_first_available_variant.featured_media.preview_image.width | append: 'x' -%}
+      "image": [
+        "{{ product.selected_or_first_available_variant.featured_media | img_url: media_size | prepend: "https:" }}"
+      ],
+    {%- endif -%}
+    "description": "{{ product.description | strip_html | escape }}",
+    {%- if product.selected_or_first_available_variant.sku != blank -%}
+      "sku": "{{ product.selected_or_first_available_variant.sku }}",
+      "mpn": "{{ product.selected_or_first_available_variant.sku }}",
+    {%- endif -%}
+    "brand": {
+      "@type": "Brand",
+      "name": "{{ product.vendor }}"
+    },
+    "offers": [
+      {%- for variant in product.variants -%}
+        {
+          "@type" : "Offer",
+          {%- if variant.sku != blank -%}
+            "sku": "{{ variant.sku }}",
+          {%- endif -%}
+          "availability" : "http://schema.org/{% if variant.available %}InStock{% else %}OutOfStock{% endif %}",
+          "price" : {{ variant.price | divided_by: 100.00 }},
+          "priceCurrency" : "{{ cart.currency.iso_code }}",
+          "url" : "{{ shop.url | append: variant.url }}",
+          "AcceptedPaymentMethod": [
+          {%- for type in shop.enabled_payment_types -%}
+            {%- unless forloop.first -%}{{ ',' }}{%- endunless -%}
+            {%- assign payment_type = type | capitalize | replace: '_', ' ' -%}
+            {
+              "@type": "PaymentMethod",
+              "@id": "http://purl.org/goodrelations/v1#{{ payment_type }}"
+            }
+          {%- endfor -%}
+          {%- assign other_payment_types = 'afterpay,zip,laybuy,seezle' | split: ','-%}
+          {%- for payment_type in other_payment_types -%}
+            {%- assign setting_key = 'enable_' | append: payment_type -%}
+            {%- if settings[setting_key] -%}
+            {%- unless forloop.first -%}{{ ',' }}{%- endunless -%}
+              {
+                "@type": "PaymentMethod",
+                "@id": "http://purl.org/goodrelations/v1#{{ payment_type }}"
+              }
+            {%- endif -%}
+          {%- endfor -%}
+          ]
+        }{% unless forloop.last %},{% endunless %}
+      {%- endfor -%}
+    ]
+  {%- if review_platform == 'okendo' -%}
+    {% if product.metafields.okendo.summaryData.reviewCount > 0 %}
+      ,"aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "{{ product.metafields.okendo.summaryData.reviewAverageValue }}",
+        "ratingCount": "{{ product.metafields.okendo.summaryData.reviewCount }}"
+      }
+    {% elsif product.metafields.okendo.ReviewCount > 0 %}
+      ,"aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "{{ product.metafields.okendo.ReviewAverageValue }}",
+        "ratingCount": "{{ product.metafields.okendo.ReviewCount }}"
+      }
+    {% endif %}
+  {% elsif review_platform == 'yotpo' %}
+    {% if product.metafields.yotpo.reviews_count and product.metafields.yotpo.reviews_count != "0" %}
+      ,"aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "{{ product.metafields.yotpo.reviews_average }}",
+        "ratingCount": "{{ product.metafields.yotpo.reviews_count  }}"
+      }
+    {%- endif -%}
+  {% elsif review_platform == 'stamped' %}
+    {% if product.metafields.stamped.reviews_count and product.metafields.stamped.reviews_count != "0" %} 
+      ,"aggregateRating": {
+       "@type": "AggregateRating",
+       "ratingValue": "{{ product.metafields.stamped.reviews_average }}",
+       "reviewCount": "{{product.metafields.stamped.reviews_count}}""
+      }
+    {% endif %}
+  {%- endif -%}
+}
+</script>

@@ -1,0 +1,142 @@
+{% liquid 
+  assign section = section | default: ''
+  assign menu = section.settings.mobile_menu
+  assign layout = section.settings.mobile_menu_layout
+  assign footer_menu = section.settings.mobile_footer_menu
+  assign display_country_selector = section.settings.display_country_selector
+
+  assign li_class = 'menu-drawer__item'
+  assign summary_class = 'menu-drawer__submenu-item'
+  assign page_class = 'menu-drawer__submenu'
+  assign enable_tabs = false
+
+  case layout
+    when 'tabbed'
+      assign enable_tabs = true
+  endcase
+
+  if enable_tabs
+    assign li_class = 'menu-drawer-tab'
+    assign summary_class = 'menu-drawer-tab__title'
+    assign page_class = 'menu-drawer__page'
+  endif
+%}
+
+{%- if section.settings.upsell_image != blank -%}
+  {%- capture mobile_menu_upsell %}
+
+      <a href="{{ section.settings.upsell_link }}" class="product-card">
+        <div class="product-item">
+              
+          <div class="product-item-inner">
+            <h3 class="product-item-title">{{section.settings.upsell_title}}</h3>
+            <span class="product-item-description">
+              {{section.settings.upsell_text}}
+            </span>
+            <span class="product-item-button">{{section.settings.upsell_button_text}}</span> 
+          </div>
+          
+          <span class="product-item__image">
+            {%- render 'img',image: section.settings.upsell_image -%}
+          </span>
+        </div>
+      </a>
+
+  {% endcapture -%}
+{%- endif -%}
+
+{%- capture country_selector %}
+  {%- if display_country_selector -%}
+    <div class="" data-country-selector country-switcher></div>
+  {%- endif -%}
+{% endcapture -%}
+
+{%- if menu != blank -%}
+  <header-drawer data-breakpoint="tablet" data-layout="{{ layout }}">
+    <details class="menu-drawer-container">
+      <summary class="header__icon header__icon--menu header__icon--summary link" aria-label="{{ 'sections.header.menu' | t }}">
+        <span class="header__icon-hamburger">
+          {% render 'icon-hamburger' %}
+          {% render 'icon-close' %}
+        </span>
+      </summary>
+
+      <div id="menu-drawer" aria-label="mobile-menu" class="menu-drawer" tabindex="-1">
+        
+        <div class="menu-drawer__inner-container">
+          <div class="menu-drawer__navigation-container">
+            
+            <nav class="menu-drawer__navigation">
+              {% comment %}do not use seo schema on mobile nav, it causes duplicate sitenavigations in schema{% endcomment %}
+
+              <ul class="menu-drawer__menu list-menu" role="tablist" tabindex="-1" data-tabbed={{enable_tabs}}>
+                {%- if enable_tabs -%}
+                  {% for link in menu.links %}
+                    {%- assign link_handle = link.handle | strip | handle -%}
+                    {%- assign link_url = link.url -%}
+                    {%- assign link_title = link.title -%}
+
+                      <li class="{{ li_class }}" data-menu="{{ link_title }}">
+                        <details class="{% if forloop.first and enable_tabs %}menu-opening{% endif %}" 
+                        {% if enable_tabs %}data-toggle-id="{{ link_title }}"{% endif %} 
+                        {% if forloop.first and enable_tabs %}open aria-selected="true"{% else %}tabindex="-1"{% endif %}
+                         roll="tab" 
+                         aria-controls="{{link_title}}">
+                         
+                            <summary class="" role="button" aria-expanded="false" aria-controls="{{link_title}}">
+                              <div class="{{summary_class}}">
+                              {{ link_title | escape }}
+                              </div>
+                            </summary>
+
+                            <div class="{{ page_class }}">
+                              <ul id="link-{{ link_title | escape }}" class="list-menu"
+                                aria-orientation="vertical" 
+                                data-menu-page="{{ link_title }}" 
+                                aria-labelledby="{{link_title}}" 
+                                {% if forloop.first %}tabindex="0"{% endif %}>
+
+                                {%- assign link_children = link.links | default: linklists[link_handle].links -%}
+                                {%- assign previous_title = link_title -%}
+                                {%- render 'mobile-menu-item',link_children: link_children, previous_title: previous_title -%}
+                     
+                              </ul>
+                            </div>
+                     
+                        </details>
+                      </li>
+                  {% endfor %}
+                {% else %}
+     
+                  {%- render 'mobile-menu-item',link_children: menu.links -%}
+     
+
+                {%- endif -%}
+              </ul>
+
+              <div class="menu-drawer__footer">
+              {%- if mobile_menu_upsell != blank -%}
+                {{ mobile_menu_upsell }}
+              {%- endif -%}
+
+              {%- if footer_menu != blank -%}
+                <div class="menu-drawer__footer-menu">
+                  <ul class="list-menu" role="tablist" tabindex="-1">
+                    {% for link in footer_menu.links %}
+                      {%- render 'mobile-menu-item',link_children: footer_menu.links -%}
+                    {%- endfor -%}
+                  </ul>
+                  {{ country_selector}}
+                </div>
+              {%- endif -%}
+              </div>
+
+            </nav>
+          </div>
+        </div>
+      </div>
+    </details>
+  </header-drawer>
+{%- endif -%}
+
+

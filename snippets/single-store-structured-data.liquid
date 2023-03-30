@@ -1,0 +1,8 @@
+{%- assign url_tag_string = '' -%}
+{%- if current_tags -%}
+  {%- assign url_tag_string = current_tags | join: '+' | prepend: '/' -%}
+{%- endif -%}
+{%- assign clean_canonical_url = canonical_url | remove: url_tag_string -%}
+{%- assign clean_canonical_url = canonical_url | remove: '?page=0' -%}
+
+<link rel="canonical" href="{{ clean_canonical_url }}">

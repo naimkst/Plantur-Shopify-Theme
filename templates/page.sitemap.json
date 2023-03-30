@@ -1,0 +1,42 @@
+{
+  "sections": {
+    "sitemap": {
+      "type": "sitemap",
+      "blocks": {
+        "3320d6bd-38a5-4fe3-bf38-44f2ef6110d6": {
+          "type": "collection",
+          "settings": {
+            "title": "Collections",
+            "url": ""
+          }
+        },
+        "01db63e5-0881-419a-8f88-a1c024ca54ad": {
+          "type": "blog",
+          "settings": {
+            "title": "Blogs",
+            "url": "",
+            "blog_handle": "news"
+          }
+        },
+        "ed284dd9-0ae4-493c-91a8-aeae321c3ecc": {
+          "type": "page",
+          "settings": {
+            "title": "Pages",
+            "url": ""
+          }
+        }
+      },
+      "block_order": [
+        "3320d6bd-38a5-4fe3-bf38-44f2ef6110d6",
+        "01db63e5-0881-419a-8f88-a1c024ca54ad",
+        "ed284dd9-0ae4-493c-91a8-aeae321c3ecc"
+      ],
+      "settings": {
+        "title": "Sitemap"
+      }
+    }
+  },
+  "order": [
+    "sitemap"
+  ]
+}

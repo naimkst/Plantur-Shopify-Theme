@@ -1,0 +1,72 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 0
+      }
+    },
+    "16587298821c366c69": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    },
+    "023d800f-4743-45c9-b22c-840c4c274409": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "<script type=\"text\/javascript\"> (function e(){var e=document.createElement(\"script\");e.type=\"text\/javascript\",e.async=!0, e.src=\"\/\/staticw2.yotpo.com\/yo7ecyV3oo8GlxX4JXMr0KC1t3XlsVWgM7NEMcbg\/widget.js\";var t=document.getElementsByTagName(\"script\")[0]; t.parentNode.insertBefore(e,t)})(); <\/script>\n<div id='yotpo-testimonials-custom-tab'><\/div>",
+        "color_scheme": "background-1",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    },
+    "34b7e1fd-5755-4213-b626-5339e6a9bd6c": {
+      "type": "collage",
+      "blocks": {
+        "94b7d474-02f4-4795-a40f-1e306a3b8795": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Would_Recommend.png",
+            "image_padding": true
+          }
+        },
+        "2e518230-6f20-4a98-adcc-35fd794446bc": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Smooth_Hair.png",
+            "image_padding": false
+          }
+        },
+        "b7e5506d-93da-465b-827e-dd8afca0fd85": {
+          "type": "image",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Efficacy.png",
+            "image_padding": false
+          }
+        }
+      },
+      "block_order": [
+        "94b7d474-02f4-4795-a40f-1e306a3b8795",
+        "2e518230-6f20-4a98-adcc-35fd794446bc",
+        "b7e5506d-93da-465b-827e-dd8afca0fd85"
+      ],
+      "settings": {
+        "heading": "",
+        "heading_size": "h2",
+        "desktop_layout": "left",
+        "mobile_layout": "collage",
+        "color_scheme": "background-1",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    }
+  },
+  "order": [
+    "main",
+    "16587298821c366c69",
+    "023d800f-4743-45c9-b22c-840c4c274409",
+    "34b7e1fd-5755-4213-b626-5339e6a9bd6c"
+  ]
+}

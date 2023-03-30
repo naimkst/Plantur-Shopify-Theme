@@ -1,0 +1,59 @@
+{%liquid
+  assign article = article | default: ''
+%}
+<script type="application/ld+json">
+  {
+    "@context": "http://schema.org",
+    "@type": "Article",
+    "mainEntityOfPage": {
+      "@type": "WebPage",
+      "@id": "{{ shop.url | append: page.url }}"
+    },
+    "headline": "{{ article.title }}",
+    {%- if article.excerpt != blank -%}
+      "description": "{{ article.excerpt | strip_html }}",
+    {%- endif -%}
+    {%- if article.image -%}
+      {% assign image_size = article.image.width | append: 'x' %}
+      "image": [
+        "{{ article | img_url: image_size | prepend: "https:" }}"
+      ],
+    {%- endif -%}
+    "datePublished": "{{ article.published_at | date: '%Y-%m-%dT%H:%M:%SZ' }}",
+    "dateCreated": "{{ article.created_at | date: '%Y-%m-%dT%H:%M:%SZ' }}",
+    "author": {
+      "@type": "Person",
+      "name": "{{ article.author }}"
+    },
+    "publisher": {
+      "@type": "Organization",
+      {%- if settings.share_image -%}
+        {% assign image_size = settings.share_image.width | append: 'x' %}
+        "logo": {
+          "@type": "ImageObject",
+          "height": "{{ settings.share_image.height }},
+          "url": "{{ settings.share_image | img_url: image_size | prepend: "https:" }}",
+          "width": "{{ settings.share_image.width }}"
+        },
+      {%- endif -%}
+      "name": "{{ shop.name }}"
+    },
+    "articleBody": {{ article.content | strip_html | json }}
+    {%- if article.comments != blank -%}
+      ,"commentCount": {{ article.comments_count }},
+      "comment": [
+        {%- for comment in article.comments limit: 5 -%}
+          {
+            "@type": "Comment",
+            "author": {{ comment.author | json }},
+            "datePublished": "{{ comment.created_at | date: '%Y-%m-%dT%T' }}",
+            "text": {{ comment.content | json }}
+          }{%- unless forloop.last -%},{%- endunless -%}
+        {%- endfor -%}
+      ]
+    {%- endif -%}
+  }
+</script>
+
+
+    

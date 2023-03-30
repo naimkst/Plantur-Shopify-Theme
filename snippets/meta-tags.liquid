@@ -1,0 +1,82 @@
+{% comment %} OD Meta Tags Snippet 2.0{% endcomment %}
+{%- liquid
+  assign og_title = page_title | default: shop.name
+  assign og_url = canonical_url | default: shop.url
+  assign og_type = 'website'
+  assign og_description = page_description | default: shop.description | default: shop.name
+
+  if request.page_type == 'product'
+    assign og_type = 'product'
+
+    if settings.default_product_meta_title != blank 
+      assign og_title = settings.default_product_meta_title | replace: '[title]', product.title | replace: '[vendor]', product.vendor | replace: '[type]', product.type | replace: '[store]', shop.name 
+      assign meta_title = og_title
+    endif 
+
+    if settings.default_product_meta_description != blank 
+
+      assign product_description_test = page_description | newline_to_br | strip_html | escape | strip | slice: 0, 120 
+      
+      assign product_description_template = settings.default_product_meta_description | replace: '[title]', product.title | replace: '[vendor]', product.vendor | replace: '[type]', product.type | replace: '[store]', shop.name | replace: '[description]', product_description_test
+      assign og_description = product_description_template 
+      assign meta_description = og_description
+
+    endif 
+
+  elsif request.page_type == 'article'
+    assign og_type = 'article'
+  elsif request.page_type == 'collection'
+    assign og_type = 'product.group'
+  elsif request.page_type == 'password'
+    assign og_url = shop.url
+  endif
+
+%}
+
+{% if meta_title != blank %}
+  <title>{{ meta_title }}</title>
+{% else %}
+  <title>
+    {{ page_title }}
+    {%- if current_tags %} &ndash; tagged "{{ current_tags | join: ', ' }}"{% endif -%}
+    {%- if current_page != 1 %} &ndash; Page {{ current_page }}{% endif -%}
+    {%- unless page_title contains shop.name %} &ndash; {{ shop.name }}{% endunless -%}
+  </title>
+{% endif %}
+
+{% if meta_description != blank %}
+  <meta name="description" content="{{ meta_description | escape }}">
+{% else %}
+  <meta name="description" content="{{ page_description | escape }}">
+{% endif %}
+
+<meta property="og:site_name" content="{{ shop.name }}">
+<meta property="og:url" content="{{ og_url }}">
+
+<meta property="og:title" content="{{ og_title | escape }}">
+
+<meta property="og:type" content="{{ og_type }}">
+<meta property="og:description" content="{{ og_description | escape }}">
+
+<meta property="og:locale" content="{{ shop.locale | append: '_' | append: localization.country.iso_code }}">
+<meta property="og:country-name" content="{{ localization.country.name }}">
+
+
+{%- if page_image -%}
+  <meta property="og:image" content="http:{{ page_image | img_url: 'master' }}">
+  <meta property="og:image:secure_url" content="https:{{ page_image | img_url: 'master' }}">
+  <meta property="og:image:width" content="{{ page_image.width }}">
+  <meta property="og:image:height" content="{{ page_image.height }}">
+{%- endif -%}
+
+{%- if request.page_type == 'product' -%}
+  <meta property="og:price:amount" content="{{ product.price | money_without_currency | strip_html }}">
+  <meta property="og:price:currency" content="{{ cart.currency.iso_code }}">
+{%- endif -%}
+
+{%- if settings.social_twitter_link != blank -%}
+  <meta name="twitter:site" content="{{ settings.social_twitter_link | split: 'twitter.com/' | last | prepend: '@' }}">
+{%- endif -%}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ og_title | escape }}">
+<meta name="twitter:description" content="{{ og_description | escape }}">

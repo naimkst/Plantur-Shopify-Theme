@@ -1,0 +1,263 @@
+
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+{%- endstyle -%}
+
+{%- liquid
+  case template.name  
+    when 'product' 
+      assign current_view_object = product 
+    when 'article' 
+      assign current_view_object = article 
+    else 
+      assign current_view_object = false 
+  endcase 
+
+  assign products_to_display = section.settings.articles_to_show
+  assign related_articles = ''
+  for tag in current_view_object.tags
+    if tag contains 'related-articles'
+      assign handle = tag | split: '|' | last
+      assign related_articles = related_articles | append: ',' | append: handle
+    endif
+  endfor
+
+  assign to_output = related_articles | split: ','
+
+  if to_output.size > section.settings.products_to_show
+    assign products_to_display = section.settings.products_to_show
+    assign more_in_collection = true
+  endif
+-%}
+
+{%- if to_output.size > 0 -%}
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+{{ 'component-price.css' | asset_url | stylesheet_tag }}
+
+<link rel="stylesheet" href="{{ 'component-slider.css' | asset_url }}" media="print" onload="this.media='all'">
+
+<noscript>{{ 'component-slider.css' | asset_url | stylesheet_tag }}</noscript>
+
+
+<div class="color-{{ section.settings.color_scheme }} isolate gradient">
+  <div class="collection page-width{% if section.settings.swipe_on_mobile == true and to_output.size > 2 and section.settings.products_to_show > 2 %} page-width-desktop{% endif %} section-{{ section.id }}-padding">
+
+    {% unless section.settings.title == blank %}
+      <div class="title-wrapper-with-link{% if section.settings.title == blank %} title-wrapper-with-link--no-heading{% endif %}{% if to_output.size > 2 and section.settings.swipe_on_mobile and section.settings.products_to_show > 2 %} title-wrapper--self-padded-tablet-down{% endif %} title-wrapper--no-top-margin">
+        <h2 class="title{% if section.settings.title == blank %} title--no-heading{% endif %}">{{ section.settings.title | escape }}</h2>
+  
+      </div>
+    {% endunless %}
+    
+    {%- capture item_classes %}
+      {% if products_to_display == 4 %} grid--2-col-tablet grid--4-col-desktop{% else %} grid--3-col-tablet{% endif %}
+      {% if products_to_display > 5 %} grid--one-third-max grid--4-col-desktop grid--quarter-max{% endif %}
+      {% if to_output.size > 2 and section.settings.swipe_on_mobile and section.settings.products_to_show > 2 %}slider slider--tablet grid--peek{% endif %}
+    {% endcapture -%}
+    <slider-component class="slider-mobile-gutter">
+      <ul id="Slider-{{ section.id }}" class="grid grid--2-col product-grid {{ item_classes }} " role="list">
+        
+        {%- for article_handle in to_output limit: section.settings.products_to_show -%}
+          {%liquid 
+            assign related_article = articles[article_handle]
+          %}
+          {%- if related_article != blank -%}
+            <li id="Slide-{{ section.id }}-{{ forloop.index }}" class="grid__item{% if to_output.size > 2 and section.settings.swipe_on_mobile and section.settings.products_to_show > 2 %} slider__slide{% endif %}">
+              {%- render 'article-card',
+                article: related_article,
+                media_height: section.settings.image_height,
+                media_aspect_ratio: related_article.image.aspect_ratio,
+                show_image: section.settings.show_image,
+                show_date: section.settings.show_date,
+                show_author: section.settings.show_author,
+                show_excerpt: true 
+              -%}
+            </li>
+          {%- endif -%}
+
+        {%- endfor -%}
+      </ul>
+      {%- if to_output.size > 2 and section.settings.swipe_on_mobile and section.settings.products_to_show > 2 -%}
+        <div class="slider-buttons no-js-hidden{% if to_output.size < 4 %} medium-hide{% endif %}{% if to_output.size < 3 %} small-hide{% endif %}">
+          <button type="button" class="slider-button slider-button--prev" name="previous" aria-label="{{ 'general.slider.previous_slide' | t }}">{% render 'icon-caret' %}</button>
+          <div class="slider-counter caption">
+            <span class="slider-counter--current">1</span>
+            <span aria-hidden="true"> / </span>
+            <span class="visually-hidden">{{ 'general.slider.of' | t }}</span>
+            <span class="slider-counter--total">{{ products_to_display }}</span>
+          </div>
+          <button type="button" class="slider-button slider-button--next" name="next" aria-label="{{ 'general.slider.next_slide' | t }}">{% render 'icon-caret' %}</button>
+        </div>
+      {%- endif -%}
+    </slider-component>
+  
+  </div>
+</div>
+{%- endif -%}
+{% schema %}
+{
+  "name": "Related Articles",
+  "tag": "section",
+  "class": "section",
+  "templates": ["article","product"],
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Related Articles",
+      "label": "Related Articles Title"
+    },
+    {
+      "type": "range",
+      "id": "products_to_show",
+      "min": 2,
+      "max": 12,
+      "step": 2,
+      "default": 4,
+      "label": "t:sections.featured-collection.settings.products_to_show.label"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "accent-1",
+          "label": "t:sections.all.colors.accent_1.label"
+        },
+        {
+          "value": "accent-2",
+          "label": "t:sections.all.colors.accent_2.label"
+        },
+        {
+          "value": "background-1",
+          "label": "t:sections.all.colors.background_1.label"
+        },
+        {
+          "value": "background-2",
+          "label": "t:sections.all.colors.background_2.label"
+        },
+        {
+          "value": "inverse",
+          "label": "t:sections.all.colors.inverse.label"
+        }
+      ],
+      "default": "background-1",
+      "label": "t:sections.all.colors.label",
+      "info": "t:sections.all.colors.has_cards_info"
+    },
+    {
+      "type": "checkbox",
+      "id": "swipe_on_mobile",
+      "default": false,
+      "label": "t:sections.featured-collection.settings.swipe_on_mobile.label"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.main-blog.settings.header.content"
+    },
+    {
+      "type": "select",
+      "id": "layout",
+      "options": [
+        {
+          "value": "grid",
+          "label": "t:sections.main-blog.settings.layout.options__1.label"
+        },
+        {
+          "value": "collage",
+          "label": "t:sections.main-blog.settings.layout.options__2.label"
+        }
+      ],
+      "default": "collage",
+      "label": "t:sections.main-blog.settings.layout.label",
+      "info": "t:sections.main-blog.settings.layout.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_image",
+      "default": true,
+      "label": "t:sections.main-blog.settings.show_image.label"
+    },
+    {
+      "type": "select",
+      "id": "image_height",
+      "options": [
+        {
+          "value": "adapt",
+          "label": "t:sections.main-blog.settings.image_height.options__1.label"
+        },
+        {
+          "value": "small",
+          "label": "t:sections.main-blog.settings.image_height.options__2.label"
+        },
+        {
+          "value": "medium",
+          "label": "t:sections.main-blog.settings.image_height.options__3.label"
+        },
+        {
+          "value": "large",
+          "label": "t:sections.main-blog.settings.image_height.options__4.label"
+        }
+      ],
+      "default": "medium",
+      "label": "t:sections.main-blog.settings.image_height.label",
+      "info": "t:sections.main-blog.settings.image_height.info"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_date",
+      "default": true,
+      "label": "t:sections.main-blog.settings.show_date.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_author",
+      "default": false,
+      "label": "t:sections.main-blog.settings.show_author.label"
+    },
+    {
+      "type": "paragraph",
+      "content": "t:sections.main-blog.settings.paragraph.content"
+    },
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 36
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 100,
+      "step": 4,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 36
+    }
+  ],
+  "presets": [
+    {
+      "name": "Related Articles"
+    }
+  ]
+}
+{% endschema %}

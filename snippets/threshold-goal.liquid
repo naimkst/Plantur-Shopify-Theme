@@ -1,0 +1,31 @@
+<div id="cart-threshold-goal" class="cart__threshold-goal animate" {{ block.shopify_attributes }}>
+  {% assign current_progress = block.settings.goal_threshold | times: 100 | minus: cart.total_price %}
+  {% assign progress =  cart.total_price | divided_by: block.settings.goal_threshold | round: 2 %}
+  {% if progress > 100 %}
+    {% assign progress = 100 %}
+  {% endif %}
+  {% if current_progress > 0 %}
+    {% assign remaining = current_progress | money_with_currency %}
+    {{block.settings.copy | replace: "$amount", remaining}}
+  {% else %}
+   {{block.settings.success_copy }}
+  {% endif %}
+  
+  <div class="cart__progress-bar">
+    
+  </div>
+
+  <style>
+    .cart__progress-bar::after {
+      content: "";
+      position: absolute;
+      top:0;
+      left:0;
+      width: 100%;
+      height: 100%;
+      transform: translateX({{ progress | minus: 100 }}%);
+      background: rgba(var(--color-base-accent-2));
+      transition: all .3s;
+    }
+  </style>
+</div>

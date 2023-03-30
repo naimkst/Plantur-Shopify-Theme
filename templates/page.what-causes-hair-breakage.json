@@ -1,0 +1,195 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "dab1d37f-d607-416a-9cd6-35b92658460e": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16094914871464__dab1d37f-d607-416a-9cd6-35b92658460e-1671580424e15037e3-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>A number of factors can lead to hair breakage which can cause the appearance of dull, thin hair and flyaways. Are struggling to improve the appearance of your hair but not getting anywhere? Below are some of the main causes of hair breakage, addressing some of these issues can help drastically improve the appearance of your hair. <\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "template--16094914871464__dab1d37f-d607-416a-9cd6-35b92658460e-1671580424e15037e3-1"
+      ],
+      "settings": {
+        "text_align": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "5e3c44ac-c45f-4d44-a9fd-7342c87094c2": {
+      "type": "multicolumn",
+      "blocks": {
+        "template--16094914871464__5e3c44ac-c45f-4d44-a9fd-7342c87094c2-1670995878c4a80ccc-0": {
+          "type": "column",
+          "settings": {
+            "title": "Ageing",
+            "text": "<p>As we age our hormones change. Especially women as the approach menopause, their estrogen levels will start to decline. This can contribute to hair breakage and loss.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "template--16094914871464__5e3c44ac-c45f-4d44-a9fd-7342c87094c2-1670995878c4a80ccc-1": {
+          "type": "column",
+          "settings": {
+            "title": "Colouring and styling",
+            "text": "<p>Colouring, treating and styling your hair all add stress to your hair which can lead to weakening your hair. This can lead to hair breakage and hair loss. Using products to help strengthen your hair again can help reduce the negative impact colouring and styling can have on your hair. <\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "template--16094914871464__5e3c44ac-c45f-4d44-a9fd-7342c87094c2-1670995878c4a80ccc-2": {
+          "type": "column",
+          "settings": {
+            "title": "Illness and autoimmune diseases",
+            "text": "<p>Getting sick can stress your body out, causing massive amounts of inflammation. Your body can also start to switch of non essential process, such as hair growth and focus on fighting your illness. <\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "655d223c-d663-495f-abc8-a88884629e0d": {
+          "type": "column",
+          "settings": {
+            "title": "Hormones",
+            "text": "<p>Our hormones can be impacted by a number of factors, diet, lifestyle, pregnancy, menopause or illness. Changes in your hormones can cause shifts in your hair growth. They can affect where the hair grows, by how much and if it greys.<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "9400e086-ca25-4b45-9c5c-534fc2806ca5": {
+          "type": "column",
+          "settings": {
+            "title": "Diet and lifestyle",
+            "text": "<p>A healthy diet and lifestyle are essential to healthy hair. Missing key nutrients from your diet can lead to brittle hair and hair loss. <\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "5bf6660c-ce6a-4dbb-8f7e-1e52725f0d89": {
+          "type": "column",
+          "settings": {
+            "title": "Stress",
+            "text": "<p>Excess stress in your life is a major cause of hair loss among all age groups and genders. Practicing some mindfulness activities can help to minimise hair loss due to stress<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16094914871464__5e3c44ac-c45f-4d44-a9fd-7342c87094c2-1670995878c4a80ccc-0",
+        "template--16094914871464__5e3c44ac-c45f-4d44-a9fd-7342c87094c2-1670995878c4a80ccc-1",
+        "template--16094914871464__5e3c44ac-c45f-4d44-a9fd-7342c87094c2-1670995878c4a80ccc-2",
+        "655d223c-d663-495f-abc8-a88884629e0d",
+        "9400e086-ca25-4b45-9c5c-534fc2806ca5",
+        "5bf6660c-ce6a-4dbb-8f7e-1e52725f0d89"
+      ],
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "image_width": "full",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "left",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "swipe_on_mobile": false,
+        "slider_visual": "dots",
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "dc16d26d-106d-482d-aa0c-87b5d3bbe579": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16094914871464__dc16d26d-106d-482d-aa0c-87b5d3bbe579-1671581492f15042a3-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "Plantur Helps Strengthen Your Hair",
+            "heading_size": "h1"
+          }
+        },
+        "template--16094914871464__dc16d26d-106d-482d-aa0c-87b5d3bbe579-1671581492f15042a3-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Whether you are trying to strengthen your hair to reduce breakage, improve your hair's appearance or help your hair grow longer; Plantur has a product for you. Key ingredients like Biotin and Niacin improve the strength of your hair follicles. As well as phytoflavones to help improve the resilience of your hair.<\/p>"
+          }
+        },
+        "template--16094914871464__dc16d26d-106d-482d-aa0c-87b5d3bbe579-1671581492f15042a3-2": {
+          "type": "button",
+          "settings": {
+            "button_label": "Read More About Our Formula",
+            "button_link": "shopify:\/\/pages\/phyto-caffeine-complex",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "template--16094914871464__dc16d26d-106d-482d-aa0c-87b5d3bbe579-1671581492f15042a3-0",
+        "template--16094914871464__dc16d26d-106d-482d-aa0c-87b5d3bbe579-1671581492f15042a3-1",
+        "template--16094914871464__dc16d26d-106d-482d-aa0c-87b5d3bbe579-1671581492f15042a3-2"
+      ],
+      "settings": {
+        "text_align": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 0
+      }
+    },
+    "82eb5bac-19ce-4719-8ed9-f63e4a25ea3f": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "Hair Strengthening",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "hair-breakage",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": true,
+        "color_scheme": "background-1",
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": true,
+        "enable_quick_add": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 16,
+        "padding_bottom": 12
+      }
+    },
+    "1656639738831e85ee": {
+      "type": "apps",
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "dab1d37f-d607-416a-9cd6-35b92658460e",
+    "5e3c44ac-c45f-4d44-a9fd-7342c87094c2",
+    "dc16d26d-106d-482d-aa0c-87b5d3bbe579",
+    "82eb5bac-19ce-4719-8ed9-f63e4a25ea3f",
+    "1656639738831e85ee"
+  ]
+}

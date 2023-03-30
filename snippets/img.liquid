@@ -1,0 +1,30 @@
+{% assign img_width = width | default: image.width %}
+
+{% if img_width != blank %}
+    <img
+    srcset="{%- if img_width >= 50 -%}{{ image | img_url: '150x' }} 150w,{%- endif -%}
+    {%- if img_width >= 375 -%}{{ image | img_url: '375x' }} 375w,{%- endif -%}
+    {%- if img_width >= 750 -%}{{ image | img_url: '750x' }} 750w,{%- endif -%}
+    {%- if img_width >= 1100 -%}{{ image | img_url: '1100x' }} 1100w,{%- endif -%}
+    {%- if img_width >= 1500 -%}{{ image | img_url: '1500x' }} 1500w,{%- endif -%}
+    {%- if img_width >= 1780 -%}{{ image | img_url: '1780x' }} 1780w,{%- endif -%}
+    {%- if img_width >= 2000 -%}{{ image | img_url: '2000x' }} 2000w,{%- endif -%}
+    {%- if img_width >= 3000 -%}{{ image | img_url: '3000x' }} 3000w,{%- endif -%}
+    {%- if img_width >= 3840 -%}{{ image | img_url: '3840x' }} 3840w,{%- endif -%}
+    {{ image | img_url: 'master' }} {{ img_width }}w"
+    sizes="{{sizes}}"
+    src="{% if image.src != blank %}{{ image.src }}{%else%}{{ image | img_url: '1500x' }}{%endif%}"
+    loading="lazy"
+    alt="{{ image.alt | escape }}"
+    width="{{ img_width }}"
+    height="{{ img_width | divided_by: image.aspect_ratio  }}"
+    class="{{classes}}"
+    >
+{% else %}
+    <img
+    sizes="{{sizes}}"
+    src="{{ image }}"
+    loading="lazy"
+    class="{{classes}}"
+    >
+{% endif %}

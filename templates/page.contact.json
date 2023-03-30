@@ -1,0 +1,173 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 36,
+        "padding_bottom": 36
+      }
+    },
+    "1655699053e128d340": {
+      "type": "collapsible-content-and-contat-form",
+      "blocks": {
+        "1655699053bf0afc7f-0": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How long does it take for me to receive my order?",
+            "open_first_collapsible_row_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>We dispatch all orders within 2 business days and our standard shipping times are 3-6 business days from time of dispatch.<br\/>Keep in mind however that delivery times are only indicative and may be delayed during holiday and busy periods.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "1655699053bf0afc7f-1": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I create an account?",
+            "open_first_collapsible_row_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>To create an account, go to “My Account” and fill out the form.  Having your own Plantur 39 account makes checkout easier and helps us remember your details for future purchases.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "1655699053bf0afc7f-2": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I change my shipping address?",
+            "open_first_collapsible_row_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Go to “My Account” and login to edit your shipping information. Contact us if you’re having any trouble. <\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "1655699053bf0afc7f-3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "How do I track the status of my order?",
+            "open_first_collapsible_row_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Go to “My Account” to view and track your orders. You will also receive email notifications from our delivery partners during the delivery process.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "90c169c8-6591-45ec-bd07-7cfa64a58e3d": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you charge goods and services tax (GST)?",
+            "open_first_collapsible_row_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Yes, there is a goods and services tax (GST) of 10% on all items that are sold or consumed in Australia. This is included in the prices you see on our website. <\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "d18a2ce4-2559-4807-87fd-fe21c658eb3c": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Do you ship to my country?",
+            "open_first_collapsible_row_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>We currently ship to Australia. Please contact us for a shipping quote if you are outside of Australia.<\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        },
+        "fe5300e2-589f-4c3f-8e50-d0f238054ee3": {
+          "type": "collapsible_row",
+          "settings": {
+            "heading": "Will my items come in one package?",
+            "open_first_collapsible_row_2": false,
+            "font_size": 16,
+            "font-weight": "600",
+            "icon": "none",
+            "row_content": "<p>Depending on the items in your order, some products might need to be packaged individually and may arrive on separate dates. Each package will have its own tracking number.  <\/p>",
+            "font_size_2": 12,
+            "page": ""
+          }
+        }
+      },
+      "block_order": [
+        "1655699053bf0afc7f-0",
+        "1655699053bf0afc7f-1",
+        "1655699053bf0afc7f-2",
+        "1655699053bf0afc7f-3",
+        "90c169c8-6591-45ec-bd07-7cfa64a58e3d",
+        "d18a2ce4-2559-4807-87fd-fe21c658eb3c",
+        "fe5300e2-589f-4c3f-8e50-d0f238054ee3"
+      ],
+      "settings": {
+        "caption": "Orders and Shipping",
+        "section_width": "full",
+        "heading": "Orders and Shipping",
+        "color_h": "#000000",
+        "heading_size": "h2",
+        "heading_alignment": "left",
+        "layout": "none",
+        "color_scheme": "background-1",
+        "container_color_scheme": "background-2",
+        "open_first_collapsible_row": true,
+        "image_ratio": "adapt",
+        "desktop_layout": "image_second",
+        "padding_top": 36,
+        "padding_bottom": 36,
+        "caption_2": "Still need help?",
+        "heading_2": "Get in touch with us",
+        "heading_size_2": "h2",
+        "color_scheme_2": "background-1",
+        "padding_top_2": 36,
+        "padding_bottom_2": 36
+      }
+    },
+    "16547485959c14c107": {
+      "type": "rich-text",
+      "blocks": {
+        "16547485957be78e68-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "DR WOLFF AUSTRALIA PTY LTD",
+            "heading_size": "h2"
+          }
+        },
+        "16547485957be78e68-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>Level 6<\/p><p>8 Spring Street<\/p><p>Sydney NSW 2000<\/p><p><a href=\"mailto:customercare@dr-wolff.com.au\">customercare@dr-wolff.com.au<\/a><\/p>"
+          }
+        }
+      },
+      "block_order": [
+        "16547485957be78e68-0",
+        "16547485957be78e68-1"
+      ],
+      "settings": {
+        "text_align": "left",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "1655699053e128d340",
+    "16547485959c14c107"
+  ]
+}

@@ -1,0 +1,43 @@
+{%liquid 
+  assign block = block | default: ''
+  assign product = product | default: ''
+  assign title = block.settings.title
+  assign pretext = block.settings.pretext
+  assign exclusions = block.settings.exclusions | split: ','
+%}
+<style>
+  .product-related-collections ul {
+    list-style: none;
+  }
+  .product-related-collections a {
+    color: inherit;
+    text-decoration: none;
+  }
+</style>
+{%- capture related_collections %}
+  {%- for collection in product.collections  -%}
+    {%- unless exclusions contains collection.title -%}
+      <li>
+        {% if pretext != blank %}<span>{{ pretext }}</span> {% endif %}<a href="{{ collection.url }}" class="">{{ collection.title }}</a>
+      </li>
+    {%- endunless -%}
+  {%- endfor -%}
+{% endcapture -%}
+{%- if product.collections.size > 0 and related_collections != blank -%}
+  <div class="product-related-collections">
+    {%- if title != blank -%}
+      <h6>{{ title }}</h6>
+    {%- endif -%}
+    
+    <ul>
+      {{ related_collections }}
+    </ul>
+  </div>
+  {%- if block.settings.visually_hidden -%}
+    <style>
+      .product-related-collections {
+        display: none;
+      }
+    </style>
+  {%- endif -%}
+{%- endif -%}

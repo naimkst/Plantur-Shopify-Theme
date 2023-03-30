@@ -1,0 +1,71 @@
+{%liquid 
+  assign link_children = link_children | default: ''
+  assign previous_title = previous_title | default: ''
+%}
+
+{% for link in link_children %}
+  {%liquid 
+    assign link_handle = link.handle | strip | handle 
+    assign link_title = link.title
+    assign link_url = link.url
+  %}
+
+  {%- assign link_children = link.links | default: linklists[link_handle].links -%}
+  {%- if link_children != blank -%}
+  <li>
+    <details>
+      <summary role="button" aria-expanded="false" aria-controls="{{link_title}}">
+        <div class="menu-drawer__submenu-item link--text list-menu__item">
+          {{link_title}}
+          {% render 'icon-caret' %}
+        </div>
+      </summary>
+      <div class="menu-drawer__submenu motion-reduce">
+        <div class="menu-drawer__header">
+          <button class="menu-drawer__close-button link--text" aria-expanded="true">{% render 'icon-caret' %}</button>
+          <a href="{{link_url}}" class="menu-drawer__submenu-heading text-center">{{link_title}}</a>
+        </div>
+        <ul class="menu-drawer__submenu-inner list-menu"
+        aria-orientation="vertical" 
+        role="tab-panel" 
+        aria-labelledby="{{link_title}}" 
+        data-menu-page="{{ link_title }}" >
+
+          {%- render 'mobile-menu-item',link_children: link_children, previous_title: link_title -%}
+       </ul>
+     </div>
+   </details>
+  </li>
+   {% else %}
+   <li>
+      {%- if link_title contains '[product]' or link_title contains '[collection]' or link_title contains '[blog]' or link_title contains '[page]' -%}
+        {%liquid 
+           assign item_image = link.object.featured_image | default: link.object.metafields.menu.image 
+           assign item_name = link.object.title 
+        %}
+
+        <a href="{{ link.url }}" class="product-card">
+          <div class="product-item">
+                
+            <div class="product-item-inner">
+              <h3 class="product-item-title">{{item_name}}</h3>
+              <span class="">
+                Shop Now
+              </span>
+            </div>
+              
+              <span class="product-item__image">
+                {%- render 'img',image: item_image -%}
+              </span>
+            </div>
+        </a>
+
+       {% else %}
+
+        <a class="menu-drawer__submenu-item link--text list-menu__item" href="{{ link.url }}" data-ref="{{ link.url }}"  data-level="2">{{ link.title }}</a>
+      {%- endif -%}
+      </li>
+   {%- endif -%}
+
+{%- endfor -%}
+

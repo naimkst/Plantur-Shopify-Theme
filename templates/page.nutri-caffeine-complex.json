@@ -1,0 +1,231 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "disabled": true,
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 0
+      }
+    },
+    "b4684210-f9d1-4c9d-ab55-094d51a034a3": {
+      "type": "image-with-text",
+      "blocks": {
+        "template--16094873354408__b4684210-f9d1-4c9d-ab55-094d51a034a3-167090521489ac169e-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "How was the Plantur 21 Nutri-Caffeine formula developed?",
+            "heading_size": "h1"
+          }
+        },
+        "template--16094873354408__b4684210-f9d1-4c9d-ab55-094d51a034a3-167090521489ac169e-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The special phyto-caffeine formula in Plantur 39 was developed first by Dr Wolff.  A family owned company founded in Germany over 100 years ago. In<br\/>collaboration with the Dermatology Department of the Jena University Clinic<br\/>(Germany), Dr. Wolff Research has developed an ingredient complex that promotes<br\/>thicker, stronger looking hair: <strong>a phyto-caffeine<br\/>complex. <\/strong>This original formula designed for women over 40 has now been tweaked for those younger women who are looking for more nourishment and help in growing longer hair, into the <strong>Nutri-caffeine complex.<\/strong><\/p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "template--16094873354408__b4684210-f9d1-4c9d-ab55-094d51a034a3-167090521489ac169e-0",
+        "template--16094873354408__b4684210-f9d1-4c9d-ab55-094d51a034a3-167090521489ac169e-1"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/Untitled_design_11.png",
+        "color_bg": "#ffffff",
+        "color_text": "#000000",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "text_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "mobile_content_alignment": "left",
+        "padding_top": 28,
+        "padding_bottom": 0
+      }
+    },
+    "8347259f-9147-4a09-acba-b1fc51f7e178": {
+      "type": "image-with-text",
+      "blocks": {
+        "878711b4-6051-4c57-8249-ab0e02c413b7": {
+          "type": "heading",
+          "settings": {
+            "heading": "How does the Plantur 21 Nutri-caffeine formula work?",
+            "heading_size": "h1"
+          }
+        },
+        "1c3e6e65-9f22-4d5b-a95a-9b8d4e6863e6": {
+          "type": "text",
+          "settings": {
+            "text": "<p>The formula works on two levels to help promote stronger and longer hair by:<\/p><p>1. Using Micronutrients to support healthy and strong hair<\/p><p>2. Boosting the energy the hair has daily with caffeine to help support natural hair growth.<\/p>",
+            "text_style": "body"
+          }
+        }
+      },
+      "block_order": [
+        "878711b4-6051-4c57-8249-ab0e02c413b7",
+        "1c3e6e65-9f22-4d5b-a95a-9b8d4e6863e6"
+      ],
+      "settings": {
+        "image": "shopify:\/\/shop_images\/1000x360_dfbd5190-5372-49d8-b205-1f93c42c3f10.png",
+        "color_bg": "#ffffff",
+        "color_text": "#000000",
+        "height": "adapt",
+        "desktop_image_width": "medium",
+        "layout": "image_first",
+        "desktop_content_position": "top",
+        "desktop_content_alignment": "left",
+        "content_layout": "no-overlap",
+        "mobile_content_alignment": "left",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "0bc33ace-5458-4536-84bb-21ffc3133da1": {
+      "type": "rich-text",
+      "blocks": {
+        "template--16094873354408__0bc33ace-5458-4536-84bb-21ffc3133da1-167090641266c2b281-0": {
+          "type": "heading",
+          "settings": {
+            "heading": "How long does it take to see effect?",
+            "heading_size": "h1"
+          }
+        },
+        "template--16094873354408__0bc33ace-5458-4536-84bb-21ffc3133da1-167090641266c2b281-1": {
+          "type": "text",
+          "settings": {
+            "text": "<p>It takes 60-90 days to see the best effects on the hair. This is due to the hair growth cycle. The hair needs to be stimulated consistently to get the hair to return to a new growth phase. <\/p><p>This means using the Plantur 21 products that suits your hair. Can't wash your hair daily? Plantur 21 has developed a booster to use on the days you don't wash your hair, so you never have to miss a day. <\/p>"
+          }
+        },
+        "898defc6-f75e-45d8-8608-8193bff1eb64": {
+          "type": "button",
+          "settings": {
+            "button_label": "Shop Now",
+            "button_link": "shopify:\/\/collections\/plantur21",
+            "button_style_secondary": false
+          }
+        }
+      },
+      "block_order": [
+        "template--16094873354408__0bc33ace-5458-4536-84bb-21ffc3133da1-167090641266c2b281-0",
+        "template--16094873354408__0bc33ace-5458-4536-84bb-21ffc3133da1-167090641266c2b281-1",
+        "898defc6-f75e-45d8-8608-8193bff1eb64"
+      ],
+      "settings": {
+        "text_align": "center",
+        "color_scheme": "background-1",
+        "full_width": true,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "35229a72-d022-4a1a-a2ad-f58a669d1a3a": {
+      "type": "multicolumn-global",
+      "blocks": {
+        "template--16094873354408__35229a72-d022-4a1a-a2ad-f58a669d1a3a-1670907232a4d44f78-0": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Untitled_design_19_370d17ad-916b-498b-b6e4-7d46236c7232.jpg",
+            "color_text": "#000000",
+            "title": "Caffeine",
+            "custom_liquid": "",
+            "text": "<p>The caffeine from the Plantur 21 products (shampoo and booster) remains for up to 24 hours. Giving your hair an energy boost it needs to maintain healthy growth.\n<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "template--16094873354408__35229a72-d022-4a1a-a2ad-f58a669d1a3a-1670907232a4d44f78-1": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Untitled_design_17_d4a6270a-c83d-4f2f-bd12-8b35c8a93ddf.jpg",
+            "color_text": "#000000",
+            "title": "Micro-nutrients",
+            "custom_liquid": "",
+            "text": "<p>With vitamins such as Biotin, and Niacin are used in the Nutri-complex. They help to improve hair's resistance and strength. Supporting natural hair growth. \n<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        },
+        "template--16094873354408__35229a72-d022-4a1a-a2ad-f58a669d1a3a-1670907232a4d44f78-2": {
+          "type": "column",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/Untitled_design_16_ce3de91e-ff1f-48e4-aac4-f99233bfddfb.jpg",
+            "color_text": "#000000",
+            "title": "Vitamins and Minerals",
+            "custom_liquid": "",
+            "text": "<p>With minerals such as Calcium, to help strengthen your hair and Magnesium, natures anti-stress mineral improve the resilience of your hair. \n<\/p>",
+            "link_label": "",
+            "link": ""
+          }
+        }
+      },
+      "block_order": [
+        "template--16094873354408__35229a72-d022-4a1a-a2ad-f58a669d1a3a-1670907232a4d44f78-0",
+        "template--16094873354408__35229a72-d022-4a1a-a2ad-f58a669d1a3a-1670907232a4d44f78-1",
+        "template--16094873354408__35229a72-d022-4a1a-a2ad-f58a669d1a3a-1670907232a4d44f78-2"
+      ],
+      "settings": {
+        "title": "Key Ingredients",
+        "heading_size": "h2",
+        "image_width": "half",
+        "image_ratio": "adapt",
+        "columns_desktop": 3,
+        "column_alignment": "center",
+        "background_style": "primary",
+        "button_label": "",
+        "button_link": "",
+        "color_scheme": "background-1",
+        "columns_mobile": "1",
+        "adjust_on_mobile": true,
+        "swipe_on_mobile": false,
+        "slider_visual": "dots",
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "ccf4d360-82cc-4755-a7ab-dc15b9e583a1": {
+      "type": "featured-collection",
+      "settings": {
+        "title": "",
+        "heading_size": "h1",
+        "description": "",
+        "show_description": false,
+        "description_style": "body",
+        "collection": "plantur21",
+        "products_to_show": 4,
+        "columns_desktop": 4,
+        "full_width": false,
+        "show_view_all": true,
+        "view_all_style": "solid",
+        "enable_desktop_slider": false,
+        "color_scheme": "background-1",
+        "image_ratio": "adapt",
+        "show_secondary_image": false,
+        "show_vendor": false,
+        "show_rating": true,
+        "enable_quick_add": true,
+        "columns_mobile": "2",
+        "swipe_on_mobile": false,
+        "padding_top": 0,
+        "padding_bottom": 0
+      }
+    },
+    "1656639738831e85ee": {
+      "type": "apps",
+      "disabled": true,
+      "settings": {
+        "include_margins": true
+      }
+    }
+  },
+  "order": [
+    "main",
+    "b4684210-f9d1-4c9d-ab55-094d51a034a3",
+    "8347259f-9147-4a09-acba-b1fc51f7e178",
+    "0bc33ace-5458-4536-84bb-21ffc3133da1",
+    "35229a72-d022-4a1a-a2ad-f58a669d1a3a",
+    "ccf4d360-82cc-4755-a7ab-dc15b9e583a1",
+    "1656639738831e85ee"
+  ]
+}

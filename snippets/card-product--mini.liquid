@@ -1,0 +1,67 @@
+{{ 'component-card.css' | asset_url | stylesheet_tag }}
+
+{% comment %}
+    Renders mini product card
+
+    Usage:
+    {% render 'product-card', product: product %}
+{% endcomment %}
+<script src="{{ 'product-form.js' | asset_url }}" defer="defer"></script>
+
+<div class="card-wrapper card-wrapper--mini">
+  <div class="card-mini__media-container">
+    <div class="card-mini__image">
+      <a href="{{product.url}}">{% render "img", with image: product.featured_image, width: 100 %}</a>
+    </div>
+  </div>
+
+  <div class="card-mini__content">
+
+      <a href="{{product.url}}" class="card-mini__title" >{{product.title}}</a>
+    {%- comment -%}
+    <p class="card-mini__description">
+      {{product.description | strip_html | truncatewords: 3 | strip | strip_newlines}}
+    </p>
+    {%- endcomment -%}
+    <div class="card-mini__price-button">
+      <div class="card-mini__price">
+        <span class="price price--end">{{product.price | money_with_currency}}</span>
+      </div>
+      <product-form class="product-form">
+        <div class="product-form__error-message-wrapper" role="alert" hidden>
+          <span class="product-form__error-message"></span>
+        </div>
+        {%- assign product_form_id = 'product-form-upsell' | append: product.id -%}
+        {%- form 'product', product, id: product_form_id, class: 'form', novalidate: 'novalidate', data-type: 'add-to-cart-form' -%}
+          <input type="hidden" name="id" value="{{ product.selected_or_first_available_variant.id }}">
+          <div class="product-form__buttons">
+            <button
+              type="submit"
+              name="add"
+              {% if block.settings.show_notify_me_button %} data-button-notify {% endif %}
+              class="product-form__submit button button--tertiary"
+            {% if product.selected_or_first_available_variant.available == false %}disabled{% endif %}
+            >
+                <span>
+                  {% if product.selected_or_first_available_variant.available %}
+                      Add
+                  {%- else -%}
+                    {% if block.settings.show_notify_me_button %}
+                      {{ 'products.product.notify_me' | t }}
+                    {% else %}
+                      {{ 'products.product.sold_out' | t }}
+                    {% endif %}
+                  {%- endif -%}
+                </span>
+                <div class="loading-overlay__spinner hidden">
+                  <svg aria-hidden="true" focusable="false" role="presentation" class="spinner" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+                    <circle class="path" fill="none" stroke-width="6" cx="33" cy="33" r="30"></circle>
+                  </svg>
+                </div>
+            </button>
+          </div>
+        {%- endform -%}
+      </product-form>
+    </div>
+  </div>
+</div>
